@@ -1,0 +1,495 @@
+@prefix : <http://www.nebularis.org/hyperthunk/DataRep/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.nebularis.org/hyperthunk/DataRep/> .
+
+<http://www.nebularis.org/hyperthunk/DataRep> rdf:type owl:Ontology ;
+                                               owl:imports <http://www.w3.org/2004/02/skos/core> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep/digraphFrom
+:digraphFrom rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
+             owl:inverseOf :digraphMatch ;
+             rdfs:domain :Digraph ;
+             rdfs:label "is digraph match from" ;
+             <http://www.w3.org/2004/02/skos/core#definition> "digraphFrom is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where concept belong to a directed (sub-)graph that relates back to some parent concept (in another scheme)." .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/digraphMatch
+:digraphMatch rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broadMatch> ;
+              rdfs:range :Digraph ;
+              rdfs:label "has digraph match" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "digraphMatch is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where one concept is mapped to a directed (sub-)graph of related concepts." .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/elementType
+:elementType rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Collection ;
+             rdfs:range :CollectionElement .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/individual
+:individual rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:range owl:Thing .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/intransitiveExactMatch
+:intransitiveExactMatch rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#closeMatch> ;
+                        rdf:type owl:SymmetricProperty .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/itemType
+:itemType rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :represents .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/means
+:means rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:range :Meaning .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/memberProperty
+:memberProperty rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:AsymmetricProperty ,
+                         owl:IrreflexiveProperty ;
+                rdfs:domain :StructuralRepresentation ;
+                rdfs:range :StructuralRepresentation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/memberType
+:memberType rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :itemType .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/narrowABoxCategoryMatch
+:narrowABoxCategoryMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :narrowCategoryMatch ;
+                         rdfs:label "has narrow a-box category match" ;
+                         <http://www.w3.org/2004/02/skos/core#altLabel> "has a-box subcategory match" ;
+                         <http://www.w3.org/2004/02/skos/core#definition> "used to state a mapping link between concepts in different schemes, where the subject (Hyponym) maps to a more general category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/narrowCategoryMatch
+:narrowCategoryMatch rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :narrowCategoryMatch ,
+                                        <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
+                     rdfs:label "has narrow category match" ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more specific) hyponym and the object is the (more general) hyperonym" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/narrowClassMatch
+:narrowClassMatch rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :narrowCategoryMatch ;
+                  rdfs:label "has narrow class match" ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "has t-box subcategory match" ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as having the owl:subclassOf relationship with the object" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/narrowDataPropertyMatch
+:narrowDataPropertyMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :narrowCategoryMatch ;
+                         rdfs:label "has narrow data property match" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/narrowObjectPropertyMatch
+:narrowObjectPropertyMatch rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :narrowCategoryMatch ;
+                           rdfs:label "has narrow object property match" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/represents
+:represents rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep/axiom
+:axiom rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :iri .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/conceptId
+:conceptId rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :identifier ,
+                              <http://www.w3.org/2004/02/skos/core#notation> ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :DataConcept ;
+           rdfs:range xsd:string .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/conceptName
+:conceptName rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :name .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/externalPropertyValue
+:externalPropertyValue rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/identifier
+:identifier rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/iri
+:iri rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf :identifier ;
+     rdfs:range xsd:anyURI .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/itemsConstrained
+:itemsConstrained rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:range xsd:boolean .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :DataConcept ;
+      rdfs:range xsd:string .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/orderedItems
+:orderedItems rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :itemsConstrained .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/path
+:path rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :identifier .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/reference
+:reference rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :identifier .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/uniqueItems
+:uniqueItems rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :itemsConstrained .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep/AnonymousEntity
+:AnonymousEntity rdf:type owl:Class ;
+                 owl:equivalentClass :CollectionElement ;
+                 rdfs:subClassOf :Entity ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :identifier ;
+                                   owl:hasValue ""
+                                 ] .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Array
+:Array rdf:type owl:Class ;
+       rdfs:subClassOf :UnorderedCollection .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Association
+:Association rdf:type owl:Class ;
+             rdfs:subClassOf :StructuralRepresentation ;
+             owl:disjointWith :Entity .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/AtomicRelation
+:AtomicRelation rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :individual ;
+                                                      owl:someValuesFrom owl:Thing
+                                                    ]
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :axiom ;
+                                                      owl:someValuesFrom xsd:anyURI
+                                                    ]
+                                                  )
+                                    ] ;
+                rdfs:subClassOf :Meaning .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Attribute
+:Attribute rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                        owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty [ owl:inverseOf :memberProperty
+                                                                                       ] ;
+                                                                        owl:someValuesFrom :Association
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty [ owl:inverseOf :memberProperty
+                                                                                       ] ;
+                                                                        owl:someValuesFrom :Entity
+                                                                      ]
+                                                                    )
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :memberProperty ;
+                                                        owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass :Representation
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf :StructuralRepresentation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Chaining
+:Chaining rdf:type owl:Class ;
+          rdfs:subClassOf :Composition ;
+          owl:disjointWith :Collection .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Collection
+:Collection rdf:type owl:Class ;
+            rdfs:subClassOf :Composition .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/CollectionElement
+:CollectionElement rdf:type owl:Class ;
+                   rdfs:subClassOf :Membership .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/CompositeRelation
+:CompositeRelation rdf:type owl:Class ;
+                   rdfs:subClassOf :Meaning .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Composition
+:Composition rdf:type owl:Class ;
+             rdfs:subClassOf :Association .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/DataConcept
+:DataConcept rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+             owl:disjointWith :Representation ;
+             rdfs:comment "Abstract/Theoretical Description of a datum, which can be assigned Meaning and Representation" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Digraph
+:Digraph rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :digraphMatch ;
+                           owl:someValuesFrom :OwlAxiom
+                         ] .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Entity
+:Entity rdf:type owl:Class ;
+        rdfs:subClassOf :StructuralRepresentation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Equality
+:Equality rdf:type owl:Class ;
+          rdfs:subClassOf :SemanticRelation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Equivalence
+:Equivalence rdf:type owl:Class ;
+             rdfs:subClassOf :SemanticRelation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Hyperonym
+:Hyperonym rdf:type owl:Class ;
+           rdfs:subClassOf :HyponymicRelation ;
+           owl:disjointWith :Hyponym ;
+           rdfs:comment "the more general thing in a hypnymic relation" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Hyponym
+:Hyponym rdf:type owl:Class ;
+         rdfs:subClassOf :HyponymicRelation ;
+         rdfs:comment "the more specific term of a general thing" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/HyponymicRelation
+:HyponymicRelation rdf:type owl:Class ;
+                   rdfs:subClassOf :SemanticRelation ;
+                   rdfs:comment "hyponymy refers to the semantics of inclusion" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Meaning
+:Meaning rdf:type owl:Class ;
+         rdfs:comment """Defines the meaning of a DataConcept.
+
+Meaning will always refer to some ontological axiom, which individuals do via 'rdfs:seeAlso', since it is not possible in OWL DL to create an object property that refers to meta-types such as owl:Class.""" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Membership
+:Membership rdf:type owl:Class ;
+            rdfs:subClassOf :StructuralRepresentation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OrderedCollection
+:OrderedCollection rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :orderedItems ;
+                                         owl:hasValue "true"^^xsd:boolean
+                                       ] ;
+                   rdfs:subClassOf :Collection .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlAxiom
+:OwlAxiom rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+          rdfs:comment """Hack around OWL DL limitation such that a member of this class will refer to another axiom via the owl:sameAs construct, allowing us to create individuals that are treated as some other owl:Class, owl:objectProperty, etc.
+
+It is recommended that each member of this class also uses the rdfs:seeAlso annotation to record the same information, to support environments (such as protege) that will not properly support the owl:sameAs axiom.""" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlClass
+:OwlClass rdf:type owl:Class ;
+          rdfs:subClassOf :OwlAxiom .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty
+:OwlDataProperty rdf:type owl:Class ;
+                 rdfs:subClassOf :OwlAxiom .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty
+:OwlObjectProperty rdf:type owl:Class ;
+                   rdfs:subClassOf :OwlAxiom .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Referencing
+:Referencing rdf:type owl:Class ;
+             rdfs:subClassOf :Association .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/RelatedBranch
+:RelatedBranch rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :means ;
+                                     owl:someValuesFrom :Meaning
+                                   ] ;
+               rdfs:subClassOf :CompositeRelation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Representation
+:Representation rdf:type owl:Class ;
+                rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :identifier ;
+                                                         owl:someValuesFrom xsd:string
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :path ;
+                                                         owl:someValuesFrom xsd:string
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/RepresentationScheme
+:RepresentationScheme rdf:type owl:Class ;
+                      rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/SemanticRelation
+:SemanticRelation rdf:type owl:Class ;
+                  rdfs:subClassOf :AtomicRelation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/SerializationFormat
+:SerializationFormat rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/SetListing
+:SetListing rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :uniqueItems ;
+                                  owl:hasValue "true"^^xsd:boolean
+                                ] ;
+            rdfs:subClassOf :Collection .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Similarity
+:Similarity rdf:type owl:Class ;
+            rdfs:subClassOf :SemanticRelation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/StructuralRepresentation
+:StructuralRepresentation rdf:type owl:Class ;
+                          rdfs:subClassOf :Representation .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/Synonymy
+:Synonymy rdf:type owl:Class ;
+          rdfs:subClassOf :Equivalence .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/UnorderedCollection
+:UnorderedCollection rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty :orderedItems ;
+                                           owl:hasValue "false"^^xsd:boolean
+                                         ] ;
+                     rdfs:subClassOf :Collection .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep/JSON
+:JSON rdf:type owl:NamedIndividual ,
+               :SerializationFormat ;
+      rdfs:isDefinedBy "https://datatracker.ietf.org/doc/html/rfc7159.html" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/XML
+:XML rdf:type owl:NamedIndividual ,
+              :SerializationFormat ;
+     rdfs:isDefinedBy "https://www.w3.org/TR/xml/" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/YAML
+:YAML rdf:type owl:NamedIndividual ,
+               :SerializationFormat ;
+      rdfs:isDefinedBy "https://yaml.org/spec/" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Equality
+                :Equivalence
+                :Similarity
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :OrderedCollection
+                :SetListing
+                :UnorderedCollection
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

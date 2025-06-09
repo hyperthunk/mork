@@ -1,0 +1,253 @@
+@prefix : <http://www.nebularis.org/hyperthunk/Demo/> .
+@prefix drp: <http://www.nebularis.org/hyperthunk/DataRep#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.nebularis.org/hyperthunk/Demo/> .
+
+<http://www.nebularis.org/hyperthunk/Demo> rdf:type owl:Ontology ;
+                                            owl:imports <http://www.nebularis.org/hyperthunk/DataRep> ,
+                                                        <http://www.nebularis.org/hyperthunk/examples/Contract> ,
+                                                        <http://www.w3.org/2004/02/skos/core> .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_firstName
+:genID1_ex_prop_firstName rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf :genID1_ext_property .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_issuerId
+:genID1_ex_prop_issuerId rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :genID1_ext_property .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_lastName
+:genID1_ex_prop_lastName rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :genID1_ext_property .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ext_property
+:genID1_ext_property rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/DataRep/externalPropertyValue> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_DC_Contract
+:genID1_DC_Contract rdf:type owl:NamedIndividual ,
+                             <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
+                    <http://www.nebularis.org/hyperthunk/DataRep/intransitiveExactMatch> :genID1_Onto_Class_Contract ;
+                    <http://www.w3.org/2004/02/skos/core#inScheme> :genID1_JS_Contracts ;
+                    <http://www.nebularis.org/hyperthunk/DataRep/conceptId> "contract" ;
+                    <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Contract" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_DC_Signatory
+:genID1_DC_Signatory rdf:type owl:NamedIndividual ,
+                              <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
+                     <http://www.w3.org/2004/02/skos/core#inScheme> :genID1_JS_Contracts .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Array_ContractingParties
+:genID1_JS_Array_ContractingParties rdf:type owl:NamedIndividual ,
+                                             <http://www.nebularis.org/hyperthunk/DataRep/Array> ;
+                                    <http://www.nebularis.org/hyperthunk/DataRep/elementType> :genID1_JS_Elem_ContractingParties ;
+                                    <http://www.nebularis.org/hyperthunk/DataRep/identifier> "contractingParties" ;
+                                    <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.contractingParties" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Attr_FirstName
+:genID1_JS_Attr_FirstName rdf:type owl:NamedIndividual ,
+                                   <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                          rdfs:seeAlso :genID1_ex_prop_firstName .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Attr_IssuerId
+:genID1_JS_Attr_IssuerId rdf:type owl:NamedIndividual ,
+                                  <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                         rdfs:seeAlso :genID1_ex_prop_issuerId .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Attr_LastName
+:genID1_JS_Attr_LastName rdf:type owl:NamedIndividual ,
+                                  <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                         rdfs:seeAlso :genID1_ex_prop_lastName .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Contracts
+:genID1_JS_Contracts rdf:type owl:NamedIndividual ,
+                              <http://www.nebularis.org/hyperthunk/DataRep/RepresentationScheme> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Elem_ContractingParties
+:genID1_JS_Elem_ContractingParties rdf:type owl:NamedIndividual ,
+                                            <http://www.nebularis.org/hyperthunk/DataRep/AnonymousEntity> ;
+                                   <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :genID1_JS_Attr_FirstName ,
+                                                                                                :genID1_JS_Attr_LastName ;
+                                   <http://www.nebularis.org/hyperthunk/DataRep/identifier> "" ;
+                                   <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.contractingParties[n]" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Ent_Contract
+:genID1_JS_Ent_Contract rdf:type owl:NamedIndividual ,
+                                 <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
+                        <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :genID1_JS_Ent_Signatories ;
+                        <http://www.nebularis.org/hyperthunk/DataRep/identifier> "contract" ;
+                        <http://www.nebularis.org/hyperthunk/DataRep/path> "contract" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Ent_Issuer
+:genID1_JS_Ent_Issuer rdf:type owl:NamedIndividual ,
+                               <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
+                      <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :genID1_JS_Attr_IssuerId ;
+                      <http://www.nebularis.org/hyperthunk/DataRep/identifier> "issuer" ;
+                      <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.issuer" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_JS_Ent_Signatories
+:genID1_JS_Ent_Signatories rdf:type owl:NamedIndividual ,
+                                    <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
+                           <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :genID1_JS_Ent_Issuer ;
+                           <http://www.nebularis.org/hyperthunk/DataRep/identifier> "signatories" ;
+                           <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories" .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_Onto_Class_Contract
+:genID1_Onto_Class_Contract rdf:type owl:NamedIndividual ,
+                                     <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> ;
+                            <http://www.w3.org/2004/02/skos/core#inScheme> :genID1_Onto_Contracts ;
+                            rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_Onto_Class_Organisation
+:genID1_Onto_Class_Organisation rdf:type owl:NamedIndividual ,
+                                         <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_Onto_Class_Party
+:genID1_Onto_Class_Party rdf:type owl:NamedIndividual ,
+                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_Onto_Class_Person
+:genID1_Onto_Class_Person rdf:type owl:NamedIndividual ,
+                                   <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_Onto_Contracts
+:genID1_Onto_Contracts rdf:type owl:NamedIndividual ,
+                                <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_assoc_Contract_acceptingParty
+:genID1_ex_assoc_Contract_acceptingParty rdf:type owl:NamedIndividual ,
+                                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_assoc_Contract_conditions
+:genID1_ex_assoc_Contract_conditions rdf:type owl:NamedIndividual ,
+                                              <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                     owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#conditions> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#conditions
+<http://www.nebularis.org/hyperthunk/examples/Contract#conditions> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_assoc_Contract_proposingParty
+:genID1_ex_assoc_Contract_proposingParty rdf:type owl:NamedIndividual ,
+                                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty
+<http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_assoc_Contract_signatory
+:genID1_ex_assoc_Contract_signatory rdf:type owl:NamedIndividual ,
+                                             <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                    owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#signatory> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#signatory
+<http://www.nebularis.org/hyperthunk/examples/Contract#signatory> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_assoc_Party_address
+:genID1_ex_assoc_Party_address rdf:type owl:NamedIndividual ,
+                                        <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                               owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#address> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#address
+<http://www.nebularis.org/hyperthunk/examples/Contract#address> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_firstName
+:genID1_ex_prop_firstName rdf:type owl:NamedIndividual ,
+                                   <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                          owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/givenName> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/givenName
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_issuerId
+:genID1_ex_prop_issuerId rdf:type owl:NamedIndividual ,
+                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/organisationName> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/organisationName
+
+###  http://www.nebularis.org/hyperthunk/Demo/genID1_ex_prop_lastName
+:genID1_ex_prop_lastName rdf:type owl:NamedIndividual ,
+                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/familyName> .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/familyName
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty
+<http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#address
+<http://www.nebularis.org/hyperthunk/examples/Contract#address> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#conditions
+<http://www.nebularis.org/hyperthunk/examples/Contract#conditions> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty
+<http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract#signatory
+<http://www.nebularis.org/hyperthunk/examples/Contract#signatory> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/familyName
+<http://www.nebularis.org/hyperthunk/examples/Contract/familyName> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/givenName
+<http://www.nebularis.org/hyperthunk/examples/Contract/givenName> rdf:type owl:NamedIndividual .
+
+
+###  http://www.nebularis.org/hyperthunk/examples/Contract/organisationName
+<http://www.nebularis.org/hyperthunk/examples/Contract/organisationName> rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
