@@ -13,13 +13,22 @@
 #    Object Properties
 #################################################################
 
+###  http://www.nebularis.org/hyperthunk/DataRep#missingOrUnrelatedMatch
+:missingOrUnrelatedMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+                         rdfs:range [ rdf:type owl:Restriction ;
+                                      owl:onProperty :missingOrUnrelatedMatch ;
+                                      owl:hasValue :OwlNothing
+                                    ] .
+
+
 ###  http://www.nebularis.org/hyperthunk/DataRep/digraphFrom
 :digraphFrom rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
              owl:inverseOf :digraphMatch ;
              rdfs:domain :Digraph ;
              rdfs:label "is digraph match from" ;
-             <http://www.w3.org/2004/02/skos/core#definition> "digraphFrom is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where concept belong to a directed (sub-)graph that relates back to some parent concept (in another scheme)." .
+             <http://www.w3.org/2004/02/skos/core#definition> "digraphFrom is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where concepts belong to a directed (sub-)graph that relates back to some parent concept (in another scheme)." .
 
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/digraphMatch
@@ -118,6 +127,13 @@
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep#weighting
+:weighting rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:integer ;
+           <http://www.w3.org/2004/02/skos/core#definition> "confidence score out of 100" .
+
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/axiom
 :axiom rdf:type owl:DatatypeProperty ;
@@ -450,9 +466,36 @@ It is recommended that each member of this class also uses the rdfs:seeAlso anno
                      rdfs:subClassOf :Collection .
 
 
+###  http://www.nebularis.org/hyperthunk/Demo#DataMapping
+<http://www.nebularis.org/hyperthunk/Demo#DataMapping> rdf:type owl:Class ;
+                                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty :weighting ;
+                                                                             owl:someValuesFrom xsd:integer
+                                                                           ] ;
+                                                       rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  http://www.nebularis.org/hyperthunk/Demo#MappingScheme
+<http://www.nebularis.org/hyperthunk/Demo#MappingScheme> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.nebularis.org/hyperthunk/DataRep#Bottom
+:Bottom rdf:type owl:NamedIndividual ,
+                 :OwlAxiom ;
+        owl:sameAs :OwlNothing .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep#OwlNothing
+
+###  http://www.nebularis.org/hyperthunk/DataRep#OwlNothing
+:OwlNothing rdf:type owl:NamedIndividual ,
+                     :OwlAxiom .
+
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/JSON
 :JSON rdf:type owl:NamedIndividual ,

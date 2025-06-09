@@ -207,17 +207,17 @@
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/Contract
 <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> rdf:type owl:Class ;
                                                                  owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty <http://www.nebularis.org/hyperthunk/examples/Contract/acceptingParty> ;
+                                                                                                              owl:someValuesFrom <http://www.nebularis.org/hyperthunk/examples/Contract/Person>
+                                                                                                            ]
+                                                                                                            [ rdf:type owl:Restriction ;
                                                                                                               owl:onProperty <http://www.nebularis.org/hyperthunk/examples/Contract/conditions> ;
                                                                                                               owl:someValuesFrom <http://www.nebularis.org/hyperthunk/examples/Contract/Condition>
                                                                                                             ]
                                                                                                             [ rdf:type owl:Restriction ;
                                                                                                               owl:onProperty <http://www.nebularis.org/hyperthunk/examples/Contract/proposingParty> ;
-                                                                                                              owl:someValuesFrom <http://www.nebularis.org/hyperthunk/examples/Contract/Party>
-                                                                                                            ]
-                                                                                                            [ rdf:type owl:Restriction ;
-                                                                                                              owl:onProperty <http://www.nebularis.org/hyperthunk/examples/Contract/acceptingParty> ;
                                                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                              owl:onClass <http://www.nebularis.org/hyperthunk/examples/Contract/Person>
+                                                                                                              owl:onClass <http://www.nebularis.org/hyperthunk/examples/Contract/Party>
                                                                                                             ]
                                                                                                           ) ;
                                                                                        rdf:type owl:Class
