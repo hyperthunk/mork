@@ -13,15 +13,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.nebularis.org/hyperthunk/DataRep#missingOrUnrelatedMatch
-:missingOrUnrelatedMatch rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
-                         rdfs:range [ rdf:type owl:Restriction ;
-                                      owl:onProperty :missingOrUnrelatedMatch ;
-                                      owl:hasValue :OwlNothing
-                                    ] .
-
-
 ###  http://www.nebularis.org/hyperthunk/DataRep/digraphFrom
 :digraphFrom rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
@@ -83,6 +74,15 @@
             rdfs:subPropertyOf :itemType .
 
 
+###  http://www.nebularis.org/hyperthunk/DataRep/missingOrUnrelatedMatch
+:missingOrUnrelatedMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+                         rdfs:range [ rdf:type owl:Restriction ;
+                                      owl:onProperty :missingOrUnrelatedMatch ;
+                                      owl:hasValue :OwlNothing
+                                    ] .
+
+
 ###  http://www.nebularis.org/hyperthunk/DataRep/narrowABoxCategoryMatch
 :narrowABoxCategoryMatch rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :narrowCategoryMatch ;
@@ -127,13 +127,6 @@
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.nebularis.org/hyperthunk/DataRep#weighting
-:weighting rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:range xsd:integer ;
-           <http://www.w3.org/2004/02/skos/core#definition> "confidence score out of 100" .
-
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/axiom
 :axiom rdf:type owl:DatatypeProperty ;
@@ -201,6 +194,13 @@
 ###  http://www.nebularis.org/hyperthunk/DataRep/uniqueItems
 :uniqueItems rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf :itemsConstrained .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/weighting
+:weighting rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:integer ;
+           <http://www.w3.org/2004/02/skos/core#definition> "confidence score out of 100" .
 
 
 #################################################################
@@ -300,7 +300,7 @@
 :DataConcept rdf:type owl:Class ;
              rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
              owl:disjointWith :Representation ;
-             rdfs:comment "Abstract/Theoretical Description of a datum, which can be assigned Meaning and Representation" .
+             rdfs:comment "Abstract/Theoretical Description of a datum" .
 
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/Digraph
@@ -484,23 +484,23 @@ It is recommended that each member of this class also uses the rdfs:seeAlso anno
 #    Individuals
 #################################################################
 
-###  http://www.nebularis.org/hyperthunk/DataRep#Bottom
+###  http://www.nebularis.org/hyperthunk/DataRep/Bottom
 :Bottom rdf:type owl:NamedIndividual ,
                  :OwlAxiom ;
         owl:sameAs :OwlNothing .
 
 
-###  http://www.nebularis.org/hyperthunk/DataRep#OwlNothing
-
-###  http://www.nebularis.org/hyperthunk/DataRep#OwlNothing
-:OwlNothing rdf:type owl:NamedIndividual ,
-                     :OwlAxiom .
-
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlNothing
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/JSON
 :JSON rdf:type owl:NamedIndividual ,
                :SerializationFormat ;
       rdfs:isDefinedBy "https://datatracker.ietf.org/doc/html/rfc7159.html" .
+
+
+###  http://www.nebularis.org/hyperthunk/DataRep/OwlNothing
+:OwlNothing rdf:type owl:NamedIndividual ,
+                     :OwlAxiom .
 
 
 ###  http://www.nebularis.org/hyperthunk/DataRep/XML
