@@ -45,7 +45,7 @@
 <http://www.nebularis.org/hyperthunk/examples/Contract/signatory> rdf:type owl:ObjectProperty ;
                                                                   rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/examples> ;
                                                                   rdfs:domain <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> ;
-                                                                  rdfs:range <http://www.nebularis.org/hyperthunk/examples/Contract/Person> .
+                                                                  rdfs:range <http://www.nebularis.org/hyperthunk/examples/Contract/Party> .
 
 
 #################################################################
@@ -66,7 +66,6 @@
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/addressLine
 <http://www.nebularis.org/hyperthunk/examples/Contract/addressLine> rdf:type owl:DatatypeProperty ;
-                                                                    rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> ;
                                                                     rdfs:domain <http://www.nebularis.org/hyperthunk/examples/Contract/Address> ;
                                                                     rdfs:range xsd:string .
 
@@ -90,9 +89,8 @@
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/contractID
-<http://www.nebularis.org/hyperthunk/examples/Contract/contractID> rdf:type owl:DatatypeProperty ;
-                                                                   rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> ;
-                                                                   rdf:type owl:FunctionalProperty ;
+<http://www.nebularis.org/hyperthunk/examples/Contract/contractID> rdf:type owl:DatatypeProperty ,
+                                                                            owl:FunctionalProperty ;
                                                                    rdfs:domain <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> ;
                                                                    rdfs:range xsd:string .
 
@@ -105,21 +103,13 @@
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/exDate
 <http://www.nebularis.org/hyperthunk/examples/Contract/exDate> rdf:type owl:DatatypeProperty ;
-                                                               rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> ;
                                                                rdfs:range xsd:string .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/exName
 <http://www.nebularis.org/hyperthunk/examples/Contract/exName> rdf:type owl:DatatypeProperty ;
-                                                               rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> ;
                                                                rdfs:domain <http://www.nebularis.org/hyperthunk/examples/Contract/Party> ;
                                                                rdfs:range xsd:string .
-
-
-###  http://www.nebularis.org/hyperthunk/examples/Contract/exampleData
-<http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> rdf:type owl:DatatypeProperty ;
-                                                                    rdfs:subPropertyOf owl:topDataProperty ;
-                                                                    rdfs:range xsd:string .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/excludedThings
@@ -159,7 +149,6 @@
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/terms
 <http://www.nebularis.org/hyperthunk/examples/Contract/terms> rdf:type owl:DatatypeProperty ;
-                                                              rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/examples/Contract/exampleData> ;
                                                               rdfs:domain <http://www.nebularis.org/hyperthunk/examples/Contract/Condition> .
 
 
