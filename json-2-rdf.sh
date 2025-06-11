@@ -1,0 +1,1 @@
+cat input.json | java -jar json2rdf-jar-with-dependencies.jar http://example.com/test# >> output.ntriples

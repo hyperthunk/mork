@@ -1,0 +1,10 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://example.com/test#>
+SELECT ?s ?p ?o WHERE {
+        ?s ?p ?o .
+        FILTER(REGEX(STR(?p), 'http://example.com/test', 'i')) .
+        ?c ?r ?v .
+        FILTER(REGEX(STR(?r), 'http://example.com/test', 'i')) .
+        FILTER(sameTerm(?o, ?c)) .
+}
