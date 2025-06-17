@@ -1,5 +1,5 @@
 @prefix : <http://www.nebularis.org/hyperthunk/Demo/> .
-@prefix drp: <http://www.nebularis.org/hyperthunk/DataRep#> .
+@prefix drp: <http://www.nebularis.org/ontologies/Mork#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,21 +8,105 @@
 @base <http://www.nebularis.org/hyperthunk/Demo/> .
 
 <http://www.nebularis.org/hyperthunk/Demo> rdf:type owl:Ontology ;
-                                            owl:imports <http://www.nebularis.org/hyperthunk/DataRep> ,
-                                                        <http://www.nebularis.org/hyperthunk/examples/Contract> ,
+                                            owl:imports <http://www.nebularis.org/hyperthunk/examples/Contract> ,
+                                                        <http://www.nebularis.org/ontologies/Mork> ,
                                                         <http://www.w3.org/2004/02/skos/core> .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://www.nebularis.org/hyperthunk/DataRep#format
+###  http://www.nebularis.org/ontologies/Mork#deferredMapping
+drp:deferredMapping rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork#format
 drp:format rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/compositeNarrower
+<http://www.nebularis.org/ontologies/Mork/compositeNarrower> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/conceptId
+<http://www.nebularis.org/ontologies/Mork/conceptId> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/conceptName
+<http://www.nebularis.org/ontologies/Mork/conceptName> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/conceptScheme
+<http://www.nebularis.org/ontologies/Mork/conceptScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/dataInline
+<http://www.nebularis.org/ontologies/Mork/dataInline> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/elementType
+<http://www.nebularis.org/ontologies/Mork/elementType> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/hypothesisMapping
+<http://www.nebularis.org/ontologies/Mork/hypothesisMapping> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/identifier
+<http://www.nebularis.org/ontologies/Mork/identifier> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/intransitiveExactMatch
+<http://www.nebularis.org/ontologies/Mork/intransitiveExactMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/iri
+<http://www.nebularis.org/ontologies/Mork/iri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/mappingScheme
+<http://www.nebularis.org/ontologies/Mork/mappingScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/memberProperty
+<http://www.nebularis.org/ontologies/Mork/memberProperty> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/narrowerMapping
+<http://www.nebularis.org/ontologies/Mork/narrowerMapping> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/ontologicalScheme
+<http://www.nebularis.org/ontologies/Mork/ontologicalScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/path
+<http://www.nebularis.org/ontologies/Mork/path> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/relatedMapping
+<http://www.nebularis.org/ontologies/Mork/relatedMapping> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/representationOf
+<http://www.nebularis.org/ontologies/Mork/representationOf> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/representationScheme
+<http://www.nebularis.org/ontologies/Mork/representationScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork/weighting
+<http://www.nebularis.org/ontologies/Mork/weighting> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.nebularis.org/ontologies/Mork/externalPropertyValue
+<http://www.nebularis.org/ontologies/Mork/externalPropertyValue> rdf:type owl:DatatypeProperty .
+
 
 ###  http://www.nebularis.org/hyperthunk/Demo/ex_prop_firstName
 :ex_prop_firstName rdf:type owl:DatatypeProperty ;
@@ -44,7 +128,63 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/genID1_ext_property
 :genID1_ext_property rdf:type owl:DatatypeProperty ;
-                     rdfs:subPropertyOf <http://www.nebularis.org/hyperthunk/DataRep/externalPropertyValue> .
+                     rdfs:subPropertyOf <http://www.nebularis.org/ontologies/Mork/externalPropertyValue> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.nebularis.org/ontologies/Mork/AnonymousEntity
+<http://www.nebularis.org/ontologies/Mork/AnonymousEntity> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/Array
+<http://www.nebularis.org/ontologies/Mork/Array> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/Attribute
+<http://www.nebularis.org/ontologies/Mork/Attribute> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/DataConcept
+<http://www.nebularis.org/ontologies/Mork/DataConcept> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/DataMapping
+<http://www.nebularis.org/ontologies/Mork/DataMapping> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/Entity
+<http://www.nebularis.org/ontologies/Mork/Entity> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/MappingScheme
+<http://www.nebularis.org/ontologies/Mork/MappingScheme> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/OntologicalScheme
+<http://www.nebularis.org/ontologies/Mork/OntologicalScheme> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/OwlClass
+<http://www.nebularis.org/ontologies/Mork/OwlClass> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/OwlDataProperty
+<http://www.nebularis.org/ontologies/Mork/OwlDataProperty> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/OwlObjectProperty
+<http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/RepresentationScheme
+<http://www.nebularis.org/ontologies/Mork/RepresentationScheme> rdf:type owl:Class .
+
+
+###  http://www.nebularis.org/ontologies/Mork/TaxonomyScheme
+<http://www.nebularis.org/ontologies/Mork/TaxonomyScheme> rdf:type owl:Class .
 
 
 #################################################################
@@ -53,16 +193,16 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_Contract
 :DC_Contract rdf:type owl:NamedIndividual ,
-                      <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-             <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> :DC_Signatory ;
-             <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
+                      <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
              <http://www.w3.org/2004/02/skos/core#closeMatch> :Map_Contract ;
-             <http://www.nebularis.org/hyperthunk/DataRep/conceptId> "contract" ;
-             <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Contract" .
+             <http://www.nebularis.org/ontologies/Mork/compositeNarrower> :DC_Signatory ;
+             <http://www.nebularis.org/ontologies/Mork/conceptId> "contract" ;
+             <http://www.nebularis.org/ontologies/Mork/conceptName> "Contract" ;
+             <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :DC_Contract ;
-   owl:annotatedProperty <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> ;
+   owl:annotatedProperty <http://www.nebularis.org/ontologies/Mork/compositeNarrower> ;
    owl:annotatedTarget :DC_Signatory ;
    rdfs:comment "Derived from the narrowing (composition) between the representation of \"contract\" and \"contract.signatories\""
  ] .
@@ -70,19 +210,19 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_ContractingParties
 :DC_ContractingParties rdf:type owl:NamedIndividual ,
-                                <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> :DC_ContractingParties_Party ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
+                                <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
                        <http://www.w3.org/2004/02/skos/core#broader> :DC_Signatory ;
-                       <http://www.w3.org/2004/02/skos/core#closeMatch> :Map_Signatory_Party .
+                       <http://www.w3.org/2004/02/skos/core#closeMatch> :Map_Signatory_Party ;
+                       <http://www.nebularis.org/ontologies/Mork/compositeNarrower> :DC_ContractingParties_Party ;
+                       <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_ContractingParties_Party
 :DC_ContractingParties_Party rdf:type owl:NamedIndividual ,
-                                      <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
+                                      <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
                              <http://www.w3.org/2004/02/skos/core#closeMatch> :Onto_Class_Party ;
-                             <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_Signatory_Party .
+                             <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_Signatory_Party ;
+                             <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :DC_ContractingParties_Party ;
@@ -94,42 +234,42 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_Issuer
 :DC_Issuer rdf:type owl:NamedIndividual ,
-                    <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-           <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> :DC_Issuer_ID ;
-           <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
+                    <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
            <http://www.w3.org/2004/02/skos/core#broader> :DC_Signatory ;
            <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_Issuer_Organisation ,
-                                                              :Map_Issuer_Party .
+                                                              :Map_Issuer_Party ;
+           <http://www.nebularis.org/ontologies/Mork/compositeNarrower> :DC_Issuer_ID ;
+           <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_Issuer_ID
 :DC_Issuer_ID rdf:type owl:NamedIndividual ,
-                       <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-              <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
-              <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_IssuerID_organisationName .
+                       <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
+              <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_IssuerID_organisationName ;
+              <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/DC_Signatory
 :DC_Signatory rdf:type owl:NamedIndividual ,
-                       <http://www.nebularis.org/hyperthunk/DataRep/DataConcept> ;
-              <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> :DC_ContractingParties ,
-                                                                              :DC_Issuer ;
-              <http://www.nebularis.org/hyperthunk/DataRep/conceptScheme> :Scheme_Taxa_Contracts ;
+                       <http://www.nebularis.org/ontologies/Mork/DataConcept> ;
               <http://www.w3.org/2004/02/skos/core#closeMatch> :Map_Signatories ;
               <http://www.w3.org/2004/02/skos/core#relatedMatch> :Map_Signatory_Party ;
-              <http://www.nebularis.org/hyperthunk/DataRep/conceptId> "signatories" ;
-              <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Signatory" .
+              <http://www.nebularis.org/ontologies/Mork/compositeNarrower> :DC_ContractingParties ,
+                                                                              :DC_Issuer ;
+              <http://www.nebularis.org/ontologies/Mork/conceptId> "signatories" ;
+              <http://www.nebularis.org/ontologies/Mork/conceptName> "Signatory" ;
+              <http://www.nebularis.org/ontologies/Mork/conceptScheme> :Scheme_Taxa_Contracts .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :DC_Signatory ;
-   owl:annotatedProperty <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> ;
+   owl:annotatedProperty <http://www.nebularis.org/ontologies/Mork/compositeNarrower> ;
    owl:annotatedTarget :DC_ContractingParties ;
    rdfs:comment "Derived from the narrowing (composition) between the representation of \"contract.signatories\" and \"contract.signatories.contractingParties\""
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :DC_Signatory ;
-   owl:annotatedProperty <http://www.nebularis.org/hyperthunk/DataRep/compositeNarrower> ;
+   owl:annotatedProperty <http://www.nebularis.org/ontologies/Mork/compositeNarrower> ;
    owl:annotatedTarget :DC_Issuer ;
    rdfs:comment "Derived from the narrowing (composition) between the representation of \"contract.signatories\" and \"contract.signatories.issuer\""
  ] .
@@ -137,19 +277,19 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Array_ContractingParties
 :JS_Array_ContractingParties rdf:type owl:NamedIndividual ,
-                                      <http://www.nebularis.org/hyperthunk/DataRep/Array> ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/elementType> :JS_Elem_ContractingParties ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_ContractingParties ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/identifier> "contractingParties" ;
-                             <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.contractingParties" .
+                                      <http://www.nebularis.org/ontologies/Mork/Array> ;
+                             <http://www.nebularis.org/ontologies/Mork/elementType> :JS_Elem_ContractingParties ;
+                             <http://www.nebularis.org/ontologies/Mork/identifier> "contractingParties" ;
+                             <http://www.nebularis.org/ontologies/Mork/path> "contract.signatories.contractingParties" ;
+                             <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_ContractingParties ;
+                             <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Attr_FirstName
 :JS_Attr_FirstName rdf:type owl:NamedIndividual ,
-                            <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                            <http://www.nebularis.org/ontologies/Mork/Attribute> ;
                    owl:sameAs :ex_prop_firstName ;
-                   <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
+                   <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts ;
                    rdfs:seeAlso :genID1_ex_prop_firstName .
 
 
@@ -157,10 +297,10 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Attr_IssuerId
 :JS_Attr_IssuerId rdf:type owl:NamedIndividual ,
-                           <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                           <http://www.nebularis.org/ontologies/Mork/Attribute> ;
                   owl:sameAs :ex_prop_issuerId ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_Issuer_ID ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
+                  <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_Issuer_ID ;
+                  <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts ;
                   rdfs:seeAlso :genID1_ex_prop_issuerId .
 
 
@@ -168,9 +308,9 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Attr_LastName
 :JS_Attr_LastName rdf:type owl:NamedIndividual ,
-                           <http://www.nebularis.org/hyperthunk/DataRep/Attribute> ;
+                           <http://www.nebularis.org/ontologies/Mork/Attribute> ;
                   owl:sameAs :ex_prop_lastName ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
+                  <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts ;
                   rdfs:seeAlso :genID1_ex_prop_lastName .
 
 
@@ -178,61 +318,61 @@ drp:format rdf:type owl:AnnotationProperty .
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Elem_ContractingParties
 :JS_Elem_ContractingParties rdf:type owl:NamedIndividual ,
-                                     <http://www.nebularis.org/hyperthunk/DataRep/AnonymousEntity> ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :JS_Attr_FirstName ,
+                                     <http://www.nebularis.org/ontologies/Mork/AnonymousEntity> ;
+                            <http://www.nebularis.org/ontologies/Mork/identifier> "" ;
+                            <http://www.nebularis.org/ontologies/Mork/memberProperty> :JS_Attr_FirstName ,
                                                                                          :JS_Attr_LastName ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_ContractingParties_Party ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/identifier> "" ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.contractingParties[n]" .
+                            <http://www.nebularis.org/ontologies/Mork/path> "contract.signatories.contractingParties[n]" ;
+                            <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_ContractingParties_Party ;
+                            <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Ent_Contract
 :JS_Ent_Contract rdf:type owl:NamedIndividual ,
-                          <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :JS_Ent_Signatories ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_Contract ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
+                          <http://www.nebularis.org/ontologies/Mork/Entity> ;
                  <http://www.w3.org/2004/02/skos/core#topConceptOf> :Scheme_Rep_Contracts ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/identifier> "contract" ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/path> "contract" .
+                 <http://www.nebularis.org/ontologies/Mork/identifier> "contract" ;
+                 <http://www.nebularis.org/ontologies/Mork/memberProperty> :JS_Ent_Signatories ;
+                 <http://www.nebularis.org/ontologies/Mork/path> "contract" ;
+                 <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_Contract ;
+                 <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Ent_Issuer
 :JS_Ent_Issuer rdf:type owl:NamedIndividual ,
-                        <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
-               <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :JS_Attr_IssuerId ;
-               <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_Issuer ;
-               <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
-               <http://www.nebularis.org/hyperthunk/DataRep/identifier> "issuer" ;
-               <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories.issuer" .
+                        <http://www.nebularis.org/ontologies/Mork/Entity> ;
+               <http://www.nebularis.org/ontologies/Mork/identifier> "issuer" ;
+               <http://www.nebularis.org/ontologies/Mork/memberProperty> :JS_Attr_IssuerId ;
+               <http://www.nebularis.org/ontologies/Mork/path> "contract.signatories.issuer" ;
+               <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_Issuer ;
+               <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/JS_Ent_Signatories
 :JS_Ent_Signatories rdf:type owl:NamedIndividual ,
-                             <http://www.nebularis.org/hyperthunk/DataRep/Entity> ;
-                    <http://www.nebularis.org/hyperthunk/DataRep/memberProperty> :JS_Array_ContractingParties ,
+                             <http://www.nebularis.org/ontologies/Mork/Entity> ;
+                    <http://www.nebularis.org/ontologies/Mork/identifier> "signatories" ;
+                    <http://www.nebularis.org/ontologies/Mork/memberProperty> :JS_Array_ContractingParties ,
                                                                                  :JS_Ent_Issuer ;
-                    <http://www.nebularis.org/hyperthunk/DataRep/representationOf> :DC_Signatory ;
-                    <http://www.nebularis.org/hyperthunk/DataRep/representationScheme> :Scheme_Rep_Contracts ;
-                    <http://www.nebularis.org/hyperthunk/DataRep/identifier> "signatories" ;
-                    <http://www.nebularis.org/hyperthunk/DataRep/path> "contract.signatories" .
+                    <http://www.nebularis.org/ontologies/Mork/path> "contract.signatories" ;
+                    <http://www.nebularis.org/ontologies/Mork/representationOf> :DC_Signatory ;
+                    <http://www.nebularis.org/ontologies/Mork/representationScheme> :Scheme_Rep_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Contract
 :Map_Contract rdf:type owl:NamedIndividual ;
               drp:deferredMapping :Map_Contract ;
-              <http://www.nebularis.org/hyperthunk/DataRep/intransitiveExactMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> ;
-              <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
+              <http://www.nebularis.org/ontologies/Mork/intransitiveExactMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Contract> ;
+              <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
               <http://www.w3.org/2004/02/skos/core#note> "Exactly match on DataConcept \"Contract\" identical to OwlClass \"Contract\"" .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_IssuerID_organisationName
 :Map_IssuerID_organisationName rdf:type owl:NamedIndividual ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/relatedMapping> :Map_Issuer_Organisation ;
                                <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Contract/organisationName> ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/weighting> 65 .
+                               <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
+                               <http://www.nebularis.org/ontologies/Mork/relatedMapping> :Map_Issuer_Organisation ;
+                               <http://www.nebularis.org/ontologies/Mork/weighting> 65 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_IssuerID_organisationName ;
@@ -262,26 +402,19 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Issuer_Organisation
 :Map_Issuer_Organisation rdf:type owl:NamedIndividual ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/relatedMapping> :Map_Issuer_Party ;
                          <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/weighting> 65 .
+                         <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
+                         <http://www.nebularis.org/ontologies/Mork/relatedMapping> :Map_Issuer_Party ;
+                         <http://www.nebularis.org/ontologies/Mork/weighting> 65 .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Issuer_Party
 :Map_Issuer_Party rdf:type owl:NamedIndividual ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/hypothesisMapping> :Map_Signatory_Party ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
                   <http://www.w3.org/2004/02/skos/core#narrowMatch> :Map_Issuer_Organisation ;
                   <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/signatory> ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/weighting> 45 .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Issuer_Party ;
-   owl:annotatedProperty <http://www.nebularis.org/hyperthunk/DataRep/hypothesisMapping> ;
-   owl:annotatedTarget :Map_Signatory_Party ;
-   <http://www.w3.org/2004/02/skos/core#note> "Issuer has narrower (meaning to) Signtory, and Signatory may map to Party"
- ] .
+                  <http://www.nebularis.org/ontologies/Mork/hypothesisMapping> :Map_Signatory_Party ;
+                  <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
+                  <http://www.nebularis.org/ontologies/Mork/weighting> 45 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_Issuer_Party ;
@@ -292,13 +425,20 @@ IssuerID may map to organisationName"""
    <http://www.w3.org/2004/02/skos/core#note> "narrow match due to Organisation subClassOf Party"
  ] .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Issuer_Party ;
+   owl:annotatedProperty <http://www.nebularis.org/ontologies/Mork/hypothesisMapping> ;
+   owl:annotatedTarget :Map_Signatory_Party ;
+   <http://www.w3.org/2004/02/skos/core#note> "Issuer has narrower (meaning to) Signtory, and Signatory may map to Party"
+ ] .
+
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Signatories
 :Map_Signatories rdf:type owl:NamedIndividual ,
-                          <http://www.nebularis.org/hyperthunk/DataRep/DataMapping> ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
+                          <http://www.nebularis.org/ontologies/Mork/DataMapping> ;
                  <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/signatory> ;
-                 <http://www.nebularis.org/hyperthunk/DataRep/weighting> 80 ;
+                 <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
+                 <http://www.nebularis.org/ontologies/Mork/weighting> 80 ;
                  <http://www.w3.org/2004/02/skos/core#note> "signatories may be related to the ontological concept signatory" .
 
 [ rdf:type owl:Axiom ;
@@ -311,10 +451,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Signatory_Organisation
 :Map_Signatory_Organisation rdf:type owl:NamedIndividual ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
                             <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Signatory_Organisation" ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/weighting> 40 ;
+                            <http://www.nebularis.org/ontologies/Mork/conceptName> "Signatory_Organisation" ;
+                            <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts ;
+                            <http://www.nebularis.org/ontologies/Mork/weighting> 40 ;
                             <http://www.w3.org/2004/02/skos/core#note> "Signatory may be related to the ontological concept Organisation" .
 
 [ rdf:type owl:Axiom ;
@@ -327,21 +467,12 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Signatory_Party
 :Map_Signatory_Party rdf:type owl:NamedIndividual ;
-                     <http://www.nebularis.org/hyperthunk/DataRep/narrowerMapping> :Map_Signatory_Organisation ;
                      <http://www.w3.org/2004/02/skos/core#inScheme> :Scheme_Map_Contracts ;
                      <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Party> ;
-                     <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Signatory_Party" ;
-                     <http://www.nebularis.org/hyperthunk/DataRep/weighting> 65 ;
+                     <http://www.nebularis.org/ontologies/Mork/conceptName> "Signatory_Party" ;
+                     <http://www.nebularis.org/ontologies/Mork/narrowerMapping> :Map_Signatory_Organisation ;
+                     <http://www.nebularis.org/ontologies/Mork/weighting> 65 ;
                      <http://www.w3.org/2004/02/skos/core#note> "Signatory may be related to the ontological concept Party" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Signatory_Party ;
-   owl:annotatedProperty <http://www.nebularis.org/hyperthunk/DataRep/narrowerMapping> ;
-   owl:annotatedTarget :Map_Signatory_Organisation ;
-   rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> ,
-                <http://www.nebularis.org/hyperthunk/examples/Contract/Party> ;
-   <http://www.w3.org/2004/02/skos/core#note> "narrow match due to Organisation subClassOf Party"
- ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_Signatory_Party ;
@@ -351,12 +482,21 @@ IssuerID may map to organisationName"""
    <http://www.w3.org/2004/02/skos/core#note> "possible semantic match between a signatory and party (to a contract)"
  ] .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Signatory_Party ;
+   owl:annotatedProperty <http://www.nebularis.org/ontologies/Mork/narrowerMapping> ;
+   owl:annotatedTarget :Map_Signatory_Organisation ;
+   rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> ,
+                <http://www.nebularis.org/hyperthunk/examples/Contract/Party> ;
+   <http://www.w3.org/2004/02/skos/core#note> "narrow match due to Organisation subClassOf Party"
+ ] .
+
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Map_Signatory_acceptingParty
 :Map_Signatory_acceptingParty rdf:type owl:NamedIndividual ;
-                              <http://www.nebularis.org/hyperthunk/DataRep/hypothesisMapping> :Map_Signatory_Party ;
-                              <http://www.nebularis.org/hyperthunk/DataRep/mappingScheme> :Scheme_Map_Contracts ;
-                              <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Contract/acceptingParty> .
+                              <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.nebularis.org/hyperthunk/examples/Contract/Contract/acceptingParty> ;
+                              <http://www.nebularis.org/ontologies/Mork/hypothesisMapping> :Map_Signatory_Party ;
+                              <http://www.nebularis.org/ontologies/Mork/mappingScheme> :Scheme_Map_Contracts .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_Signatory_acceptingParty ;
@@ -368,55 +508,55 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Assoc_Contract_acceptingParty
 :Onto_Assoc_Contract_acceptingParty rdf:type owl:NamedIndividual ,
-                                             <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                             <http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> ;
                                     owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty> ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "acceptingParty" ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/acceptingParty" .
+                                    <http://www.nebularis.org/ontologies/Mork/conceptName> "acceptingParty" ;
+                                    <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/acceptingParty" ;
+                                    <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Assoc_Contract_conditions
 :Onto_Assoc_Contract_conditions rdf:type owl:NamedIndividual ,
-                                         <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                         <http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> ;
                                 owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#conditions> ;
-                                <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                                <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "conditions" ;
-                                <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/conditions" .
+                                <http://www.nebularis.org/ontologies/Mork/conceptName> "conditions" ;
+                                <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/conditions" ;
+                                <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract#conditions
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Assoc_Contract_proposingParty
 :Onto_Assoc_Contract_proposingParty rdf:type owl:NamedIndividual ,
-                                             <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                             <http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> ;
                                     owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty> ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "proposingParty" ;
-                                    <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/proposingParty" .
+                                    <http://www.nebularis.org/ontologies/Mork/conceptName> "proposingParty" ;
+                                    <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/proposingParty" ;
+                                    <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract#proposingParty
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Assoc_Party_address
 :Onto_Assoc_Party_address rdf:type owl:NamedIndividual ,
-                                   <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                   <http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> ;
                           owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#address> ;
-                          <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                          <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "address" ;
-                          <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/address" .
+                          <http://www.nebularis.org/ontologies/Mork/conceptName> "address" ;
+                          <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/address" ;
+                          <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract#address
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Class_Organisation
 :Onto_Class_Organisation rdf:type owl:NamedIndividual ,
-                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> ;
+                                  <http://www.nebularis.org/ontologies/Mork/OwlClass> ;
                          owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Organisation" ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Organisation" ;
+                         <http://www.nebularis.org/ontologies/Mork/conceptName> "Organisation" ;
+                         <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Organisation" ;
+                         <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                          rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Organisation> .
 
 
@@ -424,11 +564,11 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Class_Party
 :Onto_Class_Party rdf:type owl:NamedIndividual ,
-                           <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> ;
+                           <http://www.nebularis.org/ontologies/Mork/OwlClass> ;
                   owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/Party> ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Party" ;
-                  <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Party" ;
+                  <http://www.nebularis.org/ontologies/Mork/conceptName> "Party" ;
+                  <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Party" ;
+                  <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                   rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Party> .
 
 
@@ -436,11 +576,11 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Class_Person
 :Onto_Class_Person rdf:type owl:NamedIndividual ,
-                            <http://www.nebularis.org/hyperthunk/DataRep/OwlClass> ;
+                            <http://www.nebularis.org/ontologies/Mork/OwlClass> ;
                    owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/Person> ;
-                   <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                   <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "Person" ;
-                   <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Person" ;
+                   <http://www.nebularis.org/ontologies/Mork/conceptName> "Person" ;
+                   <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/Person" ;
+                   <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                    rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/Person> .
 
 
@@ -448,11 +588,11 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_addressCity
 :Onto_Prop_addressCity rdf:type owl:NamedIndividual ,
-                                <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                        owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/addressCity> ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "addressCity" ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressCity" ;
+                       <http://www.nebularis.org/ontologies/Mork/conceptName> "addressCity" ;
+                       <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressCity" ;
+                       <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                        rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/addressCity> .
 
 
@@ -460,10 +600,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_addressCode
 :Onto_Prop_addressCode rdf:type owl:NamedIndividual ,
-                                <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                        owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/addressCode> ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                       <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressCode" ;
+                       <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressCode" ;
+                       <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                        rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/addressCode> .
 
 
@@ -471,10 +611,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_addressLine1
 :Onto_Prop_addressLine1 rdf:type owl:NamedIndividual ,
-                                 <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                 <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/addressLine1> ;
-                        <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                        <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressLine1" ;
+                        <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressLine1" ;
+                        <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                         rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/addressLine1> .
 
 
@@ -482,10 +622,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_addressLine2
 :Onto_Prop_addressLine2 rdf:type owl:NamedIndividual ,
-                                 <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                 <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                         owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/addressLine2> ;
-                        <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                        <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressLine2" ;
+                        <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressLine2" ;
+                        <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                         rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/addressLine2> .
 
 
@@ -493,10 +633,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_addressRegion
 :Onto_Prop_addressRegion rdf:type owl:NamedIndividual ,
-                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                  <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                          owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/addressRegion> ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressRegion" ;
+                         <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/addressRegion" ;
+                         <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                          rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/addressRegion> .
 
 
@@ -504,10 +644,10 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_excludedThings
 :Onto_Prop_excludedThings rdf:type owl:NamedIndividual ,
-                                   <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                   <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                           owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/excludedThings> ;
-                          <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                          <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/excludedThings" ;
+                          <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/excludedThings" ;
+                          <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                           rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/excludedThings> .
 
 
@@ -515,30 +655,30 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_familyName
 :Onto_Prop_familyName rdf:type owl:NamedIndividual ,
-                               <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                               <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                       owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/familyName> ;
-                      <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                      <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/familyName" .
+                      <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/familyName" ;
+                      <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/familyName
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_givenName
 :Onto_Prop_givenName rdf:type owl:NamedIndividual ,
-                              <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                              <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                      owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/givenName> ;
-                     <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                     <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/givenName" .
+                     <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/givenName" ;
+                     <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/givenName
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_limitedThings
 :Onto_Prop_limitedThings rdf:type owl:NamedIndividual ,
-                                  <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                  <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                          owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/limitedThings> ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                         <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/limitedThings" ;
+                         <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/limitedThings" ;
+                         <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts ;
                          rdfs:seeAlso <http://www.nebularis.org/hyperthunk/examples/Contract/limitedThings> .
 
 
@@ -546,41 +686,42 @@ IssuerID may map to organisationName"""
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_Prop_organisationName
 :Onto_Prop_organisationName rdf:type owl:NamedIndividual ,
-                                     <http://www.nebularis.org/hyperthunk/DataRep/OwlDataProperty> ;
+                                     <http://www.nebularis.org/ontologies/Mork/OwlDataProperty> ;
                             owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract/organisationName> ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
-                            <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/organisationName" .
+                            <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/organisationName" ;
+                            <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract/organisationName
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Onto_assoc_Contract_signatory
 :Onto_assoc_Contract_signatory rdf:type owl:NamedIndividual ,
-                                        <http://www.nebularis.org/hyperthunk/DataRep/OwlObjectProperty> ;
+                                        <http://www.nebularis.org/ontologies/Mork/OwlObjectProperty> ;
                                owl:sameAs <http://www.nebularis.org/hyperthunk/examples/Contract#signatory> ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/ontologicalScheme> :Scheme_Onto_Contracts ;
                                <http://www.w3.org/2004/02/skos/core#narrower> :Onto_Assoc_Contract_acceptingParty ,
                                                                               :Onto_Assoc_Contract_proposingParty ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/conceptName> "signatory" ;
-                               <http://www.nebularis.org/hyperthunk/DataRep/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/signatory" .
+                               <http://www.nebularis.org/ontologies/Mork/conceptName> "signatory" ;
+                               <http://www.nebularis.org/ontologies/Mork/iri> "http://www.nebularis.org/hyperthunk/examples/Contract/signatory" ;
+                               <http://www.nebularis.org/ontologies/Mork/ontologicalScheme> :Scheme_Onto_Contracts .
 
 
 ###  http://www.nebularis.org/hyperthunk/examples/Contract#signatory
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Scheme_Map_Contracts
 :Scheme_Map_Contracts rdf:type owl:NamedIndividual ,
-                               <http://www.nebularis.org/hyperthunk/DataRep/MappingScheme> .
+                               <http://www.nebularis.org/ontologies/Mork/MappingScheme> .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Scheme_Onto_Contracts
 :Scheme_Onto_Contracts rdf:type owl:NamedIndividual ,
-                                <http://www.nebularis.org/hyperthunk/DataRep/OntologicalScheme> .
+                                <http://www.nebularis.org/ontologies/Mork/OntologicalScheme> .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Scheme_Rep_Contracts
 :Scheme_Rep_Contracts rdf:type owl:NamedIndividual ,
-                               <http://www.nebularis.org/hyperthunk/DataRep/RepresentationScheme> ;
-                      <http://www.nebularis.org/hyperthunk/DataRep/dataInline> """{
+                               <http://www.nebularis.org/ontologies/Mork/RepresentationScheme> ;
+                      drp:format <http://www.nebularis.org/ontologies/Mork/JSON> ;
+                      <http://www.nebularis.org/ontologies/Mork/dataInline> """{
   \"@context\": {
     \"@vocab\": \"http://www.example.com/data#\"
   },
@@ -602,13 +743,12 @@ IssuerID may map to organisationName"""
       \"maximumNonNegotiatedPayment\": 21000.00
     }
   }
-}""" ;
-                      drp:format <http://www.nebularis.org/hyperthunk/DataRep/JSON> .
+}""" .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/Scheme_Taxa_Contracts
 :Scheme_Taxa_Contracts rdf:type owl:NamedIndividual ,
-                                <http://www.nebularis.org/hyperthunk/DataRep/TaxonomyScheme> .
+                                <http://www.nebularis.org/ontologies/Mork/TaxonomyScheme> .
 
 
 ###  http://www.nebularis.org/hyperthunk/Demo/ex_prop_firstName
