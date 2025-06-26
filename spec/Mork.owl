@@ -59,6 +59,9 @@
         <Class IRI="#Membership"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Objectification"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#OntologicalScheme"/>
     </Declaration>
     <Declaration>
@@ -101,6 +104,9 @@
         <Class IRI="#WeightedMatch"/>
     </Declaration>
     <Declaration>
+        <Class abbreviatedIRI="rdf:List"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#associativeBroader"/>
     </Declaration>
     <Declaration>
@@ -111,6 +117,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#broadCategoryMatch"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#broadConceptRole"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
@@ -183,6 +192,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#narrowCategoryMatch"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#narrowConceptRole"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
@@ -272,19 +284,16 @@
         <NamedIndividual IRI="#YAML"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
-    </Declaration>
-    <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="rdf:List"/>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#AnonymousEntity"/>
@@ -311,6 +320,19 @@
                 <ObjectProperty IRI="#memberProperty"/>
                 <Class IRI="#Representation"/>
             </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DataConcept"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#broadConceptRole"/>
+                <Class IRI="#DataConcept"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#narrowConceptRole"/>
+                <Class IRI="#DataConcept"/>
+            </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -446,6 +468,10 @@
     <SubClassOf>
         <Class IRI="#Membership"/>
         <Class IRI="#Representation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Objectification"/>
+        <Class IRI="#DataConcept"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#OntologicalScheme"/>
@@ -585,6 +611,10 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#broadConceptRole"/>
+        <ObjectProperty IRI="#associativeBroader"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectProperty IRI="#broadCategoryMatch"/>
     </SubObjectPropertyOf>
@@ -681,6 +711,10 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+        <ObjectProperty IRI="#associativeNarrower"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
         <ObjectProperty IRI="#narrowCategoryMatch"/>
     </SubObjectPropertyOf>
@@ -729,6 +763,10 @@
         <ObjectProperty IRI="#narrowCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#broadConceptRole"/>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
     </InverseObjectProperties>
@@ -770,6 +808,12 @@
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#broadConceptRole"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+    </TransitiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
@@ -782,6 +826,10 @@
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#broadConceptRole"/>
+        <Class IRI="#Objectification"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
@@ -816,6 +864,10 @@
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+        <Class IRI="#Objectification"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
         <ObjectIntersectionOf>
             <Class IRI="#DataMapping"/>
@@ -829,6 +881,10 @@
         <ObjectProperty IRI="#relatedMapping"/>
         <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#broadConceptRole"/>
+        <Class IRI="#DataConcept"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#conceptScheme"/>
         <Class IRI="#TaxonomyScheme"/>
@@ -855,6 +911,10 @@
             <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
             <NamedIndividual IRI="#OwlNothing"/>
         </ObjectHasValue>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+        <Class IRI="#DataConcept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#ontologicalScheme"/>
@@ -1065,6 +1125,21 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#MappingScheme</IRI>
         <Literal>a scheme that captures mappings between concepts, from a RepresentationScheme to an OntologicalScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#Objectification</IRI>
+        <Literal>RoleAssociation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Objectification</IRI>
+        <Literal>Represents an &quot;objectified fact&quot; relating two DataConcepts to one another with a specific set of roles in mind.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
+        <IRI>#Objectification</IRI>
+        <Literal>See https://www.orm.net/pdf/objectification.pdf</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1542,3 +1617,4 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
