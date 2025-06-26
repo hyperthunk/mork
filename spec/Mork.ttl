@@ -605,7 +605,6 @@ The individual Attribute will then be marked as the same individual as the gener
                                                   ) ;
                                rdf:type owl:Class
                              ] ;
-             owl:disjointWith :Representation ;
              rdfs:label "data concept" ;
              <http://www.w3.org/2004/02/skos/core#definition> "An abstract description of a concept, representing a concept that has been mapped to a representation and ontology scheme." ;
              <http://www.w3.org/2004/02/skos/core#scopeNote> "Data concepts are derived from a representation scheme and mapped to an ontological scheme." .

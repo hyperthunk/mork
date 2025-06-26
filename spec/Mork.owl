@@ -562,10 +562,6 @@
         <Class IRI="#Collection"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#DataConcept"/>
-        <Class IRI="#Representation"/>
-    </DisjointClasses>
-    <DisjointClasses>
         <Class IRI="#OrderedCollection"/>
         <Class IRI="#SetListing"/>
         <Class IRI="#UnorderedCollection"/>
