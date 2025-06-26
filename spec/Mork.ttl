@@ -80,7 +80,7 @@ An ABox category match implies the presence of both a TBox match (to the object 
                   owl:inverseOf :narrowConceptRole ;
                   rdf:type owl:TransitiveProperty ;
                   rdfs:domain :Objectification ;
-                  rdfs:range :DataConcept .
+                  rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#broadTBoxCategoryMatch
@@ -353,7 +353,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                    rdfs:subPropertyOf :associativeNarrower ;
                    rdf:type owl:TransitiveProperty ;
                    rdfs:domain :Objectification ;
-                   rdfs:range :DataConcept .
+                   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#narrowTBoxCategoryMatch
@@ -597,17 +597,6 @@ The individual Attribute will then be marked as the same individual as the gener
 
 ###  http://www.nebularis.org/ontologies/Mork#DataConcept
 :DataConcept rdf:type owl:Class ;
-             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                          owl:onProperty :broadConceptRole ;
-                                                          owl:someValuesFrom :DataConcept
-                                                        ]
-                                                        [ rdf:type owl:Restriction ;
-                                                          owl:onProperty :narrowConceptRole ;
-                                                          owl:someValuesFrom :DataConcept
-                                                        ]
-                                                      ) ;
-                                   rdf:type owl:Class
-                                 ] ;
              rdfs:subClassOf [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
                                                     [ rdf:type owl:Restriction ;
                                                       owl:onProperty :conceptScheme ;
@@ -694,6 +683,17 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
 
 ###  http://www.nebularis.org/ontologies/Mork#Objectification
 :Objectification rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :broadConceptRole ;
+                                                              owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :narrowConceptRole ;
+                                                              owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
                  rdfs:subClassOf :DataConcept ;
                  <http://www.w3.org/2004/02/skos/core#altLabel> "RoleAssociation" ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Represents an \"objectified fact\" relating two DataConcepts to one another with a specific set of roles in mind." ;

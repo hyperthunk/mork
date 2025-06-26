@@ -323,24 +323,24 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#DataConcept"/>
-        <ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#broadConceptRole"/>
-                <Class IRI="#DataConcept"/>
-            </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#narrowConceptRole"/>
-                <Class IRI="#DataConcept"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
         <Class IRI="#Datum"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#deferredMapping"/>
             <Class IRI="#DataMapping"/>
         </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Objectification"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#broadConceptRole"/>
+                <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#narrowConceptRole"/>
+                <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#OrderedCollection"/>
@@ -883,7 +883,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#broadConceptRole"/>
-        <Class IRI="#DataConcept"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#conceptScheme"/>
@@ -914,7 +914,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#narrowConceptRole"/>
-        <Class IRI="#DataConcept"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#ontologicalScheme"/>
