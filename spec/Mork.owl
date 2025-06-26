@@ -818,14 +818,6 @@
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadConceptRole"/>
-        <Class IRI="#DataConcept"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadConceptRole"/>
-        <Class IRI="#Objectification"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectIntersectionOf>
             <Class IRI="#DataMapping"/>
@@ -856,14 +848,6 @@
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-        <Class IRI="#DataConcept"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-        <Class IRI="#Objectification"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
