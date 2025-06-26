@@ -89,6 +89,9 @@
         <Class IRI="#RepresentationScheme"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#ScalarValue"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#SerializationFormat"/>
     </Declaration>
     <Declaration>
@@ -296,10 +299,6 @@
         <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="#AnonymousEntity"/>
-        <Class IRI="#CollectionElement"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
         <Class IRI="#Attribute"/>
         <ObjectIntersectionOf>
             <ObjectUnionOf>
@@ -375,14 +374,17 @@
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#AnonymousEntity"/>
-        <Class IRI="#Entity"/>
+        <Class IRI="#CollectionElement"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#AnonymousEntity"/>
-        <DataHasValue>
-            <DataProperty IRI="#identifier"/>
-            <Literal></Literal>
-        </DataHasValue>
+        <ObjectIntersectionOf>
+            <Class IRI="#Entity"/>
+            <DataHasValue>
+                <DataProperty IRI="#identifier"/>
+                <Literal></Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Array"/>
@@ -529,6 +531,10 @@
                 <Class IRI="#SerializationFormat"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ScalarValue"/>
+        <Class IRI="#CollectionElement"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SetListing"/>

@@ -519,11 +519,14 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 
 ###  http://www.nebularis.org/ontologies/Mork#AnonymousEntity
 :AnonymousEntity rdf:type owl:Class ;
-                 owl:equivalentClass :CollectionElement ;
-                 rdfs:subClassOf :Entity ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :identifier ;
-                                   owl:hasValue ""
+                 rdfs:subClassOf :CollectionElement ,
+                                 [ owl:intersectionOf ( :Entity
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :identifier ;
+                                                          owl:hasValue ""
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
                                  ] .
 
 
@@ -789,6 +792,11 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                                       ] ;
                       rdfs:label "representation scheme" ;
                       <http://www.w3.org/2004/02/skos/core#definition> "a scheme that maps concepts to their representation" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#ScalarValue
+:ScalarValue rdf:type owl:Class ;
+             rdfs:subClassOf :CollectionElement .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
