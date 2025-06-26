@@ -426,6 +426,11 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 #    Data properties
 #################################################################
 
+###  http://www.nebularis.org/ontologies/Mork#collectionElementScalarValue
+:collectionElementScalarValue rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#conceptId
 :conceptId rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf :identifier ,

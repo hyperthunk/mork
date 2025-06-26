@@ -227,6 +227,9 @@
         <ObjectProperty IRI="#weightedNarrower"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#collectionElementScalarValue"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#conceptId"/>
     </Declaration>
     <Declaration>
@@ -913,6 +916,10 @@
         <ObjectProperty IRI="#hypothesisMapping"/>
         <ObjectProperty IRI="#narrowerMapping"/>
     </DisjointObjectProperties>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#collectionElementScalarValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#conceptId"/>
         <DataProperty IRI="#identifier"/>
