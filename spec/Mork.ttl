@@ -78,7 +78,6 @@ An ABox category match implies the presence of both a TBox match (to the object 
 :broadConceptRole rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :associativeBroader ;
                   owl:inverseOf :narrowConceptRole ;
-                  rdf:type owl:TransitiveProperty ;
                   rdfs:domain :DataConcept ,
                               :Objectification ;
                   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
@@ -352,7 +351,6 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 ###  http://www.nebularis.org/ontologies/Mork#narrowConceptRole
 :narrowConceptRole rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :associativeNarrower ;
-                   rdf:type owl:TransitiveProperty ;
                    rdfs:domain :DataConcept ,
                                :Objectification ;
                    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .

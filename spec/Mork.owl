@@ -804,12 +804,6 @@
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </AsymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#broadConceptRole"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-    </TransitiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
