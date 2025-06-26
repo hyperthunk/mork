@@ -332,14 +332,14 @@
     <EquivalentClasses>
         <Class IRI="#Objectification"/>
         <ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
+            <ObjectMinCardinality cardinality="1">
                 <ObjectProperty IRI="#broadConceptRole"/>
                 <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
-            </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
+            </ObjectMinCardinality>
+            <ObjectMinCardinality cardinality="1">
                 <ObjectProperty IRI="#narrowConceptRole"/>
                 <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
-            </ObjectSomeValuesFrom>
+            </ObjectMinCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -804,12 +804,6 @@
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </AsymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#broadConceptRole"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-    </TransitiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
