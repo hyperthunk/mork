@@ -804,6 +804,12 @@
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#broadConceptRole"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+    </TransitiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
@@ -816,6 +822,10 @@
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#broadConceptRole"/>
+        <Class IRI="#DataConcept"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#broadConceptRole"/>
@@ -852,6 +862,10 @@
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+        <Class IRI="#DataConcept"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowConceptRole"/>
