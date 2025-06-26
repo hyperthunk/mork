@@ -759,10 +759,6 @@
         <ObjectProperty IRI="#narrowCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#broadConceptRole"/>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
     </InverseObjectProperties>
