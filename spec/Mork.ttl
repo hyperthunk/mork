@@ -54,20 +54,40 @@
 :broadABoxCategoryMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :broadCategoryMatch ;
                         owl:inverseOf :narrowABoxCategoryMatch ;
-                        rdfs:domain [ owl:intersectionOf ( :DataMapping
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :broadTBoxCategoryMatch ;
-                                                             owl:someValuesFrom owl:Thing
-                                                           ]
-                                                         ) ;
-                                      rdf:type owl:Class
-                                    ] ;
+                        rdfs:domain :DataMapping ;
                         rdfs:label "has board a-box category match" ;
                         <http://www.w3.org/2004/02/skos/core#altLabel> "has a-box super-category match" ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "used to state a mapping link where the subject maps to a broader category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)" ;
+                        <http://www.w3.org/2004/02/skos/core#definition> """Used to state a mapping link where the subject maps to a broader category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme).
+
+The A-Box (or Assertional Box) contains assertions (or facts) about individuals within the domain.""" ;
+                        <http://www.w3.org/2004/02/skos/core#example> """###  http://www.example.org/Risks#isSubcategoryOf
+:isSubcategoryOf rdf:type owl:ObjectProperty .
+
+###  http://www.example.org/Risks#RegulatoryRisk
+:RegulatoryRisk rdf:type owl:NamedIndividual, 
+          :Risk .
+
+###  http://www.example.org/Risks#PCIDSS
+:PCIDSS rdf:type owl:NamedIndividual ,
+            skos:note \"Hyperonymic relation via A-Box object property\" ;
+            rdfs:comment \"we want to instantiate an axiom `:isSubcategoryOf :RegulatoryRisk' here\" .
+
+###  http://www.example.org/Mapping#RegulatoryRiskMapping
+:RegulatoryRiskMapping rdf:type owl:NamedIndividual ,
+                      mork:DataMapping ;
+            mork:identifier \"RegulatoryRisk\" ;
+            mork:exactTBoxMatch risk:Risk .
+
+###  http://www.example.org/Mapping#PciDssMapping
+:PciDssMapping rdf:type owl:NamedIndividual ,
+                      mork:DataMapping ;
+            rdfs:comment \"the following statements assert the desired axiom for PCIDSS, viz `isSubcategoryOf :RegulatoryRisk'\" ;
+            mork:exactTBoxMatch risk:Risk ;
+            mork:broadRBoxCategoryMatch risk:isSubcategoryOf ;
+            mork:broadABoxCategoryMatch risk:RegulatoryRisk .""" ;
                         <http://www.w3.org/2004/02/skos/core#scopeNote> """An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
 
-An ABox category match implies the presence of both a TBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the a-box, as described in the domains for this property.""" .
+An ABox category match implies the presence of both a RBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the A-box. This is not described in the domains for this property, since such constraints are better expressed as SWRL/SHACL constraints.""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#broadCategoryMatch
@@ -100,21 +120,28 @@ For situations where such extended reasoning is desireable, broadNavigableConcep
 For situations where such reasoning is not desireable, use the superProperty broadConceptRole instead.""" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#broadRBoxCategoryMatch
+:broadRBoxCategoryMatch rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :broadCategoryMatch ;
+                        owl:inverseOf :narrowRBoxCategoryMatch ;
+                        rdfs:domain :DataMapping ;
+                        rdfs:label "has broad r-box category match" ;
+                        rdfs:seeAlso :Objectification ;
+                        <http://www.w3.org/2004/02/skos/core#definition> """Used to state a mapping link where the subject maps to a broader category of relationship (i.e., the more specific relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
+
+The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.""" .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#broadTBoxCategoryMatch
 :broadTBoxCategoryMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :broadCategoryMatch ;
                         owl:inverseOf :narrowTBoxCategoryMatch ;
-                        rdfs:domain [ owl:intersectionOf ( :DataMapping
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :exactTBoxMatch ;
-                                                             owl:someValuesFrom owl:Thing
-                                                           ]
-                                                         ) ;
-                                      rdf:type owl:Class
-                                    ] ;
+                        rdfs:domain :DataMapping ;
                         rdfs:label "has broad t-box category match" ;
                         <http://www.w3.org/2004/02/skos/core#altLabel> "has t-box super-category match" ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being in an owl:subclassOf relationship with the object" ;
+                        <http://www.w3.org/2004/02/skos/core#definition> """Used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being in an owl:subclassOf relationship with the object.
+
+The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).""" ;
                         <http://www.w3.org/2004/02/skos/core#scopeNote> "A TBox category must be applied before a datum can be individuated, since it implies the existence of an owl:Class not originally present in an OntologicalScheme. The implication here is that the operation resulting from this axiom is idempotent." .
 
 
@@ -370,25 +397,22 @@ Note that memberProperty is both asymmetric and irreflexive.""" ;
 ###  http://www.nebularis.org/ontologies/Mork#narrowABoxCategoryMatch
 :narrowABoxCategoryMatch rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :narrowCategoryMatch ;
-                         rdfs:domain [ owl:intersectionOf ( :DataMapping
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :narrowTBoxCategoryMatch ;
-                                                              owl:someValuesFrom owl:Thing
-                                                            ]
-                                                          ) ;
-                                       rdf:type owl:Class
-                                     ] ;
+                         rdfs:domain :DataMapping ;
                          rdfs:label "has narrow a-box category match" ;
                          <http://www.w3.org/2004/02/skos/core#altLabel> "has a-box sub-category match" ;
-                         <http://www.w3.org/2004/02/skos/core#definition> "used to state a mapping link where the subject maps to a narrower category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)" ;
-                         <http://www.w3.org/2004/02/skos/core#scopeNote> "An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent." .
+                         <http://www.w3.org/2004/02/skos/core#definition> """Used to state a mapping link where the subject maps to a narrower category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme).
+
+The A-Box (or Assertional Box) contains assertions (or facts) about individuals within the domain.""" ;
+                         <http://www.w3.org/2004/02/skos/core#scopeNote> """An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
+
+An ABox category match implies the presence of both a TBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the a-box, as described in the domains for this property.""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#narrowCategoryMatch
 :narrowCategoryMatch rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
                      rdfs:label "has narrow category match" ;
-                     <http://www.w3.org/2004/02/skos/core#definition> "narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more general) hyperonym and the object is the (more specific) hyponym" .
+                     <http://www.w3.org/2004/02/skos/core#definition> "A narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more general) hyperonym and the object is the (more specific) hyponym." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#narrowConceptRole
@@ -410,20 +434,25 @@ Note that memberProperty is both asymmetric and irreflexive.""" ;
 For situations where such reasoning is not desireable, use the superProperty narrowConceptRole instead.""" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#narrowRBoxCategoryMatch
+:narrowRBoxCategoryMatch rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :narrowCategoryMatch ;
+                         rdfs:label "has narrow r-box category match" ;
+                         rdfs:seeAlso :Objectification ;
+                         <http://www.w3.org/2004/02/skos/core#definition> """Used to state a mapping link where the subject maps to a narrower category of relationship (i.e., the more general relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
+
+The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.""" .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#narrowTBoxCategoryMatch
 :narrowTBoxCategoryMatch rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :narrowCategoryMatch ;
-                         rdfs:domain [ owl:intersectionOf ( :DataMapping
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty :exactTBoxMatch ;
-                                                              owl:someValuesFrom owl:Thing
-                                                            ]
-                                                          ) ;
-                                       rdf:type owl:Class
-                                     ] ;
+                         rdfs:domain :DataMapping ;
                          rdfs:label "has narrow t-box match" ;
                          <http://www.w3.org/2004/02/skos/core#altLabel> "has t-box sub-category match" ;
-                         <http://www.w3.org/2004/02/skos/core#definition> "used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being the superclass in an owl:subclassOf relationship with the object" ;
+                         <http://www.w3.org/2004/02/skos/core#definition> """Used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being the superclass in an owl:subclassOf relationship with the object.
+
+The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).""" ;
                          <http://www.w3.org/2004/02/skos/core#scopeNote> "A TBox category must be applied before a datum can be individuated, since it implies the existence of an owl:Class not originally present in an OntologicalScheme. The implication here is that the operation resulting from this axiom is idempotent." .
 
 
@@ -1010,10 +1039,10 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                           mork:representationScheme :Mapping_Representation ;
                           mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
                           rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
-   rdfs:comment _:genid69
+   rdfs:comment _:genid53
  ] .
 
-_:genid69 rdfs:comment "Shows an Array and its corresponding element type" .
+_:genid53 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
