@@ -174,7 +174,8 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                          owl:inverseOf :compositeNarrowerMapping ;
                          rdfs:label "has composite broader mapping" ;
                          rdfs:seeAlso :compositeNarrowerMapping ;
-                         <http://www.w3.org/2004/02/skos/core#definition> "compositeBroaderMapping is used to compose mappings into a directed acyclic graph. The subject mapping is the component part of the object mapping. This is the inverse of compositeNarrowerMapping." .
+                         <http://www.w3.org/2004/02/skos/core#definition> "compositeBroaderMapping is used to compose mappings into a directed acyclic graph. The subject mapping is the component part of the object mapping. This is the inverse of compositeNarrowerMapping." ;
+                         <http://www.w3.org/2004/02/skos/core#example> "See compositeNarrowerMapping for an example" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#compositeNarrower
@@ -198,34 +199,34 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     \"aardvarkSex\": \"M\"
 }
 
-This will yield two attributes, to which we will map three concepts in a concept scheme: aardvark, aardvark_name, and aardvark_sex.
+This will yield two attributes, to which we will map three concepts in a concept scheme: aardvark, aardvark_Name, and aardvark_Sex.
 
 In our ontology, we may wish to model aardvark within the t-box of the ontology:
 
 :Aardvark rdf:type owl:Class;
             rdfs:subClassOf :Animal .
 
-In this case, an input datum for aardvark will require that we define an individual as a member of that class before individuating the input record such that DataTypeProperty assertions can be matched in order to store the name and sex of the animal.
+In this case, an input datum for aardvark will require that we define the class first, then assert a new individual which is a member of said class, before we can manage the input record by making DataTypeProperty assertions against the name and sex of the newly individuated animal.
 
-Or indeed we might be required to model this by relating our new individual to some other fact within the a-box, adding meaning via object properties or annotations, eg:
+Or indeed we might be required to model this by relating our new individual to some other fact within the a-box, adding meaning via object properties or annotations, e.g., using skos:
 
 :Aardvark rdf:type owl:NamedIndividual ;
            <http://www.w3.org/2004/02/skos/core#narrowerTransitive> :Animal .
 
-In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme.
+In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme. The following example snippet (Turtle) positions the Aardvark concept in the T-Box of that target ontology, with subsequent individuals assigned to said class.
 
 :MapAardvarkClass rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            broadTBoxCategoryMatch ont:Animal ;
-            compositeNarrowerMapping :MapAardvarkIndividual ;
-            conceptName \"Aardvark\" .
+            rdfs:subClassOf mork:DataMapping ;
+            mork:broadTBoxCategoryMatch ont:Animal ;
+            mork:compositeNarrowerMapping :MapAardvarkIndividual ;
+            mork:conceptName \"Aardvark\" .
 
 :MapAardvarkIndividual rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:Datum ;
-            datarep:deferredMapping :MapAardvarkClass ;
-            iri \"http://example.org/Animals/NewAardvark\" .
+            rdfs:subClassOf mork:Datum ;
+            mork:deferredMapping :MapAardvarkClass ;
+            mork:compositeNarrowerMapping :MapAardvarkName, :MapAardvarkSex .
 
-Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.""" .
+Subsequent mappings (for name and sex) may rely on these mappings as a hypothesis.""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#conceptScheme
@@ -475,7 +476,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
 :relatedMapping rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#related> ;
                 rdfs:domain :DataMapping ;
-                rdfs:comment "These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for mapping relations between mappings, to provide a convenient way to differentiate links within a mapping scheme." ;
+                rdfs:comment "These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for describing the semantic and structural relationships between mappings, to provide a convenient way to differentiate links within a mapping scheme from links between different schemes." ;
                 rdfs:label "has related mapping" ;
                 <http://www.w3.org/2004/02/skos/core#definition> "used to describe a relationships between two potential mappings" .
 
