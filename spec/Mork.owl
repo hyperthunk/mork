@@ -14,280 +14,283 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://www.w3.org/2004/02/skos/core</Import>
     <Declaration>
-        <Class IRI="#AnonymousEntity"/>
+        <Class IRI="/AnonymousElement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Array"/>
+        <Class IRI="/Array"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Association"/>
+        <Class IRI="/Association"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Attribute"/>
+        <Class IRI="/Attribute"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Chaining"/>
+        <Class IRI="/Chaining"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Collection"/>
+        <Class IRI="/Collection"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#CollectionElement"/>
+        <Class IRI="/CollectionElement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Composition"/>
+        <Class IRI="/Composition"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#DataConcept"/>
+        <Class IRI="/DataConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#DataMapping"/>
+        <Class IRI="/DataMapping"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Datum"/>
+        <Class IRI="/Datum"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Digraph"/>
+        <Class IRI="/Digraph"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Entity"/>
+        <Class IRI="/Entity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#MappingScheme"/>
+        <Class IRI="/IdentifiableElement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Membership"/>
+        <Class IRI="/MappingScheme"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Objectification"/>
+        <Class IRI="/Membership"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OntologicalScheme"/>
+        <Class IRI="/Objectification"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OrderedCollection"/>
+        <Class IRI="/OntologicalScheme"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OwlAxiom"/>
+        <Class IRI="/OrderedCollection"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OwlClass"/>
+        <Class IRI="/OwlAxiom"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OwlDataProperty"/>
+        <Class IRI="/OwlClass"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OwlObjectProperty"/>
+        <Class IRI="/OwlDataProperty"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Referencing"/>
+        <Class IRI="/OwlObjectProperty"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Referencing"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RepresentationScheme"/>
+        <Class IRI="/Representation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ScalarValue"/>
+        <Class IRI="/RepresentationScheme"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SerializationFormat"/>
+        <Class IRI="/ScalarValueElement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SetListing"/>
+        <Class IRI="/SerializationFormat"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TaxonomyScheme"/>
+        <Class IRI="/SetListing"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#UnorderedCollection"/>
+        <Class IRI="/TaxonomyScheme"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#WeightedMatch"/>
+        <Class IRI="/UnorderedCollection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/WeightedMatch"/>
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="rdf:List"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#associativeBroader"/>
+        <ObjectProperty IRI="/associativeBroader"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#associativeNarrower"/>
+        <ObjectProperty IRI="/associativeNarrower"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#broadABoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadABoxCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#broadCategoryMatch"/>
+        <ObjectProperty IRI="/broadCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#broadConceptRole"/>
+        <ObjectProperty IRI="/broadConceptRole"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadTBoxCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#broaderMapping"/>
+        <ObjectProperty IRI="/broaderMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#closeMapping"/>
+        <ObjectProperty IRI="/closeMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#compositeBroader"/>
+        <ObjectProperty IRI="/compositeBroader"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#compositeBroaderMapping"/>
+        <ObjectProperty IRI="/compositeBroaderMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#compositeNarrower"/>
+        <ObjectProperty IRI="/compositeNarrower"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#compositeNarrowerMapping"/>
+        <ObjectProperty IRI="/compositeNarrowerMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#conceptScheme"/>
+        <ObjectProperty IRI="/conceptScheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#deferredMapping"/>
+        <ObjectProperty IRI="/deferredMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#digraphMatch"/>
+        <ObjectProperty IRI="/digraphMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#digraphOf"/>
+        <ObjectProperty IRI="/digraphOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#elementType"/>
+        <ObjectProperty IRI="/elementType"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#exactMapping"/>
+        <ObjectProperty IRI="/exactMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#exactTBoxMatch"/>
+        <ObjectProperty IRI="/exactTBoxMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#format"/>
+        <ObjectProperty IRI="/format"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasConcept"/>
+        <ObjectProperty IRI="/hasConcept"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hypothesisMapping"/>
+        <ObjectProperty IRI="/hypothesisMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#intransitiveExactMatch"/>
+        <ObjectProperty IRI="/intransitiveExactMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#mappingScheme"/>
+        <ObjectProperty IRI="/mappingScheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#memberProperty"/>
+        <ObjectProperty IRI="/memberProperty"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#memberPropertyOf"/>
+        <ObjectProperty IRI="/memberPropertyOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
+        <ObjectProperty IRI="/missingOrUnrelatedMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowABoxCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#narrowCategoryMatch"/>
+        <ObjectProperty IRI="/narrowCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#narrowConceptRole"/>
+        <ObjectProperty IRI="/narrowConceptRole"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowTBoxCategoryMatch"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#ontologicalScheme"/>
+        <ObjectProperty IRI="/ontologicalScheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#representationOf"/>
+        <ObjectProperty IRI="/representationOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#representationScheme"/>
+        <ObjectProperty IRI="/representationScheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#representedAs"/>
+        <ObjectProperty IRI="/representedAs"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#weightedBroader"/>
+        <ObjectProperty IRI="/weightedBroader"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#weightedNarrower"/>
+        <ObjectProperty IRI="/weightedNarrower"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#collectionElementScalarValue"/>
+        <DataProperty IRI="/collectionElementScalarValue"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/conceptId"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#conceptName"/>
+        <DataProperty IRI="/conceptName"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#data"/>
+        <DataProperty IRI="/data"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#dataInline"/>
+        <DataProperty IRI="/dataInline"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#dataRef"/>
+        <DataProperty IRI="/dataRef"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#externalPropertyValue"/>
+        <DataProperty IRI="/externalPropertyValue"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#identifier"/>
+        <DataProperty IRI="/identifier"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#iri"/>
+        <DataProperty IRI="/iri"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty IRI="/itemsConstrained"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#name"/>
+        <DataProperty IRI="/name"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#orderedItems"/>
+        <DataProperty IRI="/orderedItems"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#path"/>
+        <DataProperty IRI="/path"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#reference"/>
+        <DataProperty IRI="/reference"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#uniqueItems"/>
+        <DataProperty IRI="/uniqueItems"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#weighting"/>
+        <DataProperty IRI="/weighting"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Bottom"/>
+        <NamedIndividual IRI="/Bottom"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#JSON"/>
+        <NamedIndividual IRI="/JSON"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#OwlNothing"/>
+        <NamedIndividual IRI="/OwlNothing"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#XML"/>
+        <NamedIndividual IRI="/XML"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#YAML"/>
+        <NamedIndividual IRI="/YAML"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
@@ -302,139 +305,135 @@
         <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="#Attribute"/>
+        <Class IRI="/Attribute"/>
         <ObjectIntersectionOf>
             <ObjectUnionOf>
                 <ObjectSomeValuesFrom>
                     <ObjectInverseOf>
-                        <ObjectProperty IRI="#memberProperty"/>
+                        <ObjectProperty IRI="/memberProperty"/>
                     </ObjectInverseOf>
-                    <Class IRI="#Association"/>
+                    <Class IRI="/Association"/>
                 </ObjectSomeValuesFrom>
                 <ObjectSomeValuesFrom>
                     <ObjectInverseOf>
-                        <ObjectProperty IRI="#memberProperty"/>
+                        <ObjectProperty IRI="/memberProperty"/>
                     </ObjectInverseOf>
-                    <Class IRI="#Entity"/>
+                    <Class IRI="/Entity"/>
                 </ObjectSomeValuesFrom>
             </ObjectUnionOf>
             <ObjectExactCardinality cardinality="0">
-                <ObjectProperty IRI="#memberProperty"/>
-                <Class IRI="#Representation"/>
+                <ObjectProperty IRI="/memberProperty"/>
+                <Class IRI="/Representation"/>
             </ObjectExactCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Datum"/>
+        <Class IRI="/Datum"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#deferredMapping"/>
-            <Class IRI="#DataMapping"/>
+            <ObjectProperty IRI="/deferredMapping"/>
+            <Class IRI="/DataMapping"/>
         </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Objectification"/>
+        <Class IRI="/Objectification"/>
         <ObjectIntersectionOf>
             <ObjectMinCardinality cardinality="1">
-                <ObjectProperty IRI="#broadConceptRole"/>
+                <ObjectProperty IRI="/broadConceptRole"/>
                 <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             </ObjectMinCardinality>
             <ObjectMinCardinality cardinality="1">
-                <ObjectProperty IRI="#narrowConceptRole"/>
+                <ObjectProperty IRI="/narrowConceptRole"/>
                 <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#OrderedCollection"/>
+        <Class IRI="/OrderedCollection"/>
         <DataHasValue>
-            <DataProperty IRI="#orderedItems"/>
+            <DataProperty IRI="/orderedItems"/>
             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
         </DataHasValue>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#OwlAxiom"/>
+        <Class IRI="/OwlAxiom"/>
         <ObjectIntersectionOf>
             <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             <ObjectSomeValuesFrom>
                 <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                <Class IRI="#OntologicalScheme"/>
+                <Class IRI="/OntologicalScheme"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#SetListing"/>
+        <Class IRI="/SetListing"/>
         <DataHasValue>
-            <DataProperty IRI="#uniqueItems"/>
+            <DataProperty IRI="/uniqueItems"/>
             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
         </DataHasValue>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#UnorderedCollection"/>
+        <Class IRI="/UnorderedCollection"/>
         <DataHasValue>
-            <DataProperty IRI="#orderedItems"/>
+            <DataProperty IRI="/orderedItems"/>
             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
         </DataHasValue>
     </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="#AnonymousEntity"/>
-        <Class IRI="#CollectionElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#AnonymousEntity"/>
+        <Class IRI="/AnonymousElement"/>
         <ObjectIntersectionOf>
-            <Class IRI="#Entity"/>
+            <Class IRI="/CollectionElement"/>
             <DataHasValue>
-                <DataProperty IRI="#identifier"/>
+                <DataProperty IRI="/identifier"/>
                 <Literal></Literal>
             </DataHasValue>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Array"/>
-        <Class IRI="#UnorderedCollection"/>
+        <Class IRI="/Array"/>
+        <Class IRI="/UnorderedCollection"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Association"/>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Association"/>
+        <Class IRI="/Representation"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Attribute"/>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Attribute"/>
+        <Class IRI="/IdentifiableElement"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Chaining"/>
-        <Class IRI="#Composition"/>
+        <Class IRI="/Chaining"/>
+        <Class IRI="/Composition"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Collection"/>
-        <Class IRI="#Composition"/>
+        <Class IRI="/Collection"/>
+        <Class IRI="/Composition"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#CollectionElement"/>
-        <Class IRI="#Membership"/>
+        <Class IRI="/CollectionElement"/>
+        <Class IRI="/Membership"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Composition"/>
-        <Class IRI="#Association"/>
+        <Class IRI="/Composition"/>
+        <Class IRI="/Association"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#DataConcept"/>
+        <Class IRI="/DataConcept"/>
         <ObjectIntersectionOf>
             <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#conceptScheme"/>
-                <Class IRI="#TaxonomyScheme"/>
+                <ObjectProperty IRI="/conceptScheme"/>
+                <Class IRI="/TaxonomyScheme"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#DataMapping"/>
+        <Class IRI="/DataMapping"/>
         <ObjectIntersectionOf>
             <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             <ObjectUnionOf>
                 <ObjectSomeValuesFrom>
                     <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
-                    <Class IRI="#OwlAxiom"/>
+                    <Class IRI="/OwlAxiom"/>
                 </ObjectSomeValuesFrom>
                 <ObjectSomeValuesFrom>
                     <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
@@ -442,705 +441,854 @@
                 </ObjectSomeValuesFrom>
             </ObjectUnionOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#mappingScheme"/>
-                <Class IRI="#MappingScheme"/>
+                <ObjectProperty IRI="/mappingScheme"/>
+                <Class IRI="/MappingScheme"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Datum"/>
-        <Class IRI="#DataMapping"/>
+        <Class IRI="/Datum"/>
+        <Class IRI="/DataMapping"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Digraph"/>
+        <Class IRI="/Digraph"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Digraph"/>
+        <Class IRI="/Digraph"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#digraphMatch"/>
-            <Class IRI="#OwlAxiom"/>
+            <ObjectProperty IRI="/digraphMatch"/>
+            <Class IRI="/OwlAxiom"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Entity"/>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Entity"/>
+        <Class IRI="/IdentifiableElement"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#MappingScheme"/>
+        <Class IRI="/IdentifiableElement"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Representation"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="/identifier"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MappingScheme"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Membership"/>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Membership"/>
+        <Class IRI="/Representation"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Objectification"/>
-        <Class IRI="#DataConcept"/>
+        <Class IRI="/Objectification"/>
+        <Class IRI="/DataConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OntologicalScheme"/>
+        <Class IRI="/OntologicalScheme"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OrderedCollection"/>
-        <Class IRI="#Collection"/>
+        <Class IRI="/OrderedCollection"/>
+        <Class IRI="/Collection"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OwlClass"/>
-        <Class IRI="#OwlAxiom"/>
+        <Class IRI="/OwlClass"/>
+        <Class IRI="/OwlAxiom"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OwlDataProperty"/>
-        <Class IRI="#OwlAxiom"/>
+        <Class IRI="/OwlDataProperty"/>
+        <Class IRI="/OwlAxiom"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OwlObjectProperty"/>
-        <Class IRI="#OwlAxiom"/>
+        <Class IRI="/OwlObjectProperty"/>
+        <Class IRI="/OwlAxiom"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Referencing"/>
-        <Class IRI="#Association"/>
+        <Class IRI="/Referencing"/>
+        <Class IRI="/Association"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Representation"/>
+        <Class IRI="/Representation"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Representation"/>
-        <ObjectIntersectionOf>
-            <ObjectIntersectionOf>
-                <DataSomeValuesFrom>
-                    <DataProperty IRI="#identifier"/>
-                    <Datatype abbreviatedIRI="xsd:string"/>
-                </DataSomeValuesFrom>
-                <DataSomeValuesFrom>
-                    <DataProperty IRI="#path"/>
-                    <Datatype abbreviatedIRI="xsd:string"/>
-                </DataSomeValuesFrom>
-            </ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                <Class IRI="#RepresentationScheme"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
+        <Class IRI="/Representation"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <Class IRI="/RepresentationScheme"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#RepresentationScheme"/>
+        <Class IRI="/RepresentationScheme"/>
         <ObjectIntersectionOf>
             <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#format"/>
-                <Class IRI="#SerializationFormat"/>
+                <ObjectProperty IRI="/format"/>
+                <Class IRI="/SerializationFormat"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ScalarValue"/>
-        <Class IRI="#CollectionElement"/>
+        <Class IRI="/ScalarValueElement"/>
+        <Class IRI="/AnonymousElement"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#SetListing"/>
-        <Class IRI="#Collection"/>
+        <Class IRI="/SetListing"/>
+        <Class IRI="/Collection"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#TaxonomyScheme"/>
+        <Class IRI="/TaxonomyScheme"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#UnorderedCollection"/>
-        <Class IRI="#Collection"/>
+        <Class IRI="/UnorderedCollection"/>
+        <Class IRI="/Collection"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#WeightedMatch"/>
-        <Class IRI="#DataMapping"/>
+        <Class IRI="/WeightedMatch"/>
+        <Class IRI="/DataMapping"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#WeightedMatch"/>
+        <Class IRI="/WeightedMatch"/>
         <DataSomeValuesFrom>
-            <DataProperty IRI="#weighting"/>
+            <DataProperty IRI="/weighting"/>
             <Datatype abbreviatedIRI="xsd:integer"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <DisjointClasses>
-        <Class IRI="#Association"/>
-        <Class IRI="#Entity"/>
+        <Class IRI="/Association"/>
+        <Class IRI="/Entity"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#Chaining"/>
-        <Class IRI="#Collection"/>
+        <Class IRI="/Chaining"/>
+        <Class IRI="/Collection"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#OrderedCollection"/>
-        <Class IRI="#SetListing"/>
-        <Class IRI="#UnorderedCollection"/>
+        <Class IRI="/OrderedCollection"/>
+        <Class IRI="/SetListing"/>
+        <Class IRI="/UnorderedCollection"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="#OwlAxiom"/>
-        <NamedIndividual IRI="#Bottom"/>
+        <Class IRI="/OwlAxiom"/>
+        <NamedIndividual IRI="/Bottom"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#SerializationFormat"/>
-        <NamedIndividual IRI="#JSON"/>
+        <Class IRI="/SerializationFormat"/>
+        <NamedIndividual IRI="/JSON"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#OwlAxiom"/>
-        <NamedIndividual IRI="#OwlNothing"/>
+        <Class IRI="/OwlAxiom"/>
+        <NamedIndividual IRI="/OwlNothing"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#SerializationFormat"/>
-        <NamedIndividual IRI="#XML"/>
+        <Class IRI="/SerializationFormat"/>
+        <NamedIndividual IRI="/XML"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#SerializationFormat"/>
-        <NamedIndividual IRI="#YAML"/>
+        <Class IRI="/SerializationFormat"/>
+        <NamedIndividual IRI="/YAML"/>
     </ClassAssertion>
     <SameIndividual>
-        <NamedIndividual IRI="#Bottom"/>
-        <NamedIndividual IRI="#OwlNothing"/>
+        <NamedIndividual IRI="/Bottom"/>
+        <NamedIndividual IRI="/OwlNothing"/>
     </SameIndividual>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#associativeBroader"/>
+        <ObjectProperty IRI="/associativeBroader"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#associativeNarrower"/>
+        <ObjectProperty IRI="/associativeNarrower"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#broadABoxCategoryMatch"/>
-        <ObjectProperty IRI="#broadCategoryMatch"/>
+        <ObjectProperty IRI="/broadABoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#broadCategoryMatch"/>
+        <ObjectProperty IRI="/broadCategoryMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#broadConceptRole"/>
-        <ObjectProperty IRI="#associativeBroader"/>
+        <ObjectProperty IRI="/broadConceptRole"/>
+        <ObjectProperty IRI="/associativeBroader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
-        <ObjectProperty IRI="#broadCategoryMatch"/>
+        <ObjectProperty IRI="/broadTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#broaderMapping"/>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/broaderMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#closeMapping"/>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/closeMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#compositeBroader"/>
-        <ObjectProperty IRI="#associativeBroader"/>
+        <ObjectProperty IRI="/compositeBroader"/>
+        <ObjectProperty IRI="/associativeBroader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#compositeBroaderMapping"/>
-        <ObjectProperty IRI="#broaderMapping"/>
+        <ObjectProperty IRI="/compositeBroaderMapping"/>
+        <ObjectProperty IRI="/broaderMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#compositeNarrower"/>
-        <ObjectProperty IRI="#associativeNarrower"/>
+        <ObjectProperty IRI="/compositeNarrower"/>
+        <ObjectProperty IRI="/associativeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#compositeNarrowerMapping"/>
-        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectProperty IRI="/compositeNarrowerMapping"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#conceptScheme"/>
+        <ObjectProperty IRI="/conceptScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#deferredMapping"/>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/deferredMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#digraphMatch"/>
+        <ObjectProperty IRI="/digraphMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#digraphOf"/>
+        <ObjectProperty IRI="/digraphOf"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#elementType"/>
-        <ObjectProperty IRI="#compositeNarrower"/>
+        <ObjectProperty IRI="/elementType"/>
+        <ObjectProperty IRI="/compositeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#exactMapping"/>
-        <ObjectProperty IRI="#closeMapping"/>
+        <ObjectProperty IRI="/exactMapping"/>
+        <ObjectProperty IRI="/closeMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#exactTBoxMatch"/>
-        <ObjectProperty IRI="#intransitiveExactMatch"/>
+        <ObjectProperty IRI="/exactTBoxMatch"/>
+        <ObjectProperty IRI="/intransitiveExactMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#format"/>
+        <ObjectProperty IRI="/format"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasConcept"/>
+        <ObjectProperty IRI="/hasConcept"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hypothesisMapping"/>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/hypothesisMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#intransitiveExactMatch"/>
+        <ObjectProperty IRI="/intransitiveExactMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#mappingScheme"/>
+        <ObjectProperty IRI="/mappingScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#memberProperty"/>
-        <ObjectProperty IRI="#compositeNarrower"/>
+        <ObjectProperty IRI="/memberProperty"/>
+        <ObjectProperty IRI="/compositeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#memberPropertyOf"/>
-        <ObjectProperty IRI="#compositeBroader"/>
+        <ObjectProperty IRI="/memberPropertyOf"/>
+        <ObjectProperty IRI="/compositeBroader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
+        <ObjectProperty IRI="/missingOrUnrelatedMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
-        <ObjectProperty IRI="#narrowCategoryMatch"/>
+        <ObjectProperty IRI="/narrowABoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#narrowCategoryMatch"/>
+        <ObjectProperty IRI="/narrowCategoryMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#narrowConceptRole"/>
-        <ObjectProperty IRI="#associativeNarrower"/>
+        <ObjectProperty IRI="/narrowConceptRole"/>
+        <ObjectProperty IRI="/associativeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
-        <ObjectProperty IRI="#narrowCategoryMatch"/>
+        <ObjectProperty IRI="/narrowTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#narrowerMapping"/>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#ontologicalScheme"/>
+        <ObjectProperty IRI="/ontologicalScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#related"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#representationOf"/>
+        <ObjectProperty IRI="/representationOf"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#representationScheme"/>
+        <ObjectProperty IRI="/representationScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#representedAs"/>
+        <ObjectProperty IRI="/representedAs"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#weightedBroader"/>
-        <ObjectProperty IRI="#broaderMapping"/>
+        <ObjectProperty IRI="/weightedBroader"/>
+        <ObjectProperty IRI="/broaderMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#weightedNarrower"/>
-        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectProperty IRI="/weightedNarrower"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#associativeBroader"/>
-        <ObjectProperty IRI="#associativeNarrower"/>
+        <ObjectProperty IRI="/associativeBroader"/>
+        <ObjectProperty IRI="/associativeNarrower"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#broadABoxCategoryMatch"/>
-        <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadABoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowABoxCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#broadCategoryMatch"/>
-        <ObjectProperty IRI="#narrowCategoryMatch"/>
+        <ObjectProperty IRI="/broadCategoryMatch"/>
+        <ObjectProperty IRI="/narrowCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
-        <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowTBoxCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#broaderMapping"/>
-        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectProperty IRI="/broaderMapping"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#compositeBroader"/>
-        <ObjectProperty IRI="#compositeNarrower"/>
+        <ObjectProperty IRI="/compositeBroader"/>
+        <ObjectProperty IRI="/compositeNarrower"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#compositeBroaderMapping"/>
-        <ObjectProperty IRI="#compositeNarrowerMapping"/>
+        <ObjectProperty IRI="/compositeBroaderMapping"/>
+        <ObjectProperty IRI="/compositeNarrowerMapping"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#digraphMatch"/>
-        <ObjectProperty IRI="#digraphOf"/>
+        <ObjectProperty IRI="/digraphMatch"/>
+        <ObjectProperty IRI="/digraphOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasConcept"/>
+        <ObjectProperty IRI="/hasConcept"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#memberProperty"/>
-        <ObjectProperty IRI="#memberPropertyOf"/>
+        <ObjectProperty IRI="/memberProperty"/>
+        <ObjectProperty IRI="/memberPropertyOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#representationOf"/>
-        <ObjectProperty IRI="#representedAs"/>
+        <ObjectProperty IRI="/representationOf"/>
+        <ObjectProperty IRI="/representedAs"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#weightedBroader"/>
-        <ObjectProperty IRI="#weightedNarrower"/>
+        <ObjectProperty IRI="/weightedBroader"/>
+        <ObjectProperty IRI="/weightedNarrower"/>
     </InverseObjectProperties>
     <SymmetricObjectProperty>
-        <ObjectProperty IRI="#intransitiveExactMatch"/>
+        <ObjectProperty IRI="/intransitiveExactMatch"/>
     </SymmetricObjectProperty>
     <AsymmetricObjectProperty>
-        <ObjectProperty IRI="#memberProperty"/>
+        <ObjectProperty IRI="/memberProperty"/>
     </AsymmetricObjectProperty>
     <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#memberProperty"/>
+        <ObjectProperty IRI="/memberProperty"/>
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadABoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadABoxCategoryMatch"/>
         <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
+            <Class IRI="/DataMapping"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
+                <ObjectProperty IRI="/broadTBoxCategoryMatch"/>
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/broadTBoxCategoryMatch"/>
         <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
+            <Class IRI="/DataMapping"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#exactTBoxMatch"/>
+                <ObjectProperty IRI="/exactTBoxMatch"/>
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#digraphOf"/>
-        <Class IRI="#Digraph"/>
+        <ObjectProperty IRI="/digraphOf"/>
+        <Class IRI="/Digraph"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#elementType"/>
-        <Class IRI="#Collection"/>
+        <ObjectProperty IRI="/elementType"/>
+        <Class IRI="/Collection"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#format"/>
-        <Class IRI="#RepresentationScheme"/>
+        <ObjectProperty IRI="/format"/>
+        <Class IRI="/RepresentationScheme"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowABoxCategoryMatch"/>
         <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
+            <Class IRI="/DataMapping"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
+                <ObjectProperty IRI="/narrowTBoxCategoryMatch"/>
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
+        <ObjectProperty IRI="/narrowTBoxCategoryMatch"/>
         <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
+            <Class IRI="/DataMapping"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#exactTBoxMatch"/>
+                <ObjectProperty IRI="/exactTBoxMatch"/>
                 <Class abbreviatedIRI="owl:Thing"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#relatedMapping"/>
-        <Class IRI="#DataMapping"/>
+        <ObjectProperty IRI="/relatedMapping"/>
+        <Class IRI="/DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#broadConceptRole"/>
+        <ObjectProperty IRI="/broadConceptRole"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#conceptScheme"/>
-        <Class IRI="#TaxonomyScheme"/>
+        <ObjectProperty IRI="/conceptScheme"/>
+        <Class IRI="/TaxonomyScheme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#digraphMatch"/>
-        <Class IRI="#Digraph"/>
+        <ObjectProperty IRI="/digraphMatch"/>
+        <Class IRI="/Digraph"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#elementType"/>
-        <Class IRI="#CollectionElement"/>
+        <ObjectProperty IRI="/elementType"/>
+        <Class IRI="/CollectionElement"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#format"/>
-        <Class IRI="#SerializationFormat"/>
+        <ObjectProperty IRI="/format"/>
+        <Class IRI="/SerializationFormat"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#mappingScheme"/>
-        <Class IRI="#MappingScheme"/>
+        <ObjectProperty IRI="/mappingScheme"/>
+        <Class IRI="/MappingScheme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
+        <ObjectProperty IRI="/missingOrUnrelatedMatch"/>
         <ObjectHasValue>
-            <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
-            <NamedIndividual IRI="#OwlNothing"/>
+            <ObjectProperty IRI="/missingOrUnrelatedMatch"/>
+            <NamedIndividual IRI="/OwlNothing"/>
         </ObjectHasValue>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#narrowConceptRole"/>
+        <ObjectProperty IRI="/narrowConceptRole"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#ontologicalScheme"/>
-        <Class IRI="#OntologicalScheme"/>
+        <ObjectProperty IRI="/ontologicalScheme"/>
+        <Class IRI="/OntologicalScheme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#representationScheme"/>
-        <Class IRI="#RepresentationScheme"/>
+        <ObjectProperty IRI="/representationScheme"/>
+        <Class IRI="/RepresentationScheme"/>
     </ObjectPropertyRange>
     <DisjointObjectProperties>
-        <ObjectProperty IRI="#broaderMapping"/>
-        <ObjectProperty IRI="#hypothesisMapping"/>
-        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectProperty IRI="/broaderMapping"/>
+        <ObjectProperty IRI="/hypothesisMapping"/>
+        <ObjectProperty IRI="/narrowerMapping"/>
     </DisjointObjectProperties>
     <SubDataPropertyOf>
-        <DataProperty IRI="#collectionElementScalarValue"/>
+        <DataProperty IRI="/collectionElementScalarValue"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#conceptId"/>
-        <DataProperty IRI="#identifier"/>
+        <DataProperty IRI="/conceptId"/>
+        <DataProperty IRI="/identifier"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/conceptId"/>
         <DataProperty IRI="http://www.w3.org/2004/02/skos/core#notation"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#conceptName"/>
-        <DataProperty IRI="#name"/>
+        <DataProperty IRI="/conceptName"/>
+        <DataProperty IRI="/name"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#data"/>
+        <DataProperty IRI="/data"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#dataInline"/>
-        <DataProperty IRI="#data"/>
+        <DataProperty IRI="/dataInline"/>
+        <DataProperty IRI="/data"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#dataRef"/>
-        <DataProperty IRI="#data"/>
+        <DataProperty IRI="/dataRef"/>
+        <DataProperty IRI="/data"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#externalPropertyValue"/>
+        <DataProperty IRI="/externalPropertyValue"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#identifier"/>
+        <DataProperty IRI="/identifier"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#iri"/>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/iri"/>
+        <DataProperty IRI="/conceptId"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty IRI="/itemsConstrained"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#name"/>
+        <DataProperty IRI="/name"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#orderedItems"/>
-        <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty IRI="/orderedItems"/>
+        <DataProperty IRI="/itemsConstrained"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#path"/>
-        <DataProperty IRI="#identifier"/>
+        <DataProperty IRI="/path"/>
+        <DataProperty IRI="/identifier"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#reference"/>
-        <DataProperty IRI="#identifier"/>
+        <DataProperty IRI="/reference"/>
+        <DataProperty IRI="/identifier"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#uniqueItems"/>
-        <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty IRI="/uniqueItems"/>
+        <DataProperty IRI="/itemsConstrained"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#weighting"/>
+        <DataProperty IRI="/weighting"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <FunctionalDataProperty>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/conceptId"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#iri"/>
+        <DataProperty IRI="/iri"/>
     </FunctionalDataProperty>
     <DataPropertyDomain>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/conceptId"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#iri"/>
-        <Class IRI="#OwlAxiom"/>
+        <DataProperty IRI="/iri"/>
+        <Class IRI="/OwlAxiom"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="#conceptId"/>
+        <DataProperty IRI="/conceptId"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#data"/>
+        <DataProperty IRI="/data"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty IRI="/itemsConstrained"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#name"/>
+        <DataProperty IRI="/name"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#weighting"/>
+        <DataProperty IRI="/weighting"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Attribute</IRI>
+        <IRI>/AnonymousElement</IRI>
+        <Literal>anonymous entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/AnonymousElement</IRI>
+        <Literal>Used to describe the Representation of an Entity that has no identifier, e.g., that is defined anonymously, such as an object within an array.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>/AnonymousElement</IRI>
+        <Literal>### the Array contractingParties contains elements which provide firstName and lastName
+### e.g., (JSON)
+### { &quot;contractingParties&quot;: [ { &quot;firstName&quot;: &quot;Joe&quot;, &quot;lastName:&quot;, &quot;Blogs&quot; }, { &quot;firstName&quot;: &quot;John&quot;, &quot;lastName&quot;: &quot;Johns&quot; } ] }
+###
+
+:JS_Array_ContractingParties rdf:type owl:NamedIndividual, mork:Array ;
+                             mork:elementType :JS_Elem_ContractingParties ;
+                             mork:identifier &quot;contractingParties&quot; ;
+                             mork:path &quot;contract.signatories.contractingParties&quot; ;
+                             mork:representationOf :DC_ContractingParties ;
+                             mork:representationScheme :Scheme_Rep_Contracts .
+
+:JS_Elem_ContractingParties rdf:type owl:NamedIndividual, mork:AnonymousEntity ;
+                            mork:identifier &quot;&quot; ;
+                            mork:memberProperty :JS_Attr_FirstName, :JS_Attr_LastName ;
+                            mork:path &quot;contract.signatories.contractingParties[n]&quot; ;
+                            mork:representationOf :DC_ContractingParties_Party ;
+                            mork:representationScheme :Scheme_Rep_Contracts .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Array</IRI>
+        <Literal>array</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>/Array</IRI>
+        <IRI>/elementType</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Array</IRI>
+        <Literal>Used to represent an Array, which is an unordered collection of elements. Elements can be associated with the array via the elementType object property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Association</IRI>
+        <Literal>association</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Association</IRI>
+        <Literal>Represents an association between two data Representations. This mirrors the role of Objectification in the subClass hierarchy of DataConcept.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>/Association</IRI>
+        <Literal>By convention, mork:Association does not collect individual members, but acts as a structural component.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Attribute</IRI>
         <Literal>attribute (representation)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#Attribute</IRI>
+        <IRI>/Attribute</IRI>
         <Literal>is used to denote an attribute in a representation scheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
-        <IRI>#Attribute</IRI>
-        <Literal>Since we cannot easily capture data type constraints as data in OWL, members of this class will usually be &quot;shadowed&quot; by an owl:DataTypeProperty that is generated by a mapping process, against which the range (of possible data types) will be captured.
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#historyNote"/>
+        <IRI>/Attribute</IRI>
+        <Literal>Since we cannot easily capture data type constraints as data in OWL, members of this class will usually be &quot;shadowed&quot; by an owl:DataTypeProperty that is generated by a mapping process, against which the range (of possible data types) will be captured. 
 
-The individual Attribute will then be marked as the same individual as the generated owl:DataTypeProperty using the owl:sameAs axiom.</Literal>
+The individual Attribute will then be marked as relating to the generated owl:DataTypeProperty using either the owl:sameAs axiom, or and rdfs:seeAlso annotation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#DataConcept</IRI>
+        <IRI>/Collection</IRI>
+        <Literal>collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Collection</IRI>
+        <Literal>Used to represent a collection of elements, such as a list or array.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/CollectionElement</IRI>
+        <Literal>collection element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/CollectionElement</IRI>
+        <Literal>Used to describe the membership of elements within a collection.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Composition</IRI>
+        <Literal>composition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Composition</IRI>
+        <Literal>Is used to represent a compositional association between two Representation elements. This carries the semantics that the object in a subject-predicate-object triple, should not be present in an object graph without the presence of a correponding element representing the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/DataConcept</IRI>
         <Literal>data concept</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#DataConcept</IRI>
-        <Literal>An abstract description of a concept, representing a concept that has been mapped to a representation and ontology scheme.</Literal>
+        <IRI>/DataConcept</IRI>
+        <Literal>An abstract description of a concept, representing a concept to be mapped to a representation and/or ontology scheme.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#DataConcept</IRI>
-        <Literal>Data concepts are derived from a representation scheme and mapped to an ontological scheme.</Literal>
+        <IRI>/DataConcept</IRI>
+        <Literal>DataConcepts are derived from a representation scheme and mapped to an ontological scheme. An individual can be both a Representation and a DataConcept.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#DataMapping</IRI>
+        <IRI>/DataMapping</IRI>
         <Literal>Usually a DataMapping will provide some skos:note annotation explaining the logic behind the mapping. Optionally, mapping properties may be annotated to provide additional logical explanations.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#DataMapping</IRI>
+        <IRI>/DataMapping</IRI>
         <Literal>data mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#DataMapping</IRI>
-        <Literal>is used to capture a mapping between concepts from a representation scheme to an ontological scheme</Literal>
+        <IRI>/DataMapping</IRI>
+        <Literal>is used to capture a mapping between concepts from a representation and/or concept scheme to an ontological scheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Datum</IRI>
-        <Literal>The need to individuate a datum (described by a TaxonomyScheme, provided via a RepresentationScheme) in an OntologicalScheme is perhaps implied, however when the individuation requires complex mapping steps then specificity becomes important. 
+        <IRI>/Datum</IRI>
+        <Literal>The need to individuate a datum (described by a TaxonomyScheme, provided via a RepresentationScheme) in an OntologicalScheme is implied by the existence of a DataMapping, however when individuation of a DataConcept requires complex mapping steps, specificity becomes important. 
 
 In the skos:example attached to compositeNarrowerMapping provides an example of this.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Datum</IRI>
+        <IRI>/Datum</IRI>
         <Literal>datum mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
-        <IRI>#Datum</IRI>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/Datum</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#Datum</IRI>
+        <IRI>/Datum</IRI>
         <Literal>defines a mapping that explicitly states a datum must be individuated in a target OntologicalScheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#Datum</IRI>
+        <IRI>/Datum</IRI>
         <Literal>Due to the equivalence class for Datum, an individual that is bound to an extant owl:Thing via a skos:mappingRelation MUST hold a reference back to itself via the deferredMapping object property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:deprecated"/>
+        <IRI>/Digraph</IRI>
+        <Literal>Use compositeBroaderMapping and compositeNarrowerMapping instead.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Entity</IRI>
+        <IRI>/Entity</IRI>
         <Literal>entity (representation)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>/Entity</IRI>
+        <IRI>/identifier</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#Entity</IRI>
-        <Literal>is used to denote an entity in a representation scheme</Literal>
+        <IRI>/Entity</IRI>
+        <Literal>Is used to denote an entity in a representation scheme. An Entity will usually be marked with it&apos;s identify in some originating representation scheme using the identifier datatype property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#JSON</IRI>
+        <IRI>/JSON</IRI>
         <Literal>https://datatracker.ietf.org/doc/html/rfc7159.html</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#MappingScheme</IRI>
+        <IRI>/MappingScheme</IRI>
         <Literal>mapping scheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#MappingScheme</IRI>
+        <IRI>/MappingScheme</IRI>
         <Literal>a scheme that captures mappings between concepts, from a RepresentationScheme to an OntologicalScheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Membership</IRI>
+        <Literal>membership</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Membership</IRI>
+        <Literal>Conceptual representation of the notion of &quot;membership&quot; within some containing Representation element.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>/Membership</IRI>
+        <Literal>By convention, individuals should not made direct members of this class, but rather belong to its subclasses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
-        <IRI>#Objectification</IRI>
+        <IRI>/Objectification</IRI>
         <Literal>RoleAssociation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#Objectification</IRI>
+        <IRI>/Objectification</IRI>
         <Literal>Represents an &quot;objectified fact&quot; relating two DataConcepts to one another with a specific set of roles in mind.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-        <IRI>#Objectification</IRI>
-        <Literal>See https://www.orm.net/pdf/objectification.pdf</Literal>
+        <IRI>/Objectification</IRI>
+        <Literal>An Objectification allows instances of relationships to be treated as entities in their own right, sometimes referred to as “reification” (e.g., in UML, mediated mediated by association classes), “objectification”, or “nesting”, e.g., in Object-Role Modeling (ORM) notation.
+
+Objectification is related to the linguistic activity of nominalization. In the context of Mork, an Objectification plays a similar role to an association class (in UML), insomuch as RDF does not allow us to attribute facts (i.e., properties) to the edges between nodes in the graph, therefore an intermediate node serves to allow us to capture the notion of &quot;relatedness&quot; in such a way that it can be mapped.
+
+See Terry Halpin&apos;s paper on objectified facts for more details: https://www.orm.net/pdf/objectification.pdf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>/Objectification</IRI>
+        <Literal>### Consider the following Objectification and associated mapping.
+### The closeMatch on &apos;contract:signatory&apos; points to an objectProperty 
+### in the target ontology, with annotations on the property providing context
+### to the mapping recommendation
+
+:Concept_Conditions_CombinedLimitSymbols 
+                 rdf:type owl:NamedIndividual,
+                 mork:Objectification ; 
+           mork:broadConceptRole :Rep_Conditions ;
+           mork:conceptScheme :Taxa_Scheme ; 
+           mork:narrowConceptRole :Rep_CombinedLimitSymbols ;
+           skos:note &quot;Models an association between Rep_Conditions and the attribute combinedLimitSymbols, which is represented by Rep_CombinedLimitSymbols&quot; .
+
+:Mapping_Signatories 
+                 rdf:type owl:NamedIndividual, mork:DataMapping ;
+           skos:closeMatch contract:signatory ;
+           mork:mappingScheme :Scheme_Map_Contracts ;
+           mork:weighting 80 ;
+           skos:note &quot;signatories may be related to the ontological concept signatory&quot; .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Signatories ;
+   owl:annotatedProperty skos:closeMatch ;
+   owl:annotatedTarget contract:signatory ;
+   skos:note &quot;close match on &apos;signatories&apos; and owl:objectProperty &apos;signatory&apos;&quot;
+ ] .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OntologicalScheme</IRI>
+        <IRI>/OntologicalScheme</IRI>
         <Literal>ontological scheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#OwlAxiom</IRI>
-        <Literal>For processing environments where attaching skos:relatedMapping to owl:Thing is not possible, each axiom in the OntologicalScheme will be connected to an assertion of this type via the owl:sameAs mechanism.
+        <IRI>/OwlAxiom</IRI>
+        <Literal>For processing environments where objectProperties cannot refer to an arbitrary owl:Thing is not possible, each axiom in the OntologicalScheme will be connected to an assertion of this type via the owl:sameAs mechanism.
 
 Can also be used to instantiate individual members of this class that represent owl:Nothing (which is a problematic assertion in most processing environments).
 
@@ -1148,201 +1296,276 @@ It is recommended that each member of this class also uses the rdfs:seeAlso anno
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OwlAxiom</IRI>
+        <IRI>/OwlAxiom</IRI>
         <Literal>owl axiom</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#OwlAxiom</IRI>
+        <IRI>/OwlAxiom</IRI>
         <Literal>used to denote an axiom in an OWL ontology</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>/OwlAxiom</IRI>
+        <Literal>###  Mapping between the concept Signatory_acceptingParty and an objectProperty 
+###  in the target ontology (acceptingParty), met via Onto_Assoc_Contract_acceptingParty
+###  since placing an instance of owl:ObjectProperty in the object position of an RDF 
+###  triple is disallowed by some processing environments (e.g., owlapi).
+###
+###  Note that we mark Onto_Assoc_Contract_acceptingParty as representing acceptingParty
+###  via the owl:sameAs construct.
+###
+
+:Map_Signatory_acceptingParty rdf:type owl:NamedIndividual ;
+              skos:relatedMatch Onto_Assoc_Contract_acceptingParty ;
+              mork:hypothesisMapping :Map_Signatory_Party ;
+              mork:mappingScheme :Scheme_Map_Contracts .
+
+:Onto_Assoc_Contract_acceptingParty 
+                       rdf:type owl:NamedIndividual, 
+                       mork:OwlObjectProperty ;
+              owl:sameAs &lt;http://www.nebularis.org/hyperthunk/examples/Contract#acceptingParty&gt; ;
+              mork:conceptName &quot;acceptingParty&quot; ;
+              mork:iri &quot;http://www.nebularis.org/hyperthunk/examples/Contract/acceptingParty&quot; ;
+              mork:ontologicalScheme :Scheme_Onto_Contracts .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#OwlAxiom</IRI>
+        <IRI>/OwlAxiom</IRI>
         <Literal>The OwlAxiom members of an OntologicalScheme are not interrelated using skos notation, since that information is already present in the ontology itself.
 
-Rather, the behaviour when mapping data into (and out of) an OntologicalScheme is captured by each DataMapping that where ?mappping skos:inScheme :MappingScheme</Literal>
+Rather, the behaviour when mapping data into (and out of) an OntologicalScheme is captured by each DataMapping such that ?mappping skos:inScheme :MappingScheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Representation</IRI>
+        <IRI>/OwlClass</IRI>
+        <Literal>owl class</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/OwlClass</IRI>
+        <Literal>Represents an OWL Class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/OwlDataProperty</IRI>
+        <Literal>owl data property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/OwlDataProperty</IRI>
+        <Literal>Represents an OWL DataProperty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/OwlObjectProperty</IRI>
+        <Literal>owl object property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/OwlObjectProperty</IRI>
+        <Literal>Represents an OWL ObjectProperty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Representation</IRI>
         <Literal>representation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/Representation</IRI>
+        <Literal>Is used to describe the representation of a DataConcept. Some individuals may be both DataConcept and Representation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#RepresentationScheme</IRI>
+        <IRI>/RepresentationScheme</IRI>
         <Literal>representation scheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#RepresentationScheme</IRI>
+        <IRI>/RepresentationScheme</IRI>
         <Literal>a scheme that maps concepts to their representation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#WeightedMatch</IRI>
+        <IRI>/ScalarValueElement</IRI>
+        <Literal>scalar value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>/ScalarValueElement</IRI>
+        <Literal>scalar collection element value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/ScalarValueElement</IRI>
+        <Literal>Used to describe scalar (atomic) values as members of a collection, such as an Array.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/WeightedMatch</IRI>
         <Literal>weighted match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#WeightedMatch</IRI>
+        <IRI>/WeightedMatch</IRI>
         <Literal>is used to score a potential match (between concept taxa and ontological facts)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#WeightedMatch</IRI>
+        <IRI>/WeightedMatch</IRI>
         <Literal>each member of this class may carry skos:note and rdfs:seeAlso that explain the rules used to arrive at the match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#XML</IRI>
+        <IRI>/XML</IRI>
         <Literal>https://www.w3.org/TR/xml/</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#YAML</IRI>
+        <IRI>/YAML</IRI>
         <Literal>https://yaml.org/spec/</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#associativeBroader</IRI>
+        <IRI>/associativeBroader</IRI>
         <Literal>associative broader</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#associativeBroader</IRI>
+        <IRI>/associativeBroader</IRI>
         <Literal>extends skos:broader with the concept of associativity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#associativeNarrower</IRI>
+        <IRI>/associativeNarrower</IRI>
         <Literal>associative narrower</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#associativeNarrower</IRI>
+        <IRI>/associativeNarrower</IRI>
         <Literal>extends skos:narrower with the concept of associativity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#broadABoxCategoryMatch</IRI>
+        <IRI>/broadABoxCategoryMatch</IRI>
         <Literal>has board a-box category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
-        <IRI>#broadABoxCategoryMatch</IRI>
+        <IRI>/broadABoxCategoryMatch</IRI>
         <Literal>has a-box super-category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#broadABoxCategoryMatch</IRI>
+        <IRI>/broadABoxCategoryMatch</IRI>
         <Literal>used to state a mapping link where the subject maps to a broader category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#broadABoxCategoryMatch</IRI>
+        <IRI>/broadABoxCategoryMatch</IRI>
         <Literal>An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
 
 An ABox category match implies the presence of both a TBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the a-box, as described in the domains for this property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#broadTBoxCategoryMatch</IRI>
+        <IRI>/broadTBoxCategoryMatch</IRI>
         <Literal>has broad t-box category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
-        <IRI>#broadTBoxCategoryMatch</IRI>
+        <IRI>/broadTBoxCategoryMatch</IRI>
         <Literal>has t-box super-category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#broadTBoxCategoryMatch</IRI>
+        <IRI>/broadTBoxCategoryMatch</IRI>
         <Literal>used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being in an owl:subclassOf relationship with the object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#broadTBoxCategoryMatch</IRI>
+        <IRI>/broadTBoxCategoryMatch</IRI>
         <Literal>A TBox category must be applied before a datum can be individuated, since it implies the existence of an owl:Class not originally present in an OntologicalScheme. The implication here is that the operation resulting from this axiom is idempotent.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#broaderMapping</IRI>
+        <IRI>/broaderMapping</IRI>
         <Literal>has broader mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#broaderMapping</IRI>
+        <IRI>/broaderMapping</IRI>
         <Literal>Relates a mapping to a mapping that is more general (less specific)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#closeMapping</IRI>
+        <IRI>/closeMapping</IRI>
         <Literal>has close mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#closeMapping</IRI>
+        <IRI>/closeMapping</IRI>
         <Literal>used to link two mappings that are sufficiently similar that they can be used interchangeably in some applications.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#compositeBroader</IRI>
+        <IRI>/compositeBroader</IRI>
         <Literal>composite broader</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#compositeBroader</IRI>
+        <IRI>/compositeBroader</IRI>
         <Literal>extends associativeBroader with the concept of composition (wherein the narrower/composed concept&apos;s existence is conditional upon the broader/composing)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#compositeBroaderMapping</IRI>
+        <IRI>/compositeBroaderMapping</IRI>
         <Literal>has composite broader mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
-        <IRI>#compositeBroaderMapping</IRI>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/compositeBroaderMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#compositeBroaderMapping</IRI>
+        <IRI>/compositeBroaderMapping</IRI>
         <Literal>compositeBroaderMapping is used to compose mappings into a directed acyclic graph. The subject mapping is the component part of the object mapping. This is the inverse of compositeNarrowerMapping.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#compositeNarrower</IRI>
+        <IRI>/compositeNarrower</IRI>
         <Literal>composite narrower</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#compositeNarrower</IRI>
+        <IRI>/compositeNarrower</IRI>
         <Literal>extends associativeBroader with the concept of composition (wherein the narrower/composed concept&apos;s existence is conditional upon the broader/composing)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
         <Literal>A concept in a TaxonomyScheme may well be broken down into multiple axioms when mapped to an OntologicalScheme. In this case, the digraph of mapping instructions can be constructed by relating mappings using this (and its inverse) property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
         <Literal>has composite narrower mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
-        <IRI>#compositeNarrowerMapping</IRI>
-        <IRI>#compositeBroaderMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
+        <IRI>/compositeBroaderMapping</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
         <Literal>compositeNarrowerMapping is used to compose mappings into a directed acyclic graph. The object mapping is the component part of the subject mapping. This is the inverse of compositeBroaderMapping.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
         <Literal>Take some representation scheme, mapped from json: 
 
 {
@@ -1381,62 +1604,82 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#deferredMapping</IRI>
+        <IRI>/conceptId</IRI>
+        <Literal>concept id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/conceptId</IRI>
+        <Literal>Specialises identifier for use in denoting the id of a DataConcept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/deferredMapping</IRI>
         <Literal>has deferred mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#deferredMapping</IRI>
+        <IRI>/deferredMapping</IRI>
         <Literal>used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#digraphMatch</IRI>
+        <IRI>/digraphMatch</IRI>
         <Literal>has digraph match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:deprecated"/>
+        <IRI>/digraphMatch</IRI>
+        <Literal>Use compositeBroaderMapping and compositeNarrowerMapping instead.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#digraphMatch</IRI>
+        <IRI>/digraphMatch</IRI>
         <Literal>is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where one concept is mapped to a directed (sub-)graph of related concepts.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#digraphOf</IRI>
+        <IRI>/digraphOf</IRI>
         <Literal>is digraph match from</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:deprecated"/>
+        <IRI>/digraphOf</IRI>
+        <Literal>Use compositeBroaderMapping and compositeNarrowerMapping instead.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#digraphOf</IRI>
+        <IRI>/digraphOf</IRI>
         <Literal>digraphFrom is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where concepts belong to a directed (sub-)graph that relates back to some parent concept (in another scheme).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#exactMapping</IRI>
+        <IRI>/exactMapping</IRI>
         <Literal>has exact mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#exactMapping</IRI>
+        <IRI>/exactMapping</IRI>
         <Literal>used to link two mappings, indicating a high degree of confidence that they can be used interchangeably across a wide range of applications.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hypothesisMapping</IRI>
+        <IRI>/hypothesisMapping</IRI>
         <Literal>has hypothesis mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
-        <IRI>#hypothesisMapping</IRI>
-        <IRI>#compositeNarrowerMapping</IRI>
+        <IRI>/hypothesisMapping</IRI>
+        <IRI>/compositeNarrowerMapping</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#hypothesisMapping</IRI>
+        <IRI>/hypothesisMapping</IRI>
         <Literal>used to provide a mapping (object) that is being used as a hypothesis in support of the (subject) mapping&apos;s postulated match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
-        <IRI>#hypothesisMapping</IRI>
+        <IRI>/hypothesisMapping</IRI>
         <Literal>A hypothesis mapping can be used to support the weighting for another mapping. Borrowing the &quot;aardvark&quot; datum mapping example from the compositeNarrowerMapping skos:example, we can see the the concept mapping of aardvark_name may rely on the &quot;Aardvark Class&quot; mapping as a hypothesis, since if we have not mapped the axiom for the whole, then the part cannot be mapped either.
 
 :Aardvark rdf:type owl:NamedIndividual ;
@@ -1470,137 +1713,179 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#intransitiveExactMatch</IRI>
+        <IRI>/identifier</IRI>
+        <Literal>identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/identifier</IRI>
+        <Literal>Is used to mark a Representation or DataConcept with an identifier used by some external scheme or schema.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <IRI>/identifier</IRI>
+        <Literal>###  In this example, the &apos;identifier&apos; denotes the JSON element/property name,
+###  whilst the &apos;path&apos; denotes the location in the json document.
+###
+
+:JS_Array_ContractingParties rdf:type owl:NamedIndividual, mork:Array ;
+                   mork:elementType :JS_Elem_ContractingParties ;
+                   mork:identifier &quot;contractingParties&quot; ;
+                   mork:path &quot;contract.signatories.contractingParties&quot; .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/intransitiveExactMatch</IRI>
         <Literal>has (intransitive) exact match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#intransitiveExactMatch</IRI>
+        <IRI>/intransitiveExactMatch</IRI>
         <Literal>intransitive version of skos:exactMatch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#memberProperty</IRI>
+        <IRI>/iri</IRI>
+        <Literal>identifier iri</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/iri</IRI>
+        <Literal>Is used to identify a skos:Concept via a fully qualified IRI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/memberProperty</IRI>
         <Literal>member property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#memberProperty</IRI>
+        <IRI>/memberProperty</IRI>
         <Literal>defines the subject as a component property (i.e., member) of the object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#memberPropertyOf</IRI>
+        <IRI>/memberPropertyOf</IRI>
         <Literal>member property of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#memberPropertyOf</IRI>
+        <IRI>/memberPropertyOf</IRI>
         <Literal>defines the object as a component property (i.e., member) of the subject</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#name</IRI>
+        <IRI>/name</IRI>
         <Literal>composes</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#narrowABoxCategoryMatch</IRI>
+        <IRI>/narrowABoxCategoryMatch</IRI>
         <Literal>has narrow a-box category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
-        <IRI>#narrowABoxCategoryMatch</IRI>
+        <IRI>/narrowABoxCategoryMatch</IRI>
         <Literal>has a-box sub-category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#narrowABoxCategoryMatch</IRI>
+        <IRI>/narrowABoxCategoryMatch</IRI>
         <Literal>used to state a mapping link where the subject maps to a narrower category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#narrowABoxCategoryMatch</IRI>
+        <IRI>/narrowABoxCategoryMatch</IRI>
         <Literal>An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#narrowCategoryMatch</IRI>
+        <IRI>/narrowCategoryMatch</IRI>
         <Literal>has narrow category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#narrowCategoryMatch</IRI>
+        <IRI>/narrowCategoryMatch</IRI>
         <Literal>narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more general) hyperonym and the object is the (more specific) hyponym</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#narrowTBoxCategoryMatch</IRI>
+        <IRI>/narrowTBoxCategoryMatch</IRI>
         <Literal>has narrow t-box match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
-        <IRI>#narrowTBoxCategoryMatch</IRI>
+        <IRI>/narrowTBoxCategoryMatch</IRI>
         <Literal>has t-box sub-category match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#narrowTBoxCategoryMatch</IRI>
+        <IRI>/narrowTBoxCategoryMatch</IRI>
         <Literal>used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being the superclass in an owl:subclassOf relationship with the object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#narrowTBoxCategoryMatch</IRI>
+        <IRI>/narrowTBoxCategoryMatch</IRI>
         <Literal>A TBox category must be applied before a datum can be individuated, since it implies the existence of an owl:Class not originally present in an OntologicalScheme. The implication here is that the operation resulting from this axiom is idempotent.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#narrowerMapping</IRI>
+        <IRI>/narrowerMapping</IRI>
         <Literal>has narrower mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#narrowerMapping</IRI>
+        <IRI>/narrowerMapping</IRI>
         <Literal>Relates a mapping to a mapping that is more specific</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/path</IRI>
+        <Literal>has path</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>/path</IRI>
+        <Literal>Is used to denote a &quot;path expression&quot; that locates a Representation within an externally defined scheme or schema.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#relatedMapping</IRI>
+        <IRI>/relatedMapping</IRI>
         <Literal>These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for mapping relations between mappings, to provide a convenient way to differentiate links within a mapping scheme.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#relatedMapping</IRI>
+        <IRI>/relatedMapping</IRI>
         <Literal>has related mapping</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#relatedMapping</IRI>
+        <IRI>/relatedMapping</IRI>
         <Literal>used to describe a relationships between two potential mappings</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#weightedBroader</IRI>
+        <IRI>/weightedBroader</IRI>
         <Literal>has weighted broader</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#weightedBroader</IRI>
+        <IRI>/weightedBroader</IRI>
         <Literal>used to indicate that the subject has a lower weighting (and thereby is a broader match), compared to the object - this property is the inverse of weightedNarrower</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#weightedNarrower</IRI>
+        <IRI>/weightedNarrower</IRI>
         <Literal>has weighted narrower</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#weightedNarrower</IRI>
-        <Literal>used to indicate that the object has a higher weighting (and thereby is a narrower match), compared to the subject</Literal>
+        <IRI>/weightedNarrower</IRI>
+        <Literal>Used to indicate that the object has a higher weighting (and thereby is a narrower match), compared to the subject. Explicitly means that the object is a more likely match than the subject.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#weighting</IRI>
+        <IRI>/weighting</IRI>
         <Literal>confidence score out of 100</Literal>
     </AnnotationAssertion>
 </Ontology>
