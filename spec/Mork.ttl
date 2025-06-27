@@ -38,7 +38,8 @@
                     rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> ;
                     owl:inverseOf :associativeNarrower ;
                     rdfs:label "associative broader" ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "extends skos:broader with the concept of associativity" .
+                    <http://www.w3.org/2004/02/skos/core#definition> "extends skos:broader with the concept of associativity" ;
+                    <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, associativeBroader is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#associativeNarrower
@@ -77,7 +78,25 @@ An ABox category match implies the presence of both a TBox match (to the object 
 ###  http://www.nebularis.org/ontologies/Mork#broadConceptRole
 :broadConceptRole rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :associativeBroader ;
-                  rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
+                  rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
+                  rdfs:label "has objectified broad concept role" ;
+                  rdfs:seeAlso :Objectification ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Used to model the subject in an Objectification, i.e., a relationship between concepts that must be \"reified\" in order to annotate it, or create associations between the relationship and other concepts." ;
+                  <http://www.w3.org/2004/02/skos/core#scopeNote> """This property is NOT marked as the inverse of narrowConceptRole, since doing so would cause the reasoner to assume that the participants in an Objectification are members of that class.
+
+For situations where such extended reasoning is desireable, broadNavigableConceptRole and its inverse narrowNavigableConceptRole can be used.""" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#broadNavigableConceptRole
+:broadNavigableConceptRole rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :broadConceptRole ;
+                           owl:inverseOf :narrowNavigableConceptRole ;
+                           rdfs:label "has navigable objectified broad concept role" ;
+                           rdfs:seeAlso :Objectification ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "Extends broadConceptRole to model the subject in an Objectification where the participating concepts can be inferred to be members of the Objectification class" ;
+                           <http://www.w3.org/2004/02/skos/core#scopeNote> """This property is the inverse of narrowNavigableConceptRole. The reasoner will assume Individuals related via this property are members of the class Objectification.
+
+For situations where such reasoning is not desireable, use the superProperty broadConceptRole instead.""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#broadTBoxCategoryMatch
@@ -184,7 +203,9 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
 ###  http://www.nebularis.org/ontologies/Mork#conceptScheme
 :conceptScheme rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
-               rdfs:range :TaxonomyScheme .
+               rdfs:range :TaxonomyScheme ;
+               rdfs:label "in concept scheme" ;
+               <http://www.w3.org/2004/02/skos/core#definition> "denotes the subject's membership in the object (TaxonomyScheme)" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#deferredMapping
@@ -236,13 +257,18 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
 :format rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:domain :RepresentationScheme ;
-        rdfs:range :SerializationFormat .
+        rdfs:range :SerializationFormat ;
+        rdfs:label "has format" ;
+        <http://www.w3.org/2004/02/skos/core#definition> "denotes the SerializationFormat used by a RepresentationScheme" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#hasConcept
 :hasConcept rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
-            owl:inverseOf <http://www.w3.org/2004/02/skos/core#inScheme> .
+            owl:inverseOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
+            rdfs:label "has concept" ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "contains concept" ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Denotes the membership of a skos:Concept in a skos:ConceptScheme. This property is the inverse of skos:inScheme" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#hypothesisMapping
@@ -294,7 +320,9 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 ###  http://www.nebularis.org/ontologies/Mork#mappingScheme
 :mappingScheme rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
-               rdfs:range :MappingScheme .
+               rdfs:range :MappingScheme ;
+               rdfs:label "in mapping scheme" ;
+               <http://www.w3.org/2004/02/skos/core#definition> "denotes the subject's membership in the object MappingScheme" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#memberProperty
@@ -350,7 +378,20 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 ###  http://www.nebularis.org/ontologies/Mork#narrowConceptRole
 :narrowConceptRole rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :associativeNarrower ;
-                   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
+                   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
+                   rdfs:label "has objectified narrow concept role" ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Used to model the object in association Objectification, i.e., a relationship between concepts that must be \"reified\" in order to annotate it, or create associations between the relationship and other concepts." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#narrowNavigableConceptRole
+:narrowNavigableConceptRole rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :narrowConceptRole ;
+                            rdfs:label "has navigable objectified narrow concept role" ;
+                            rdfs:seeAlso :Objectification ;
+                            <http://www.w3.org/2004/02/skos/core#definition> "Extends narrowConceptRole to model the object in an Objectification where the participating concepts can be inferred to be members of the Objectification class" ;
+                            <http://www.w3.org/2004/02/skos/core#scopeNote> """This property is the inverse of broadNavigableConceptRole. The reasoner will assume Individuals related via this property are members of the class Objectification.
+
+For situations where such reasoning is not desireable, use the superProperty narrowConceptRole instead.""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#narrowTBoxCategoryMatch
@@ -380,7 +421,9 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 ###  http://www.nebularis.org/ontologies/Mork#ontologicalScheme
 :ontologicalScheme rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
-                   rdfs:range :OntologicalScheme .
+                   rdfs:range :OntologicalScheme ;
+                   rdfs:label "in ontological scheme" ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Denotes the subject membership in an OntologicalScheme. Note that this is designed for use only by inference based on SWRL or SHACL constraints, and should not be used directly (since there is no hint on the Domain)" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#relatedMapping
@@ -401,7 +444,9 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
 ###  http://www.nebularis.org/ontologies/Mork#representationScheme
 :representationScheme rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
-                      rdfs:range :RepresentationScheme .
+                      rdfs:range :RepresentationScheme ;
+                      rdfs:label "in representation scheme" ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "Denotes the subject's membership in the object RepresentationScheme" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#representedAs
