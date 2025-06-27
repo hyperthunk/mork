@@ -914,7 +914,45 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                     rdfs:subClassOf :AnonymousElement ;
                     rdfs:label "scalar value" ;
                     <http://www.w3.org/2004/02/skos/core#altLabel> "scalar collection element value" ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "Used to describe scalar (atomic) values as members of a collection, such as an Array." .
+                    <http://www.w3.org/2004/02/skos/core#definition> "Used to describe scalar (atomic) values as members of a collection, such as an Array." ;
+                    <http://www.w3.org/2004/02/skos/core#example> """###  http://www.nebularis.org/hyperthunk/Mapping#Rep_CombinedLimitSymbols
+:Rep_CombinedLimitSymbols rdf:type owl:NamedIndividual , 
+                                    mork:Array ;
+                          mork:elementType :Rep_CombinedLimitSymbols_Element2147483650 ;
+                          mork:representationOf :Rep_CombinedLimitSymbols ;
+                          mork:representationScheme :Mapping_Representation ;
+                          mork:identifier \"combinedLimitSymbols\" ;
+                          mork:orderedItems \"false\"^^xsd:boolean .
+
+###  http://www.nebularis.org/hyperthunk/Mapping#Rep_CombinedLimitSymbols_Element2147483650
+:Rep_CombinedLimitSymbols_Element2147483650 rdf:type owl:NamedIndividual , 
+                                    mork:ScalarValueElement> ;
+                          mork:representationScheme :Mapping_Representation ;
+                          mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
+                          rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :ScalarValueElement ;
+   owl:annotatedProperty <http://www.w3.org/2004/02/skos/core#example> ;
+   owl:annotatedTarget """###  http://www.nebularis.org/hyperthunk/Mapping#Rep_CombinedLimitSymbols
+:Rep_CombinedLimitSymbols rdf:type owl:NamedIndividual , 
+                                    mork:Array ;
+                          mork:elementType :Rep_CombinedLimitSymbols_Element2147483650 ;
+                          mork:representationOf :Rep_CombinedLimitSymbols ;
+                          mork:representationScheme :Mapping_Representation ;
+                          mork:identifier \"combinedLimitSymbols\" ;
+                          mork:orderedItems \"false\"^^xsd:boolean .
+
+###  http://www.nebularis.org/hyperthunk/Mapping#Rep_CombinedLimitSymbols_Element2147483650
+:Rep_CombinedLimitSymbols_Element2147483650 rdf:type owl:NamedIndividual , 
+                                    mork:ScalarValueElement> ;
+                          mork:representationScheme :Mapping_Representation ;
+                          mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
+                          rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
+   rdfs:comment _:genid69
+ ] .
+
+_:genid69 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
@@ -995,16 +1033,19 @@ rdf:List rdf:type owl:Class .
       rdfs:isDefinedBy "https://yaml.org/spec/" .
 
 
+[ rdfs:comment "Shows an array and its corresponding scalar/atomic element type"
+] .
+
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :OrderedCollection
-                :SetListing
-                :UnorderedCollection
-              )
-] .
+   owl:members ( :OrderedCollection
+                 :SetListing
+                 :UnorderedCollection
+               )
+ ] .
 
 
 [ rdf:type owl:AllDisjointProperties ;
