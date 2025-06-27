@@ -128,6 +128,12 @@
         <ObjectProperty IRI="#broadConceptRole"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#broadNavigableConceptRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#broadRBoxCategoryMatch"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
     </Declaration>
     <Declaration>
@@ -179,16 +185,19 @@
         <ObjectProperty IRI="#hypothesisMapping"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#identityTemplateMapping"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#mappingScheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#memberProperty"/>
+        <ObjectProperty IRI="#memberOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#memberPropertyOf"/>
+        <ObjectProperty IRI="#memberProperty"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
@@ -201,6 +210,12 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#narrowConceptRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#narrowNavigableConceptRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#narrowRBoxCategoryMatch"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
@@ -233,10 +248,19 @@
         <DataProperty IRI="#collectionElementScalarValue"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#conceptFQNameTemplate"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#conceptId"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#conceptName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#conceptNameTemplate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#conceptShortNameTemplate"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#data"/>
@@ -270,6 +294,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#reference"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#template"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#uniqueItems"/>
@@ -617,6 +644,14 @@
         <ObjectProperty IRI="#associativeBroader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#broadNavigableConceptRole"/>
+        <ObjectProperty IRI="#broadConceptRole"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#broadRBoxCategoryMatch"/>
+        <ObjectProperty IRI="#broadCategoryMatch"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectProperty IRI="#broadCategoryMatch"/>
     </SubObjectPropertyOf>
@@ -685,6 +720,10 @@
         <ObjectProperty IRI="#relatedMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#identityTemplateMapping"/>
+        <ObjectProperty IRI="#deferredMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
     </SubObjectPropertyOf>
@@ -693,12 +732,12 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#memberProperty"/>
-        <ObjectProperty IRI="#compositeNarrower"/>
+        <ObjectProperty IRI="#memberOf"/>
+        <ObjectProperty IRI="#compositeBroader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#memberPropertyOf"/>
-        <ObjectProperty IRI="#compositeBroader"/>
+        <ObjectProperty IRI="#memberProperty"/>
+        <ObjectProperty IRI="#compositeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
@@ -715,6 +754,14 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#narrowConceptRole"/>
         <ObjectProperty IRI="#associativeNarrower"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#narrowNavigableConceptRole"/>
+        <ObjectProperty IRI="#narrowConceptRole"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#narrowRBoxCategoryMatch"/>
+        <ObjectProperty IRI="#narrowCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
@@ -765,6 +812,14 @@
         <ObjectProperty IRI="#narrowCategoryMatch"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#broadNavigableConceptRole"/>
+        <ObjectProperty IRI="#narrowNavigableConceptRole"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#broadRBoxCategoryMatch"/>
+        <ObjectProperty IRI="#narrowRBoxCategoryMatch"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
     </InverseObjectProperties>
@@ -789,8 +844,8 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#memberOf"/>
         <ObjectProperty IRI="#memberProperty"/>
-        <ObjectProperty IRI="#memberPropertyOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#representationOf"/>
@@ -800,6 +855,9 @@
         <ObjectProperty IRI="#weightedBroader"/>
         <ObjectProperty IRI="#weightedNarrower"/>
     </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#deferredMapping"/>
+    </SymmetricObjectProperty>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
     </SymmetricObjectProperty>
@@ -811,23 +869,15 @@
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#broadABoxCategoryMatch"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
-                <Class abbreviatedIRI="owl:Thing"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
+        <Class IRI="#DataMapping"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#broadRBoxCategoryMatch"/>
+        <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#exactTBoxMatch"/>
-                <Class abbreviatedIRI="owl:Thing"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
+        <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#digraphOf"/>
@@ -843,23 +893,11 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
-                <Class abbreviatedIRI="owl:Thing"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
+        <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#DataMapping"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#exactTBoxMatch"/>
-                <Class abbreviatedIRI="owl:Thing"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
+        <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#relatedMapping"/>
@@ -890,13 +928,6 @@
         <Class IRI="#MappingScheme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#missingOrUnrelatedMatch"/>
-            <NamedIndividual IRI="#OwlNothing"/>
-        </ObjectHasValue>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#narrowConceptRole"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
@@ -918,6 +949,10 @@
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#conceptFQNameTemplate"/>
+        <DataProperty IRI="#conceptNameTemplate"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#conceptId"/>
         <DataProperty IRI="#identifier"/>
     </SubDataPropertyOf>
@@ -928,6 +963,14 @@
     <SubDataPropertyOf>
         <DataProperty IRI="#conceptName"/>
         <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#conceptNameTemplate"/>
+        <DataProperty IRI="#template"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#conceptShortNameTemplate"/>
+        <DataProperty IRI="#conceptNameTemplate"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#data"/>
@@ -972,6 +1015,10 @@
     <SubDataPropertyOf>
         <DataProperty IRI="#reference"/>
         <DataProperty IRI="#identifier"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#template"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#uniqueItems"/>
@@ -1460,6 +1507,11 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
         <Literal>extends skos:broader with the concept of associativity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#associativeBroader</IRI>
+        <Literal>By convention, associativeBroader is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#associativeNarrower</IRI>
         <Literal>associative narrower</Literal>
@@ -1468,6 +1520,11 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#associativeNarrower</IRI>
         <Literal>extends skos:narrower with the concept of associativity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#associativeNarrower</IRI>
+        <Literal>By convention, associativeNarrower is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1482,14 +1539,116 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#broadABoxCategoryMatch</IRI>
-        <Literal>used to state a mapping link where the subject maps to a broader category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)</Literal>
+        <Literal>Used to state a mapping link where the subject maps to a broader category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme).
+
+The A-Box (or Assertional Box) contains assertions (or facts) about individuals within the domain.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#broadABoxCategoryMatch</IRI>
+        <Literal>###  http://www.example.org/Risks#isSubcategoryOf
+:isSubcategoryOf rdf:type owl:ObjectProperty .
+
+###  http://www.example.org/Risks#RegulatoryRisk
+:RegulatoryRisk rdf:type owl:NamedIndividual, 
+          :Risk .
+
+###  http://www.example.org/Risks#PCIDSS
+:PCIDSS rdf:type owl:NamedIndividual ,
+            skos:note &quot;Hyperonymic relation via A-Box object property&quot; ;
+            rdfs:comment &quot;we want to instantiate an axiom `:isSubcategoryOf :RegulatoryRisk&apos; here&quot; .
+
+###  http://www.example.org/Mapping#RegulatoryRiskMapping
+:RegulatoryRiskMapping rdf:type owl:NamedIndividual ,
+                      mork:DataMapping ;
+            mork:identifier &quot;RegulatoryRisk&quot; ;
+            mork:exactTBoxMatch risk:Risk .
+
+###  http://www.example.org/Mapping#PciDssMapping
+:PciDssMapping rdf:type owl:NamedIndividual ,
+                      mork:DataMapping ;
+            rdfs:comment &quot;the following statements assert the desired axiom for PCIDSS, viz `isSubcategoryOf :RegulatoryRisk&apos;&quot; ;
+            mork:exactTBoxMatch risk:Risk ;
+            mork:broadRBoxCategoryMatch risk:isSubcategoryOf ;
+            mork:broadABoxCategoryMatch risk:RegulatoryRisk .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
         <IRI>#broadABoxCategoryMatch</IRI>
         <Literal>An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
 
-An ABox category match implies the presence of both a TBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the a-box, as described in the domains for this property.</Literal>
+An ABox category match implies the presence of both a RBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the A-box. This is not described in the domains for this property, since such constraints are better expressed as SWRL/SHACL constraints.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#broadCategoryMatch</IRI>
+        <Literal>has broad category match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#broadCategoryMatch</IRI>
+        <Literal>A broadCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more specific) hyponym, and the object is the (more general) hyperonym.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#broadConceptRole</IRI>
+        <Literal>has objectified broad concept role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#broadConceptRole</IRI>
+        <IRI>#Objectification</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#broadConceptRole</IRI>
+        <Literal>Used to model the subject in an Objectification, i.e., a relationship between concepts that must be &quot;reified&quot; in order to annotate it, or create associations between the relationship and other concepts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#broadConceptRole</IRI>
+        <Literal>This property is NOT marked as the inverse of narrowConceptRole, since doing so would cause the reasoner to assume that the participants in an Objectification are members of that class.
+
+For situations where such extended reasoning is desireable, broadNavigableConceptRole and its inverse narrowNavigableConceptRole can be used.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#broadNavigableConceptRole</IRI>
+        <Literal>has navigable objectified broad concept role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#broadNavigableConceptRole</IRI>
+        <IRI>#Objectification</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#broadNavigableConceptRole</IRI>
+        <Literal>Extends broadConceptRole to model the subject in an Objectification where the participating concepts can be inferred to be members of the Objectification class</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#broadNavigableConceptRole</IRI>
+        <Literal>This property is the inverse of narrowNavigableConceptRole. The reasoner will assume Individuals related via this property are members of the class Objectification.
+
+For situations where such reasoning is not desireable, use the superProperty broadConceptRole instead.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#broadRBoxCategoryMatch</IRI>
+        <Literal>has broad r-box category match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#broadRBoxCategoryMatch</IRI>
+        <IRI>#Objectification</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#broadRBoxCategoryMatch</IRI>
+        <Literal>Used to state a mapping link where the subject maps to a broader category of relationship (i.e., the more specific relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
+
+The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1504,7 +1663,9 @@ An ABox category match implies the presence of both a TBox match (to the object 
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#broadTBoxCategoryMatch</IRI>
-        <Literal>used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being in an owl:subclassOf relationship with the object</Literal>
+        <Literal>Used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being in an owl:subclassOf relationship with the object.
+
+The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
@@ -1532,6 +1693,13 @@ An ABox category match implies the presence of both a TBox match (to the object 
         <Literal>used to link two mappings that are sufficiently similar that they can be used interchangeably in some applications.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#collectionElementScalarValue</IRI>
+        <Literal>Not for external use. This datatype property is used as a placeholder super-property for generated owl:DataTypeProperty axioms which are used to hold the rdfs/xsd range for individuals in the Attribute and ScalarValueElement classes.
+
+This specific property is exclusively used to manage Objectification.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#compositeBroader</IRI>
         <Literal>composite broader</Literal>
@@ -1539,7 +1707,7 @@ An ABox category match implies the presence of both a TBox match (to the object 
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#compositeBroader</IRI>
-        <Literal>extends associativeBroader with the concept of composition (wherein the narrower/composed concept&apos;s existence is conditional upon the broader/composing)</Literal>
+        <Literal>Extends associativeBroader with the concept of composition, wherein the object&apos;s existence is semantically conditional upon the subject&apos;s. This property is the inverse of compositeNarrower.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1557,6 +1725,11 @@ An ABox category match implies the presence of both a TBox match (to the object 
         <Literal>compositeBroaderMapping is used to compose mappings into a directed acyclic graph. The subject mapping is the component part of the object mapping. This is the inverse of compositeNarrowerMapping.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#compositeBroaderMapping</IRI>
+        <Literal>See compositeNarrowerMapping for an example</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#compositeNarrower</IRI>
         <Literal>composite narrower</Literal>
@@ -1564,7 +1737,7 @@ An ABox category match implies the presence of both a TBox match (to the object 
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#compositeNarrower</IRI>
-        <Literal>extends associativeBroader with the concept of composition (wherein the narrower/composed concept&apos;s existence is conditional upon the broader/composing)</Literal>
+        <Literal>Extends associativeNarrower with the concept of composition, wherein the subject&apos;s existence is semantically conditional upon the object&apos;s. This property is the inverse of compositeBroader.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1596,34 +1769,34 @@ An ABox category match implies the presence of both a TBox match (to the object 
     &quot;aardvarkSex&quot;: &quot;M&quot;
 }
 
-This will yield two attributes, to which we will map three concepts in a concept scheme: aardvark, aardvark_name, and aardvark_sex.
+This will yield two attributes, to which we will map three concepts in a concept scheme: aardvark, aardvark_Name, and aardvark_Sex.
 
 In our ontology, we may wish to model aardvark within the t-box of the ontology:
 
 :Aardvark rdf:type owl:Class;
             rdfs:subClassOf :Animal .
 
-In this case, an input datum for aardvark will require that we define an individual as a member of that class before individuating the input record such that DataTypeProperty assertions can be matched in order to store the name and sex of the animal.
+In this case, an input datum for aardvark will require that we define the class first, then assert a new individual which is a member of said class, before we can manage the input record by making DataTypeProperty assertions against the name and sex of the newly individuated animal.
 
-Or indeed we might be required to model this by relating our new individual to some other fact within the a-box, adding meaning via object properties or annotations, eg:
+Or indeed we might be required to model this by relating our new individual to some other fact within the a-box, adding meaning via object properties or annotations, e.g., using skos:
 
 :Aardvark rdf:type owl:NamedIndividual ;
            &lt;http://www.w3.org/2004/02/skos/core#narrowerTransitive&gt; :Animal .
 
-In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme.
+In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme. The following example snippet (Turtle) positions the Aardvark concept in the T-Box of that target ontology, with subsequent individuals assigned to said class. Note the use of deferredMapping here, such that the class is composed of individuals, however the individuals cannot be asserted to belong to the class until it exists.
 
 :MapAardvarkClass rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            broadTBoxCategoryMatch ont:Animal ;
-            compositeNarrowerMapping :MapAardvarkIndividual ;
-            conceptName &quot;Aardvark&quot; .
+            rdfs:subClassOf mork:DataMapping ;
+            mork:broadTBoxCategoryMatch ont:Animal ; 
+            mork:compositeNarrowerMapping :MapAardvarkIndividual ;
+            mork:conceptName &quot;Aardvark&quot; .
 
 :MapAardvarkIndividual rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:Datum ;
-            datarep:deferredMapping :MapAardvarkClass ;
-            iri &quot;http://example.org/Animals/NewAardvark&quot; .
+            rdfs:subClassOf mork:Datum ;
+            mork:deferredMapping :MapAardvarkClass ;
+            mork:compositeNarrowerMapping :MapAardvarkName, :MapAardvarkSex .
 
-Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.</Literal>
+Subsequent mappings (for name and sex) may rely on these mappings as a hypothesis.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1636,6 +1809,26 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
         <Literal>Specialises identifier for use in denoting the id of a DataConcept</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#conceptNameTemplate</IRI>
+        <Literal>Template for a concept name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#conceptNameTemplate</IRI>
+        <Literal>:Subject mork:conceptNameTemplate &quot;Item{$name}&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#conceptScheme</IRI>
+        <Literal>in concept scheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#conceptScheme</IRI>
+        <Literal>denotes the subject&apos;s membership in the object (TaxonomyScheme)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#deferredMapping</IRI>
         <Literal>has deferred mapping</Literal>
@@ -1643,7 +1836,7 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#deferredMapping</IRI>
-        <Literal>used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome</Literal>
+        <Literal>Used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome. This can be used, for example, to ensure that individuals which belong to an owl:Class are processed only after the class axiom has been asserted.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1677,6 +1870,16 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#elementType</IRI>
+        <Literal>element type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#elementType</IRI>
+        <Literal>Specialises compositeNarrower with a particular semantics for describing the type of elements within a Collection. The domain and range for this property assertions provide an explicit hint to the reasoner as such.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#exactMapping</IRI>
         <Literal>has exact mapping</Literal>
     </AnnotationAssertion>
@@ -1684,6 +1887,48 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#exactMapping</IRI>
         <Literal>used to link two mappings, indicating a high degree of confidence that they can be used interchangeably across a wide range of applications.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#exactTBoxMatch</IRI>
+        <Literal>exact T-Box match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#exactTBoxMatch</IRI>
+        <Literal>Used to indicate an exact match to an element in the T-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box).
+
+The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#externalPropertyValue</IRI>
+        <Literal>Not for external use. This datatype property is used as a placeholder super-property for generated owl:DataTypeProperty axioms which are used to hold the rdfs/xsd range for individuals in the Attribute class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#format</IRI>
+        <Literal>has format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#format</IRI>
+        <Literal>denotes the SerializationFormat used by a RepresentationScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasConcept</IRI>
+        <Literal>has concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#altLabel"/>
+        <IRI>#hasConcept</IRI>
+        <Literal>contains concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#hasConcept</IRI>
+        <Literal>Denotes the membership of a skos:Concept in a skos:ConceptScheme. This property is the inverse of skos:inScheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1706,31 +1951,31 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
         <Literal>A hypothesis mapping can be used to support the weighting for another mapping. Borrowing the &quot;aardvark&quot; datum mapping example from the compositeNarrowerMapping skos:example, we can see the the concept mapping of aardvark_name may rely on the &quot;Aardvark Class&quot; mapping as a hypothesis, since if we have not mapped the axiom for the whole, then the part cannot be mapped either.
 
 :Aardvark rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataConcept ;
-            datarep:conceptScheme :Animals_Taxo ;
+            rdfs:subClassOf mork:DataConcept ;
+            mork:conceptScheme :Animals_Taxo ;
             skos:closeMatch :MapAardvarkClass ;
-            datarep:compositeNarrower :Aardvark_Name .
+            mork::compositeNarrower :Aardvark_Name .
 
 :Aardvark_Name rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataConcept ;
-            datarep:conceptScheme :Animals_Taxo ;
-            datarep:compositeBroader :Aardvark ;
+            rdfs:subClassOf mork:DataConcept ;
+            mork:conceptScheme :Animals_Taxo ;
+            mork:compositeBroader :Aardvark ;
             skos:closeMatch :MapAardvark_Name .
 
 :MapAardvark_Name rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            datarep:hypothesisMapping :MapAardvarkClass ;
+            rdfs:subClassOf mork:DataMapping ;
+            mork:hypothesisMapping :MapAardvarkClass ;
             skos:closeMatch :Ont_prop_Animal_Name .
 
 :MapAardvarkClass rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            broadClassMatch ont:Animal ;
-            compositeNarrowerMapping :MapAardvarkIndividual ;
-            conceptName &quot;Aardvark&quot; .
+            rdfs:subClassOf mork:DataMapping ;
+            mork:broadClassMatch ont:Animal ;
+            mork:compositeNarrowerMapping :MapAardvarkIndividual ;
+            mork:conceptName &quot;Aardvark&quot; .
 
 :MapAardvarkIndividual rdf:type owl:NamedIndividual ;
             rdfs:subClassOf datarep:Datum ;
-            iri &quot;http://example.org/Animals/NewAardvark&quot; .
+            mork:deferredMapping :MapAardvarkClass .
 
 This is a somewhat unnecessary hypothesis, since it is assumed that a processing logic would traverse the concept scheme for the taxa and fail the parent (aardvark) mapping before arriving at its component properties, however it provides an illustration of the use of this construct.</Literal>
     </AnnotationAssertion>
@@ -1757,6 +2002,16 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                    mork:path &quot;contract.signatories.contractingParties&quot; .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#identityTemplateMapping</IRI>
+        <Literal>Used to indicate a deferredMapping (which this is a sub-object-property of) between the subject and some object(s) upon which individual of the subject is dependent upon. Unlike deferredMapping, this property is not symmetric.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#identityTemplateMapping</IRI>
+        <Literal>Aardvark is identified by its &apos;name&apos; property, and thus we must process the &apos;name&apos; mapping first and use the outcome of this mapping to determine the correct IRI/identity for each individual aardvark we come across.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#intransitiveExactMatch</IRI>
         <Literal>has (intransitive) exact match</Literal>
@@ -1764,7 +2019,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#intransitiveExactMatch</IRI>
-        <Literal>intransitive version of skos:exactMatch</Literal>
+        <Literal>This is an intransitive version of skos:exactMatch. It is used to indicate what we believe to be a semantically exact match between concepts in different concept schemes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1778,23 +2033,64 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#mappingScheme</IRI>
+        <Literal>in mapping scheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#mappingScheme</IRI>
+        <Literal>denotes the subject&apos;s membership in the object MappingScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#memberOf</IRI>
+        <Literal>member property of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#memberOf</IRI>
+        <IRI>#memberProperty</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#memberOf</IRI>
+        <Literal>Defines the object as a component property (i.e., member) of the subject, primarily to describe Representation elements using a clear vocabulary. This property is the inverse of memberProperty.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#memberProperty</IRI>
         <Literal>member property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#memberProperty</IRI>
-        <Literal>defines the subject as a component property (i.e., member) of the object</Literal>
+        <Literal>Defines the subject as a component property (i.e., member) of the object. This specialisation of compositeNarrower provides a clear vocabulary for describing member properties (i.e., associations via property) within Representation schemes.
+
+Note that memberProperty is both asymmetric and irreflexive.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#memberProperty</IRI>
+        <Literal>###  http://www.nebularis.org/hyperthunk/Mapping#Rep_Issuer
+:Rep_Issuer rdf:type owl:NamedIndividual ,
+                     mork:DataConcept ,
+                     mork:Entity ;
+            mork:conceptScheme :Mapping_Taxa ;
+            mork:memberProperty :Rep_IssuerID ;
+            mork:representationOf :Rep_Issuer ;
+            mork:representationScheme :Mapping_Representation ;
+            mork:identifier &quot;issuer&quot; ;
+            skos:note &quot;Individual Representation Rep_Issuer&quot; .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#memberPropertyOf</IRI>
-        <Literal>member property of</Literal>
+        <IRI>#missingOrUnrelatedMatch</IRI>
+        <Literal>missing or unrelated match</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <IRI>#memberPropertyOf</IRI>
-        <Literal>defines the object as a component property (i.e., member) of the subject</Literal>
+        <AnnotationProperty abbreviatedIRI="owl:deprecated"/>
+        <IRI>#missingOrUnrelatedMatch</IRI>
+        <Literal>Do not use</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -1814,12 +2110,16 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#narrowABoxCategoryMatch</IRI>
-        <Literal>used to state a mapping link where the subject maps to a narrower category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme)</Literal>
+        <Literal>Used to state a mapping link where the subject maps to a narrower category via object-property link to an individual that represents the Hyperonym (i.e., the more specific thing in the A-Box of the mapped concept scheme).
+
+The A-Box (or Assertional Box) contains assertions (or facts) about individuals within the domain.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
         <IRI>#narrowABoxCategoryMatch</IRI>
-        <Literal>An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.</Literal>
+        <Literal>An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
+
+An ABox category match implies the presence of both a TBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the a-box, as described in the domains for this property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1829,7 +2129,56 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#narrowCategoryMatch</IRI>
-        <Literal>narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more general) hyperonym and the object is the (more specific) hyponym</Literal>
+        <Literal>A narrowCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more general) hyperonym and the object is the (more specific) hyponym.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#narrowConceptRole</IRI>
+        <Literal>has objectified narrow concept role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#narrowConceptRole</IRI>
+        <Literal>Used to model the object in association Objectification, i.e., a relationship between concepts that must be &quot;reified&quot; in order to annotate it, or create associations between the relationship and other concepts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#narrowNavigableConceptRole</IRI>
+        <Literal>has navigable objectified narrow concept role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#narrowNavigableConceptRole</IRI>
+        <IRI>#Objectification</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#narrowNavigableConceptRole</IRI>
+        <Literal>Extends narrowConceptRole to model the object in an Objectification where the participating concepts can be inferred to be members of the Objectification class</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#narrowNavigableConceptRole</IRI>
+        <Literal>This property is the inverse of broadNavigableConceptRole. The reasoner will assume Individuals related via this property are members of the class Objectification.
+
+For situations where such reasoning is not desireable, use the superProperty narrowConceptRole instead.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#narrowRBoxCategoryMatch</IRI>
+        <Literal>has narrow r-box category match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#narrowRBoxCategoryMatch</IRI>
+        <IRI>#Objectification</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#narrowRBoxCategoryMatch</IRI>
+        <Literal>Used to state a mapping link where the subject maps to a narrower category of relationship (i.e., the more general relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
+
+The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1844,7 +2193,9 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#narrowTBoxCategoryMatch</IRI>
-        <Literal>used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being the superclass in an owl:subclassOf relationship with the object</Literal>
+        <Literal>Used to define a hyperonymic, categorical relationship between concepts in different concept schemes, specifically modelling the subject as being the superclass in an owl:subclassOf relationship with the object.
+
+The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
@@ -1863,6 +2214,16 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ontologicalScheme</IRI>
+        <Literal>in ontological scheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#ontologicalScheme</IRI>
+        <Literal>Denotes the subject membership in an OntologicalScheme. Note that this is designed for use only by inference based on SWRL or SHACL constraints, and should not be used directly (since there is no hint on the Domain)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#path</IRI>
         <Literal>has path</Literal>
     </AnnotationAssertion>
@@ -1874,7 +2235,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#relatedMapping</IRI>
-        <Literal>These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for mapping relations between mappings, to provide a convenient way to differentiate links within a mapping scheme.</Literal>
+        <Literal>These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for describing the semantic and structural relationships between mappings, to provide a convenient way to differentiate links within a mapping scheme from links between different schemes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1885,6 +2246,51 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#relatedMapping</IRI>
         <Literal>used to describe a relationships between two potential mappings</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#representationOf</IRI>
+        <Literal>is representation of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#representationOf</IRI>
+        <IRI>#DataConcept</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#representationOf</IRI>
+        <IRI>#Representation</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#representationOf</IRI>
+        <Literal>Used to indicate that a Representation can be used for a given DataConcept. NB: it is perfectly reasonable for an individual to belong to both the Representation and DataConcept classes, therefore this property can be used by an individual to refer to itself.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#representationScheme</IRI>
+        <Literal>in representation scheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#representationScheme</IRI>
+        <Literal>Denotes the subject&apos;s membership in the object RepresentationScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#representedAs</IRI>
+        <Literal>is represented as</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#representedAs</IRI>
+        <Literal>Used to describe one of the (potentially multiple) Representations of a DataConcept. This property is the inverse of representationOf.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#template</IRI>
+        <Literal>used to store templates for the generation of identifiers within a merged graph</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1915,6 +2321,11 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <AnonymousIndividual nodeID="_:genid-e39c75d4-5074-4735-b4e6-fb15aba0e91a"/>
         <Literal>Shows an Array and its corresponding element type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AnonymousIndividual nodeID="_:genid-f1d05c70-c843-4ce4-a252-779635647610"/>
+        <Literal>Shows an array and its corresponding scalar/atomic element type</Literal>
     </AnnotationAssertion>
 </Ontology>
 

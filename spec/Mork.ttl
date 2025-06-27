@@ -403,7 +403,8 @@ Note that memberProperty is both asymmetric and irreflexive.""" ;
 ###  http://www.nebularis.org/ontologies/Mork#missingOrUnrelatedMatch
 :missingOrUnrelatedMatch rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
-                         rdfs:label "missing or unrelated match" .
+                         rdfs:label "missing or unrelated match" ;
+                         owl:deprecated "Do not use" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#narrowABoxCategoryMatch
