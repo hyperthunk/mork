@@ -46,7 +46,8 @@
 :associativeNarrower rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrower> ;
                      rdfs:label "associative narrower" ;
-                     <http://www.w3.org/2004/02/skos/core#definition> "extends skos:narrower with the concept of associativity" .
+                     <http://www.w3.org/2004/02/skos/core#definition> "extends skos:narrower with the concept of associativity" ;
+                     <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, associativeNarrower is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#broadABoxCategoryMatch
@@ -137,7 +138,7 @@ For situations where such reasoning is not desireable, use the superProperty bro
                   rdfs:subPropertyOf :associativeBroader ;
                   owl:inverseOf :compositeNarrower ;
                   rdfs:label "composite broader" ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "extends associativeBroader with the concept of composition (wherein the narrower/composed concept's existence is conditional upon the broader/composing)" .
+                  <http://www.w3.org/2004/02/skos/core#definition> "Extends associativeBroader with the concept of composition, wherein the object's existence is semantically conditional upon the subject's. This property is the inverse of compositeNarrower." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#compositeBroaderMapping
@@ -153,7 +154,7 @@ For situations where such reasoning is not desireable, use the superProperty bro
 :compositeNarrower rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :associativeNarrower ;
                    rdfs:label "composite narrower" ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "extends associativeBroader with the concept of composition (wherein the narrower/composed concept's existence is conditional upon the broader/composing)" .
+                   <http://www.w3.org/2004/02/skos/core#definition> "Extends associativeNarrower with the concept of composition, wherein the subject's existence is semantically conditional upon the object's. This property is the inverse of compositeBroader." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#compositeNarrowerMapping
@@ -238,7 +239,9 @@ Subsequent mappings (for name and sex) may rely on this mapping as a hypothesis.
 :elementType rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :compositeNarrower ;
              rdfs:domain :Collection ;
-             rdfs:range :CollectionElement .
+             rdfs:range :CollectionElement ;
+             rdfs:label "element type" ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Specialises compositeNarrower with a particular semantics for describing the type of elements within a Collection. The domain and range for this property assertions provide an explicit hint to the reasoner as such." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#exactMapping
@@ -325,21 +328,34 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                <http://www.w3.org/2004/02/skos/core#definition> "denotes the subject's membership in the object MappingScheme" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#memberOf
+:memberOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :compositeBroader ;
+          owl:inverseOf :memberProperty ;
+          rdfs:label "member property of" ;
+          rdfs:seeAlso :memberProperty ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Defines the object as a component property (i.e., member) of the subject, primarily to describe Representation elements using a clear vocabulary. This property is the inverse of memberProperty." .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#memberProperty
 :memberProperty rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :compositeNarrower ;
-                owl:inverseOf :memberPropertyOf ;
                 rdf:type owl:AsymmetricProperty ,
                          owl:IrreflexiveProperty ;
                 rdfs:label "member property" ;
-                <http://www.w3.org/2004/02/skos/core#definition> "defines the subject as a component property (i.e., member) of the object" .
+                <http://www.w3.org/2004/02/skos/core#definition> """Defines the subject as a component property (i.e., member) of the object. This specialisation of compositeNarrower provides a clear vocabulary for describing member properties (i.e., associations via property) within Representation schemes.
 
-
-###  http://www.nebularis.org/ontologies/Mork#memberPropertyOf
-:memberPropertyOf rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :compositeBroader ;
-                  rdfs:label "member property of" ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "defines the object as a component property (i.e., member) of the subject" .
+Note that memberProperty is both asymmetric and irreflexive.""" ;
+                <http://www.w3.org/2004/02/skos/core#example> """###  http://www.nebularis.org/hyperthunk/Mapping#Rep_Issuer
+:Rep_Issuer rdf:type owl:NamedIndividual ,
+                     mork:DataConcept ,
+                     mork:Entity ;
+            mork:conceptScheme :Mapping_Taxa ;
+            mork:memberProperty :Rep_IssuerID ;
+            mork:representationOf :Rep_Issuer ;
+            mork:representationScheme :Mapping_Representation ;
+            mork:identifier \"issuer\" ;
+            skos:note \"Individual Representation Rep_Issuer\" .""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#missingOrUnrelatedMatch
