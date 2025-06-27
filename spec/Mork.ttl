@@ -213,11 +213,11 @@ Or indeed we might be required to model this by relating our new individual to s
 :Aardvark rdf:type owl:NamedIndividual ;
            <http://www.w3.org/2004/02/skos/core#narrowerTransitive> :Animal .
 
-In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme. The following example snippet (Turtle) positions the Aardvark concept in the T-Box of that target ontology, with subsequent individuals assigned to said class.
+In either case, we are required to undertake multiple steps to individuate the record before we can begin to process the attributes that belong to (i.e. are narrower within) its concept scheme. This will yield a composition of mappings in order to create the necessary digraph in the target ontology scheme. The following example snippet (Turtle) positions the Aardvark concept in the T-Box of that target ontology, with subsequent individuals assigned to said class. Note the use of deferredMapping here, such that the class is composed of individuals, however the individuals cannot be asserted to belong to the class until it exists.
 
 :MapAardvarkClass rdf:type owl:NamedIndividual ;
             rdfs:subClassOf mork:DataMapping ;
-            mork:broadTBoxCategoryMatch ont:Animal ;
+            mork:broadTBoxCategoryMatch ont:Animal ; 
             mork:compositeNarrowerMapping :MapAardvarkIndividual ;
             mork:conceptName \"Aardvark\" .
 
@@ -241,7 +241,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
 :deferredMapping rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :relatedMapping ;
                  rdfs:label "has deferred mapping" ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome" .
+                 <http://www.w3.org/2004/02/skos/core#definition> "Used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome. This can be used, for example, to ensure that individuals which belong to an owl:Class are processed only after the class axiom has been asserted." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#digraphMatch
@@ -311,31 +311,31 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
                    <http://www.w3.org/2004/02/skos/core#example> """A hypothesis mapping can be used to support the weighting for another mapping. Borrowing the \"aardvark\" datum mapping example from the compositeNarrowerMapping skos:example, we can see the the concept mapping of aardvark_name may rely on the \"Aardvark Class\" mapping as a hypothesis, since if we have not mapped the axiom for the whole, then the part cannot be mapped either.
 
 :Aardvark rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataConcept ;
-            datarep:conceptScheme :Animals_Taxo ;
+            rdfs:subClassOf mork:DataConcept ;
+            mork:conceptScheme :Animals_Taxo ;
             skos:closeMatch :MapAardvarkClass ;
-            datarep:compositeNarrower :Aardvark_Name .
+            mork::compositeNarrower :Aardvark_Name .
 
 :Aardvark_Name rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataConcept ;
-            datarep:conceptScheme :Animals_Taxo ;
-            datarep:compositeBroader :Aardvark ;
+            rdfs:subClassOf mork:DataConcept ;
+            mork:conceptScheme :Animals_Taxo ;
+            mork:compositeBroader :Aardvark ;
             skos:closeMatch :MapAardvark_Name .
 
 :MapAardvark_Name rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            datarep:hypothesisMapping :MapAardvarkClass ;
+            rdfs:subClassOf mork:DataMapping ;
+            mork:hypothesisMapping :MapAardvarkClass ;
             skos:closeMatch :Ont_prop_Animal_Name .
 
 :MapAardvarkClass rdf:type owl:NamedIndividual ;
-            rdfs:subClassOf datarep:DataMapping ;
-            broadClassMatch ont:Animal ;
-            compositeNarrowerMapping :MapAardvarkIndividual ;
-            conceptName \"Aardvark\" .
+            rdfs:subClassOf mork:DataMapping ;
+            mork:broadClassMatch ont:Animal ;
+            mork:compositeNarrowerMapping :MapAardvarkIndividual ;
+            mork:conceptName \"Aardvark\" .
 
 :MapAardvarkIndividual rdf:type owl:NamedIndividual ;
             rdfs:subClassOf datarep:Datum ;
-            iri \"http://example.org/Animals/NewAardvark\" .
+            mork:deferredMapping :MapAardvarkClass .
 
 This is a somewhat unnecessary hypothesis, since it is assumed that a processing logic would traverse the concept scheme for the taxa and fail the parent (aardvark) mapping before arriving at its component properties, however it provides an illustration of the use of this construct.""" .
 
