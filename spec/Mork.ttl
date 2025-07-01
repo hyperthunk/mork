@@ -70,6 +70,7 @@ The A-Box (or Assertional Box) contains assertions (or facts) about individuals 
 ###  http://www.example.org/Risks#PCIDSS
 :PCIDSS rdf:type owl:NamedIndividual ,
             skos:note \"Hyperonymic relation via A-Box object property\" ;
+            mork:hasMapping :PciDssMapping ;
             rdfs:comment \"we want to instantiate an axiom `:isSubcategoryOf :RegulatoryRisk' here\" .
 
 ###  http://www.example.org/Mapping#RegulatoryRiskMapping
@@ -307,6 +308,29 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
             rdfs:label "has concept" ;
             <http://www.w3.org/2004/02/skos/core#altLabel> "contains concept" ;
             <http://www.w3.org/2004/02/skos/core#definition> "Denotes the membership of a skos:Concept in a skos:ConceptScheme. This property is the inverse of skos:inScheme" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#hasMapping
+:hasMapping rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( [ rdf:type owl:Restriction ;
+                                          owl:onProperty :conceptScheme ;
+                                          owl:someValuesFrom :TaxonomyScheme
+                                        ]
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :representationScheme ;
+                                          owl:someValuesFrom :RepresentationScheme
+                                        ]
+                                      )
+                        ] ;
+            rdfs:range [ rdf:type owl:Restriction ;
+                         owl:onProperty :mappingScheme ;
+                         owl:someValuesFrom :MappingScheme
+                       ] ;
+            rdfs:label "has mapping" ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Used to denote a mapping relation between a representation or concept scheme element and a mapping scheme element." ;
+            <http://www.w3.org/2004/02/skos/core#scopeNote> "Whilst it is expected that concepts in a RepresentationScheme or TaxonomyScheme may directly leverage object properties in the skos:mappingRelation hierarchy, selection of a specific mapping may require intermediation via an individual in a MappingScheme. This property exists to support the latter construct." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#hypothesisMapping
@@ -929,7 +953,7 @@ See Terry Halpin's paper on objectified facts for more details: https://www.orm.
            skos:note \"signatories may be related to the ontological concept signatory\" .
 
 [ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Signatories ;
+   owl:annotatedSource :Mapping_Signatories ;
    owl:annotatedProperty skos:closeMatch ;
    owl:annotatedTarget contract:signatory ;
    skos:note \"close match on 'signatories' and owl:objectProperty 'signatory'\"
@@ -1085,10 +1109,10 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                           mork:representationScheme :Mapping_Representation ;
                           mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
                           rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
-   rdfs:comment _:genid52
+   rdfs:comment _:genid58
  ] .
 
-_:genid52 rdfs:comment "Shows an Array and its corresponding element type" .
+_:genid58 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
