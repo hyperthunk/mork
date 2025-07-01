@@ -77,7 +77,7 @@ The A-Box (or Assertional Box) contains assertions (or facts) about individuals 
                       mork:DataMapping ;
             rdfs:comment \"the following statements assert the desired axiom for PCIDSS, viz `isSubcategoryOf :RegulatoryRisk'\" ;
             mork:exactTBoxMatch risk:Risk ;
-            mork:broadRBoxCategoryMatch risk:isSubcategoryOf ;
+            mork:exactRBoxMatch risk:isSubcategoryOf ;
             mork:broadABoxCategoryMatch risk:RegulatoryRisk .""" ;
                         <http://www.w3.org/2004/02/skos/core#scopeNote> """An ABox category match may apply either before or after a datum is to be individuated. In either case, the operation is implied to be idempotent.
 
@@ -124,7 +124,8 @@ For situations where such reasoning is not desireable, use the superProperty bro
                         rdfs:seeAlso :Objectification ;
                         <http://www.w3.org/2004/02/skos/core#definition> """Used to state a mapping link where the subject maps to a broader category of relationship (i.e., the more specific relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
 
-The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.""" .
+The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.""" ;
+                        <http://www.w3.org/2004/02/skos/core#scopeNote> "Assertions made with this property are intended for use alongside matches to individuals in the A-Box of a target ontology." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#broadTBoxCategoryMatch
@@ -285,7 +286,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
 :exactRBoxMatch rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :intransitiveExactMatch ;
                 rdfs:label "exact R-Box match" ;
-                <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate an exact match to an element in the T-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box)." .
+                <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate an exact match to an element in the R-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box)." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#exactTBoxMatch
