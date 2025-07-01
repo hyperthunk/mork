@@ -170,7 +170,13 @@
         <ObjectProperty IRI="#elementType"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#exactABoxMatch"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#exactMapping"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#exactRBoxMatch"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#exactTBoxMatch"/>
@@ -180,6 +186,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasConcept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMapping"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hypothesisMapping"/>
@@ -700,8 +709,16 @@
         <ObjectProperty IRI="#compositeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#exactABoxMatch"/>
+        <ObjectProperty IRI="#intransitiveExactMatch"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#exactMapping"/>
         <ObjectProperty IRI="#closeMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#exactRBoxMatch"/>
+        <ObjectProperty IRI="#intransitiveExactMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#exactTBoxMatch"/>
@@ -714,6 +731,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasConcept"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMapping"/>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hypothesisMapping"/>
@@ -868,18 +889,6 @@
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadABoxCategoryMatch"/>
-        <Class IRI="#DataMapping"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadRBoxCategoryMatch"/>
-        <Class IRI="#DataMapping"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
-        <Class IRI="#DataMapping"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#digraphOf"/>
         <Class IRI="#Digraph"/>
     </ObjectPropertyDomain>
@@ -892,12 +901,17 @@
         <Class IRI="#RepresentationScheme"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowABoxCategoryMatch"/>
-        <Class IRI="#DataMapping"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#narrowTBoxCategoryMatch"/>
-        <Class IRI="#DataMapping"/>
+        <ObjectProperty IRI="#hasMapping"/>
+        <ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#conceptScheme"/>
+                <Class IRI="#TaxonomyScheme"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#representationScheme"/>
+                <Class IRI="#RepresentationScheme"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#relatedMapping"/>
@@ -922,6 +936,13 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#format"/>
         <Class IRI="#SerializationFormat"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMapping"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#mappingScheme"/>
+            <Class IRI="#MappingScheme"/>
+        </ObjectSomeValuesFrom>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#mappingScheme"/>
@@ -1321,7 +1342,7 @@ See Terry Halpin&apos;s paper on objectified facts for more details: https://www
            skos:note &quot;signatories may be related to the ontological concept signatory&quot; .
 
 [ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Signatories ;
+   owl:annotatedSource :Mapping_Signatories ;
    owl:annotatedProperty skos:closeMatch ;
    owl:annotatedTarget contract:signatory ;
    skos:note &quot;close match on &apos;signatories&apos; and owl:objectProperty &apos;signatory&apos;&quot;
@@ -1550,26 +1571,21 @@ The A-Box (or Assertional Box) contains assertions (or facts) about individuals 
 :isSubcategoryOf rdf:type owl:ObjectProperty .
 
 ###  http://www.example.org/Risks#RegulatoryRisk
-:RegulatoryRisk rdf:type owl:NamedIndividual, 
-          :Risk .
+:RegulatoryRisk rdf:type owl:NamedIndividual ,
+                                          risk:Risk .
 
 ###  http://www.example.org/Risks#PCIDSS
 :PCIDSS rdf:type owl:NamedIndividual ,
             skos:note &quot;Hyperonymic relation via A-Box object property&quot; ;
+            mork:hasMapping :PciDssMapping ;
             rdfs:comment &quot;we want to instantiate an axiom `:isSubcategoryOf :RegulatoryRisk&apos; here&quot; .
-
-###  http://www.example.org/Mapping#RegulatoryRiskMapping
-:RegulatoryRiskMapping rdf:type owl:NamedIndividual ,
-                      mork:DataMapping ;
-            mork:identifier &quot;RegulatoryRisk&quot; ;
-            mork:exactTBoxMatch risk:Risk .
 
 ###  http://www.example.org/Mapping#PciDssMapping
 :PciDssMapping rdf:type owl:NamedIndividual ,
                       mork:DataMapping ;
             rdfs:comment &quot;the following statements assert the desired axiom for PCIDSS, viz `isSubcategoryOf :RegulatoryRisk&apos;&quot; ;
             mork:exactTBoxMatch risk:Risk ;
-            mork:broadRBoxCategoryMatch risk:isSubcategoryOf ;
+            mork:exactRBoxMatch risk:isSubcategoryOf ;
             mork:broadABoxCategoryMatch risk:RegulatoryRisk .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -1649,6 +1665,11 @@ For situations where such reasoning is not desireable, use the superProperty bro
         <Literal>Used to state a mapping link where the subject maps to a broader category of relationship (i.e., the more specific relation in the R-Box of the mapped concept scheme). This property is intended for use with members of the Objectification class, however no domain or range assertions are made in order to avoid having the reasoner incorrectly assign individuals to said class.
 
 The R-Box (or Relational Box) defines the properties or roles that can be used to relate individuals, and thier characteristics, such as whether they are symmetric, transitive, or functional.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#broadRBoxCategoryMatch</IRI>
+        <Literal>Assertions made with this property are intended for use alongside matches to individuals in the A-Box of a target ontology.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1880,6 +1901,16 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#exactABoxMatch</IRI>
+        <Literal>exact A-Box match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#exactABoxMatch</IRI>
+        <Literal>Used to indicate an exact match to an element in the A-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#exactMapping</IRI>
         <Literal>has exact mapping</Literal>
     </AnnotationAssertion>
@@ -1887,6 +1918,16 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#exactMapping</IRI>
         <Literal>used to link two mappings, indicating a high degree of confidence that they can be used interchangeably across a wide range of applications.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#exactRBoxMatch</IRI>
+        <Literal>exact R-Box match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#exactRBoxMatch</IRI>
+        <Literal>Used to indicate an exact match to an element in the R-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1929,6 +1970,21 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#hasConcept</IRI>
         <Literal>Denotes the membership of a skos:Concept in a skos:ConceptScheme. This property is the inverse of skos:inScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMapping</IRI>
+        <Literal>has mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#hasMapping</IRI>
+        <Literal>Used to denote a mapping relation between a representation or concept scheme element and a mapping scheme element.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#hasMapping</IRI>
+        <Literal>Whilst it is expected that concepts in a RepresentationScheme or TaxonomyScheme may directly leverage object properties in the skos:mappingRelation hierarchy, selection of a specific mapping may require intermediation via an individual in a MappingScheme. This property exists to support the latter construct.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
