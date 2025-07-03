@@ -1068,10 +1068,6 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#data"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
         <DataProperty IRI="#itemsConstrained"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
@@ -1472,7 +1468,7 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
     <AnnotationAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <AnonymousIndividual nodeID="_:genid-e39c75d4-5074-4735-b4e6-fb15aba0e91a"/>
+            <AnonymousIndividual nodeID="_:genid2147483651"/>
         </Annotation>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
         <IRI>#ScalarValueElement</IRI>
@@ -2375,12 +2371,12 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AnonymousIndividual nodeID="_:genid-e39c75d4-5074-4735-b4e6-fb15aba0e91a"/>
+        <AnonymousIndividual nodeID="_:genid2147483651"/>
         <Literal>Shows an Array and its corresponding element type</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AnonymousIndividual nodeID="_:genid-f1d05c70-c843-4ce4-a252-779635647610"/>
+        <AnonymousIndividual nodeID="_:genid2147483652"/>
         <Literal>Shows an array and its corresponding scalar/atomic element type</Literal>
     </AnnotationAssertion>
 </Ontology>

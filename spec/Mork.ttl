@@ -608,8 +608,7 @@ This specific property is exclusively used to manage Objectification.""" .
 
 ###  http://www.nebularis.org/ontologies/Mork#data
 :data rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf owl:topDataProperty ;
-      rdfs:range xsd:string .
+      rdfs:subPropertyOf owl:topDataProperty .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#dataInline
