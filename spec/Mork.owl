@@ -56,6 +56,12 @@
         <Class IRI="#IdentifiableElement"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#IndexedMapping"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lookup"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#MappingScheme"/>
     </Declaration>
     <Declaration>
@@ -137,6 +143,9 @@
         <ObjectProperty IRI="#broadTBoxCategoryMatch"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#broaderApplicative"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#broaderMapping"/>
     </Declaration>
     <Declaration>
@@ -149,10 +158,16 @@
         <ObjectProperty IRI="#compositeBroaderMapping"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#compositeBroaderTemplate"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#compositeNarrower"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#compositeNarrowerMapping"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#compositeNarrowerTemplate"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#conceptScheme"/>
@@ -200,6 +215,9 @@
         <ObjectProperty IRI="#intransitiveExactMatch"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#inverseRBoxMatch"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#mappingScheme"/>
     </Declaration>
     <Declaration>
@@ -236,6 +254,9 @@
         <ObjectProperty IRI="#ontologicalScheme"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#referenceDataMapping"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#relatedMapping"/>
     </Declaration>
     <Declaration>
@@ -246,6 +267,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#representedAs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#templateMapping"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#weightedBroader"/>
@@ -291,6 +315,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#itemsConstrained"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#mappingIndex"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#name"/>
@@ -339,6 +366,9 @@
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#userDeclined"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Attribute"/>
@@ -512,6 +542,20 @@
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#IndexedMapping"/>
+        <Class IRI="#DataMapping"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lookup"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#DataMapping"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#dataRef"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#MappingScheme"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </SubClassOf>
@@ -665,6 +709,10 @@
         <ObjectProperty IRI="#broadCategoryMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#broaderApplicative"/>
+        <ObjectProperty IRI="#broaderMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#broaderMapping"/>
         <ObjectProperty IRI="#relatedMapping"/>
     </SubObjectPropertyOf>
@@ -681,12 +729,20 @@
         <ObjectProperty IRI="#broaderMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#compositeBroaderTemplate"/>
+        <ObjectProperty IRI="#compositeBroaderMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#compositeNarrower"/>
         <ObjectProperty IRI="#associativeNarrower"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#compositeNarrowerMapping"/>
         <ObjectProperty IRI="#narrowerMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#compositeNarrowerTemplate"/>
+        <ObjectProperty IRI="#compositeNarrowerMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#conceptScheme"/>
@@ -742,11 +798,15 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#identityTemplateMapping"/>
-        <ObjectProperty IRI="#deferredMapping"/>
+        <ObjectProperty IRI="#templateMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#inverseRBoxMatch"/>
+        <ObjectProperty IRI="#exactRBoxMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#mappingScheme"/>
@@ -797,6 +857,10 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#referenceDataMapping"/>
+        <ObjectProperty IRI="#templateMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#relatedMapping"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#related"/>
     </SubObjectPropertyOf>
@@ -811,6 +875,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#representedAs"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#templateMapping"/>
+        <ObjectProperty IRI="#deferredMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#weightedBroader"/>
@@ -857,6 +925,10 @@
         <ObjectProperty IRI="#compositeNarrowerMapping"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#compositeBroaderTemplate"/>
+        <ObjectProperty IRI="#compositeNarrowerTemplate"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#digraphMatch"/>
         <ObjectProperty IRI="#digraphOf"/>
     </InverseObjectProperties>
@@ -883,11 +955,28 @@
         <ObjectProperty IRI="#intransitiveExactMatch"/>
     </SymmetricObjectProperty>
     <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#broaderApplicative"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </AsymmetricObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#memberProperty"/>
     </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#broaderMapping"/>
+        <Class IRI="#DataMapping"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#broaderMapping"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#member"/>
+                <Class IRI="#DataMapping"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#digraphOf"/>
         <Class IRI="#Digraph"/>
@@ -914,12 +1003,16 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#relatedMapping"/>
+        <ObjectProperty IRI="#narrowerMapping"/>
         <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#broadConceptRole"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#broaderMapping"/>
+        <Class IRI="#DataMapping"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#conceptScheme"/>
@@ -953,8 +1046,29 @@
         <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#narrowerMapping"/>
+        <Class IRI="#DataMapping"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#narrowerMapping"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#member"/>
+                <Class IRI="#DataConcept"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#ontologicalScheme"/>
         <Class IRI="#OntologicalScheme"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#referenceDataMapping"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#dataRef"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#representationScheme"/>
@@ -962,6 +1076,8 @@
     </ObjectPropertyRange>
     <DisjointObjectProperties>
         <ObjectProperty IRI="#broaderMapping"/>
+        <ObjectProperty IRI="#closeMapping"/>
+        <ObjectProperty IRI="#deferredMapping"/>
         <ObjectProperty IRI="#hypothesisMapping"/>
         <ObjectProperty IRI="#narrowerMapping"/>
     </DisjointObjectProperties>
@@ -1019,6 +1135,10 @@
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#itemsConstrained"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#mappingIndex"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -1269,6 +1389,16 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#JSON</IRI>
         <Literal>https://datatracker.ietf.org/doc/html/rfc7159.html</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lookup</IRI>
+        <Literal>lookup</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Lookup</IRI>
+        <Literal>Defines a &quot;lookup&quot;, from some base data to a named individual</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1691,6 +1821,33 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#broaderApplicative</IRI>
+        <Literal>has broader applicative mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#broaderApplicative</IRI>
+        <Literal>Behaves like an applicative functor (i.e., a lax monoidal functor). This causes any compositeNarrowerMapping to be applied within the context (i.e., mapping outcome) of the object, rather than the subject.
+
+Used when a mapping needs to interact with the outcome of a prior mapping, for example a compositeBroader or hypothesisMapping. Please read the skos:scopeNote for the expected behaviours.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#broaderApplicative</IRI>
+        <Literal>All compositeNarrowerMappings will be applied to the context (i.e., the axioms resulting as the *outcome* of the broaderApplicative object mapping). This implies the following rules:
+
+- The broaderApplicative object must be a DataMapping or subclass thereof.
+- An exactRBoxMatch or inverseRBoxMatch MUST be provided to indicate the relationship between the subject (outcome of this mapping) and the object (on the other end of the relationship).
+
+Specifically, this instruction means:
+
+- Consider the context/outcome axiom of this (subject) mapping, refer to it as the &quot;child&quot;
+- Look up the broaderApplicative mapping, refer to it as the &quot;parent&quot;
+- Find the axiom (or entry point into a digraph of axioms) created by the &quot;parent&quot; mapping, that is related to to the &quot;child&quot; axiom along the relationship defined by the exactRBoxMatch
+- Apply the compositeNarrowerMappings of the subject (mapping) to the parent&apos;s axiom(s) and not to the child&apos;s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#broaderMapping</IRI>
         <Literal>has broader mapping</Literal>
     </AnnotationAssertion>
@@ -1745,6 +1902,21 @@ This specific property is exclusively used to manage Objectification.</Literal>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
         <IRI>#compositeBroaderMapping</IRI>
         <Literal>See compositeNarrowerMapping for an example</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#compositeBroaderTemplate</IRI>
+        <Literal>has composite broader template</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#compositeBroaderTemplate</IRI>
+        <IRI>#templateMapping</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#compositeBroaderTemplate</IRI>
+        <Literal>Version of &apos;composite broader mapping&apos; for use in templates. This property in the inverse of compositeNarrowerTemplate.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1814,6 +1986,21 @@ In either case, we are required to undertake multiple steps to individuate the r
             mork:compositeNarrowerMapping :MapAardvarkName, :MapAardvarkSex .
 
 Subsequent mappings (for name and sex) may rely on these mappings as a hypothesis.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#compositeNarrowerTemplate</IRI>
+        <Literal>has composite narrower template</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#compositeNarrowerTemplate</IRI>
+        <IRI>#templateMapping</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#compositeNarrowerTemplate</IRI>
+        <Literal>Version of &apos;composite narrower mapping&apos; for use in templates.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2056,7 +2243,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#identityTemplateMapping</IRI>
-        <Literal>Used to indicate a deferredMapping (which this is a sub-object-property of) between the subject and some object(s) upon which individual of the subject is dependent upon. Unlike deferredMapping, this property is not symmetric.</Literal>
+        <Literal>Used to indicate a deferredMapping (which this is a sub-object-property of) between the subject and some object(s) upon which individual of the subject is dependent. Unlike deferredMapping, this property is not symmetric.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
@@ -2075,6 +2262,25 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#inverseRBoxMatch</IRI>
+        <Literal>exact inverse R-Box match</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#inverseRBoxMatch</IRI>
+        <Literal>Used to indicate an exact match to the inverse of an element in the R-Box of an ontology (i.e., OntologicalScheme). 
+
+This is required for situations where the inverse of a datatype or object property must be referenced but no explicit axiom exists for the binding.
+
+The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#inverseRBoxMatch</IRI>
+        <Literal>NB: This property is NOT the inverse of exactRBoxMatch, but rather it represents the same semantics when referencing the inverse of the property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#iri</IRI>
         <Literal>identifier iri</Literal>
     </AnnotationAssertion>
@@ -2082,6 +2288,16 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#iri</IRI>
         <Literal>Is used to identify a skos:Concept via a fully qualified IRI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#mappingIndex</IRI>
+        <Literal>mapping index</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#mappingIndex</IRI>
+        <Literal>used to denote the index of a mapping where it occurs within a collection of mappings.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2285,6 +2501,21 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
         <Literal>Is used to denote a &quot;path expression&quot; that locates a Representation within an externally defined scheme or schema.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#referenceDataMapping</IRI>
+        <Literal>has reference data mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#referenceDataMapping</IRI>
+        <Literal>Used to denote that a mapping takes a value from some input data (via dataRef), and matches it to a subject which contains an exact match on either the contents of its dataInline or the name of the individual.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#referenceDataMapping</IRI>
+        <Literal>If the name of the individual is to be used, then the value of the object&apos;s dataInline MUST be set to &quot;&quot;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#relatedMapping</IRI>
         <Literal>These concept mapping relations mirror mapping relations, and the data model defined below is similar. A distinct vocabulary is provided for describing the semantic and structural relationships between mappings, to provide a convenient way to differentiate links within a mapping scheme from links between different schemes.</Literal>
@@ -2346,6 +2577,41 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#templateMapping</IRI>
+        <Literal>has template mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#templateMapping</IRI>
+        <Literal>Used to denote a deferred mapping where the subject and the object together provide partial mapping semantics and must therefore be taken as a whole by a processing engine.
+
+This mechanism can be used to reduce the number of assertions required in order to fulfil a mapping, since the object can act as a template - providing partial mapping semantics - and leave the specific details of the mapping to the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#templateMapping</IRI>
+        <Literal>When a partial mapping intended for use as a &quot;template&quot; is created, any compositeNarrowerMapping that is also a partial (rather than a complete) mapping, should be associated via compositeNarrowerTemplate.
+
+NB: where multiple composite narrower mappings exist on both the subject and object, the following semantics shall apply:
+
+If the narrower mapping on the subject explicitly refers to a narrower mapping of the object, that assertion shall take precidence. 
+
+If the composite narrower mappings of both the subject and the object are modelled using skos:OrderedCollection, then the ordering of both collections will be respected. Should the size of the respective collections differ, the smaller of the two will be taken as the range of applicable mappings for the whole.
+
+If the composite narrower mappings of either subject or object are members of the DataMapping class or subclasses thereof and, members (by inference) of the IndexedMapping class, then the mappingIndex shall be used to correlate the templates and non-templates together, whether via exact indexA == indexB semantics, or by linking the indexes to the ordering of an skos:OrderedCollection.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#userDeclined</IRI>
+        <Literal>user declined</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#userDeclined</IRI>
+        <Literal>A note explaining that a user has declined the use of a DataMapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#weightedBroader</IRI>
         <Literal>has weighted broader</Literal>
     </AnnotationAssertion>
@@ -2379,6 +2645,10 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
         <AnonymousIndividual nodeID="_:genid2147483652"/>
         <Literal>Shows an array and its corresponding scalar/atomic element type</Literal>
     </AnnotationAssertion>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="#userDeclined"/>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+    </SubAnnotationPropertyOf>
 </Ontology>
 
 
