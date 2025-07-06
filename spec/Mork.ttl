@@ -1,10 +1,10 @@
-@prefix : <http://www.nebularis.org/ontologies/Mork/> .
+@prefix : <http://www.nebularis.org/ontologies/Mork#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.nebularis.org/ontologies/Mork/> .
+@base <http://www.nebularis.org/ontologies/Mork#> .
 
 <http://www.nebularis.org/ontologies/Mork> rdf:type owl:Ontology ;
                                             owl:imports <http://www.w3.org/2004/02/skos/core> .
@@ -29,7 +29,7 @@
 <http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
-###  http://www.nebularis.org/ontologies/Mork/userDeclined
+###  http://www.nebularis.org/ontologies/Mork#userDeclined
 :userDeclined rdf:type owl:AnnotationProperty ;
               rdfs:label "user declined" ;
               <http://www.w3.org/2004/02/skos/core#definition> "A note explaining that a user has declined the use of a DataMapping" ;
@@ -40,7 +40,7 @@
 #    Object Properties
 #################################################################
 
-###  http://www.nebularis.org/ontologies/Mork/associativeBroader
+###  http://www.nebularis.org/ontologies/Mork#associativeBroader
 :associativeBroader rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> ;
                     owl:inverseOf :associativeNarrower ;
@@ -49,7 +49,7 @@
                     <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, associativeBroader is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/associativeNarrower
+###  http://www.nebularis.org/ontologies/Mork#associativeNarrower
 :associativeNarrower rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrower> ;
                      rdfs:label "associative narrower" ;
@@ -57,7 +57,7 @@
                      <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, associativeNarrower is not used to make assertions. Rather, its subProperties should be used, however the superProperty exists in order to draw inferences about the transitive closure of a hierarchical relation." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadABoxCategoryMatch
+###  http://www.nebularis.org/ontologies/Mork#broadABoxCategoryMatch
 :broadABoxCategoryMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :broadCategoryMatch ;
                         owl:inverseOf :narrowABoxCategoryMatch ;
@@ -91,7 +91,7 @@ The A-Box (or Assertional Box) contains assertions (or facts) about individuals 
 An ABox category match implies the presence of both a RBox match (to the object property over which the relationship is to be defined) and a skos:mappingRelation to the owl:Individual in the A-box. This is not described in the domains for this property, since such constraints are better expressed as SWRL/SHACL constraints.""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadCategoryMatch
+###  http://www.nebularis.org/ontologies/Mork#broadCategoryMatch
 :broadCategoryMatch rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broadMatch> ;
                     owl:inverseOf :narrowCategoryMatch ;
@@ -99,7 +99,7 @@ An ABox category match implies the presence of both a RBox match (to the object 
                     <http://www.w3.org/2004/02/skos/core#definition> "A broadCategoryMatch is used to state a hyperonymic, categorical mapping link between two conceptual resources in different concept schemes, where the subject is the (more specific) hyponym, and the object is the (more general) hyperonym." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadConceptRole
+###  http://www.nebularis.org/ontologies/Mork#broadConceptRole
 :broadConceptRole rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :associativeBroader ;
                   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -111,7 +111,7 @@ An ABox category match implies the presence of both a RBox match (to the object 
 For situations where such extended reasoning is desireable, broadNavigableConceptRole and its inverse narrowNavigableConceptRole can be used.""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadNavigableConceptRole
+###  http://www.nebularis.org/ontologies/Mork#broadNavigableConceptRole
 :broadNavigableConceptRole rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :broadConceptRole ;
                            owl:inverseOf :narrowNavigableConceptRole ;
@@ -123,7 +123,7 @@ For situations where such extended reasoning is desireable, broadNavigableConcep
 For situations where such reasoning is not desireable, use the superProperty broadConceptRole instead.""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadRBoxCategoryMatch
+###  http://www.nebularis.org/ontologies/Mork#broadRBoxCategoryMatch
 :broadRBoxCategoryMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :broadCategoryMatch ;
                         owl:inverseOf :narrowRBoxCategoryMatch ;
@@ -135,7 +135,7 @@ The R-Box (or Relational Box) defines the properties or roles that can be used t
                         <http://www.w3.org/2004/02/skos/core#scopeNote> "Assertions made with this property are intended for use alongside matches to individuals in the A-Box of a target ontology." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broadTBoxCategoryMatch
+###  http://www.nebularis.org/ontologies/Mork#broadTBoxCategoryMatch
 :broadTBoxCategoryMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :broadCategoryMatch ;
                         owl:inverseOf :narrowTBoxCategoryMatch ;
@@ -147,7 +147,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                         <http://www.w3.org/2004/02/skos/core#scopeNote> "A TBox category must be applied before a datum can be individuated, since it implies the existence of an owl:Class not originally present in an OntologicalScheme. The implication here is that the operation resulting from this axiom is idempotent." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broaderApplicative
+###  http://www.nebularis.org/ontologies/Mork#broaderApplicative
 :broaderApplicative rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :broaderMapping ;
                     rdf:type owl:AsymmetricProperty ;
@@ -168,7 +168,7 @@ Specifically, this instruction means:
 - Apply the compositeNarrowerMappings of the subject (mapping) to the parent's axiom(s) and not to the child's""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/broaderMapping
+###  http://www.nebularis.org/ontologies/Mork#broaderMapping
 :broaderMapping rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :relatedMapping ;
                 owl:inverseOf :narrowerMapping ;
@@ -186,14 +186,14 @@ Specifically, this instruction means:
                 <http://www.w3.org/2004/02/skos/core#definition> "Relates a mapping to a mapping that is more general (less specific)" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/closeMapping
+###  http://www.nebularis.org/ontologies/Mork#closeMapping
 :closeMapping rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :relatedMapping ;
               rdfs:label "has close mapping" ;
               <http://www.w3.org/2004/02/skos/core#definition> "used to link two mappings that are sufficiently similar that they can be used interchangeably in some applications." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeBroader
+###  http://www.nebularis.org/ontologies/Mork#compositeBroader
 :compositeBroader rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :associativeBroader ;
                   owl:inverseOf :compositeNarrower ;
@@ -201,7 +201,7 @@ Specifically, this instruction means:
                   <http://www.w3.org/2004/02/skos/core#definition> "Extends associativeBroader with the concept of composition, wherein the object's existence is semantically conditional upon the subject's. This property is the inverse of compositeNarrower." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeBroaderMapping
+###  http://www.nebularis.org/ontologies/Mork#compositeBroaderMapping
 :compositeBroaderMapping rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :broaderMapping ;
                          owl:inverseOf :compositeNarrowerMapping ;
@@ -211,7 +211,7 @@ Specifically, this instruction means:
                          <http://www.w3.org/2004/02/skos/core#example> "See compositeNarrowerMapping for an example" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeBroaderTemplate
+###  http://www.nebularis.org/ontologies/Mork#compositeBroaderTemplate
 :compositeBroaderTemplate rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :compositeBroaderMapping ;
                           owl:inverseOf :compositeNarrowerTemplate ;
@@ -220,14 +220,14 @@ Specifically, this instruction means:
                           <http://www.w3.org/2004/02/skos/core#definition> "Version of 'composite broader mapping' for use in templates. This property in the inverse of compositeNarrowerTemplate." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeNarrower
+###  http://www.nebularis.org/ontologies/Mork#compositeNarrower
 :compositeNarrower rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :associativeNarrower ;
                    rdfs:label "composite narrower" ;
                    <http://www.w3.org/2004/02/skos/core#definition> "Extends associativeNarrower with the concept of composition, wherein the subject's existence is semantically conditional upon the object's. This property is the inverse of compositeBroader." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeNarrowerMapping
+###  http://www.nebularis.org/ontologies/Mork#compositeNarrowerMapping
 :compositeNarrowerMapping rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :narrowerMapping ;
                           rdfs:comment "A concept in a TaxonomyScheme may well be broken down into multiple axioms when mapped to an OntologicalScheme. In this case, the digraph of mapping instructions can be constructed by relating mappings using this (and its inverse) property." ;
@@ -271,7 +271,7 @@ In either case, we are required to undertake multiple steps to individuate the r
 Subsequent mappings (for name and sex) may rely on these mappings as a hypothesis.""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/compositeNarrowerTemplate
+###  http://www.nebularis.org/ontologies/Mork#compositeNarrowerTemplate
 :compositeNarrowerTemplate rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :compositeNarrowerMapping ;
                            rdfs:label "has composite narrower template" ;
@@ -279,14 +279,14 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
                            <http://www.w3.org/2004/02/skos/core#definition> "Version of 'composite narrower mapping' for use in templates." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/concatenation
+###  http://www.nebularis.org/ontologies/Mork#concatenation
 :concatenation rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :placeholderMapping ;
                rdfs:label "concatenation" ;
                <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a placeholderMapping is being used for the purposes of concatenating values" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/conceptScheme
+###  http://www.nebularis.org/ontologies/Mork#conceptScheme
 :conceptScheme rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
                rdfs:range :TaxonomyScheme ;
@@ -294,7 +294,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
                <http://www.w3.org/2004/02/skos/core#definition> "denotes the subject's membership in the object (TaxonomyScheme)" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/deferredMapping
+###  http://www.nebularis.org/ontologies/Mork#deferredMapping
 :deferredMapping rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :relatedMapping ;
                  rdf:type owl:SymmetricProperty ;
@@ -302,7 +302,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
                  <http://www.w3.org/2004/02/skos/core#definition> "Used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome. This can be used, for example, to ensure that individuals which belong to an owl:Class are processed only after the class axiom has been asserted." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/digraphMatch
+###  http://www.nebularis.org/ontologies/Mork#digraphMatch
 :digraphMatch rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broadMatch> ;
               owl:inverseOf :digraphOf ;
@@ -312,7 +312,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
               <http://www.w3.org/2004/02/skos/core#definition> "is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where one concept is mapped to a directed (sub-)graph of related concepts." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/digraphOf
+###  http://www.nebularis.org/ontologies/Mork#digraphOf
 :digraphOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
            rdfs:domain :Digraph ;
@@ -321,7 +321,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
            <http://www.w3.org/2004/02/skos/core#definition> "digraphFrom is used to state a hierarchical mapping link between conceptual resources in different concept schemes, where concepts belong to a directed (sub-)graph that relates back to some parent concept (in another scheme)." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/elementType
+###  http://www.nebularis.org/ontologies/Mork#elementType
 :elementType rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :compositeNarrower ;
              rdfs:domain :Collection ;
@@ -330,28 +330,28 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
              <http://www.w3.org/2004/02/skos/core#definition> "Specialises compositeNarrower with a particular semantics for describing the type of elements within a Collection. The domain and range for this property assertions provide an explicit hint to the reasoner as such." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/exactABoxMatch
+###  http://www.nebularis.org/ontologies/Mork#exactABoxMatch
 :exactABoxMatch rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :intransitiveExactMatch ;
                 rdfs:label "exact A-Box match" ;
                 <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate an exact match to an element in the A-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box)." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/exactMapping
+###  http://www.nebularis.org/ontologies/Mork#exactMapping
 :exactMapping rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :closeMapping ;
               rdfs:label "has exact mapping" ;
               <http://www.w3.org/2004/02/skos/core#definition> "used to link two mappings, indicating a high degree of confidence that they can be used interchangeably across a wide range of applications." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/exactRBoxMatch
+###  http://www.nebularis.org/ontologies/Mork#exactRBoxMatch
 :exactRBoxMatch rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :intransitiveExactMatch ;
                 rdfs:label "exact R-Box match" ;
                 <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate an exact match to an element in the R-Box of an ontology (i.e., OntologicalScheme). The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box)." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/exactTBoxMatch
+###  http://www.nebularis.org/ontologies/Mork#exactTBoxMatch
 :exactTBoxMatch rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :intransitiveExactMatch ;
                 rdfs:label "exact T-Box match" ;
@@ -360,7 +360,7 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
 The T-Box (or Terminological Box) defines the vocabulary of the domain by describing concepts (such as Classes) and roles (relationships that can be defined between objects).""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/format
+###  http://www.nebularis.org/ontologies/Mork#format
 :format rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:domain :RepresentationScheme ;
@@ -369,7 +369,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
         <http://www.w3.org/2004/02/skos/core#definition> "denotes the SerializationFormat used by a RepresentationScheme" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/hasConcept
+###  http://www.nebularis.org/ontologies/Mork#hasConcept
 :hasConcept rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             owl:inverseOf <http://www.w3.org/2004/02/skos/core#inScheme> ;
@@ -378,7 +378,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
             <http://www.w3.org/2004/02/skos/core#definition> "Denotes the membership of a skos:Concept in a skos:ConceptScheme. This property is the inverse of skos:inScheme" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/hasMapping
+###  http://www.nebularis.org/ontologies/Mork#hasMapping
 :hasMapping rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
             rdfs:domain [ rdf:type owl:Class ;
@@ -401,7 +401,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
             <http://www.w3.org/2004/02/skos/core#scopeNote> "Whilst it is expected that concepts in a RepresentationScheme or TaxonomyScheme may directly leverage object properties in the skos:mappingRelation hierarchy, selection of a specific mapping may require intermediation via an individual in a MappingScheme. This property exists to support the latter construct." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/hypothesisMapping
+###  http://www.nebularis.org/ontologies/Mork#hypothesisMapping
 :hypothesisMapping rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :relatedMapping ;
                    rdfs:label "has hypothesis mapping" ;
@@ -453,7 +453,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                    <http://www.w3.org/2004/02/skos/core#definition> "Used to denote a potential mapping relation between a representation or concept scheme element and a mapping scheme element, suggesting that the subject may be an indicator for the existence of the object." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/interpolationComponent
+###  http://www.nebularis.org/ontologies/Mork#interpolationComponent
 :interpolationComponent rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#member> ;
                         rdfs:domain <http://www.w3.org/2004/02/skos/core#OrderedCollection> ;
@@ -477,7 +477,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                         <http://www.w3.org/2004/02/skos/core#definition> "Relates an InterpolationTemplate to one of its members." .
 
 
-###  http://www.nebularis.org/ontologies/Mork/intransitiveExactMatch
+###  http://www.nebularis.org/ontologies/Mork#intransitiveExactMatch
 :intransitiveExactMatch rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#closeMatch> ;
                         rdf:type owl:SymmetricProperty ;
@@ -653,7 +653,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                     <http://www.w3.org/2004/02/skos/core#definition> "Indicates that a mapping defers to a collection of \"placeholders\" for values that should be derived at processing time" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/referenceDataMapping
+###  http://www.nebularis.org/ontologies/Mork#referenceDataMapping
 :referenceDataMapping rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :templateMapping ;
                       rdfs:range [ rdf:type owl:Restriction ;
@@ -831,13 +831,13 @@ This specific property is exclusively used to manage Objectification.""" .
                    mork:path \"contract.signatories.contractingParties\" .""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/incompleteMapping
+###  http://www.nebularis.org/ontologies/Mork#incompleteMapping
 :incompleteMapping rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:range xsd:boolean .
 
 
-###  http://www.nebularis.org/ontologies/Mork/interpolationTemplate
+###  http://www.nebularis.org/ontologies/Mork#interpolationTemplate
 :interpolationTemplate rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf :template ;
                        rdfs:range xsd:string ;
@@ -856,7 +856,7 @@ This datatype property can be used in one of two ways:
 2. to provide a template for interpolating placeholder data into a new value, see the skos:example on this property for details..""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/iri
+###  http://www.nebularis.org/ontologies/Mork#iri
 :iri rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf :conceptId ;
      rdf:type owl:FunctionalProperty ;
@@ -929,7 +929,7 @@ This datatype property can be used in one of two ways:
                    rdfs:subClassOf :DataMapping .
 
 
-###  http://www.nebularis.org/ontologies/Mork/AnonymousElement
+###  http://www.nebularis.org/ontologies/Mork#AnonymousElement
 :AnonymousElement rdf:type owl:Class ;
                   rdfs:subClassOf [ owl:intersectionOf ( :CollectionElement
                                                          [ rdf:type owl:Restriction ;
@@ -1112,7 +1112,7 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
                 rdfs:subClassOf :DataMapping .
 
 
-###  http://www.nebularis.org/ontologies/Mork/Interpolation
+###  http://www.nebularis.org/ontologies/Mork#Interpolation
 :Interpolation rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                             owl:onProperty :interpolationComponent ;
@@ -1152,7 +1152,7 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
                 :exactRBoxMatch :corporateName .""" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/Lookup
+###  http://www.nebularis.org/ontologies/Mork#Lookup
 :Lookup rdf:type owl:Class ;
         rdfs:subClassOf [ owl:intersectionOf ( :DataMapping
                                                [ rdf:type owl:Restriction ;
@@ -1453,14 +1453,14 @@ rdf:List rdf:type owl:Class .
 
 ###  http://www.nebularis.org/ontologies/Mork#OwlNothing
 
-###  http://www.nebularis.org/ontologies/Mork/DataExample
+###  http://www.nebularis.org/ontologies/Mork#DataExample
 :DataExample rdf:type owl:NamedIndividual ,
                       :Datum ;
              :mappingScheme :Scheme ;
              :dataRef "path.to.value" .
 
 
-###  http://www.nebularis.org/ontologies/Mork/JSON
+###  http://www.nebularis.org/ontologies/Mork#JSON
 :JSON rdf:type owl:NamedIndividual ,
                :SerializationFormat ;
       rdfs:isDefinedBy "https://datatracker.ietf.org/doc/html/rfc7159.html" .
@@ -1471,12 +1471,12 @@ rdf:List rdf:type owl:Class .
                      :OwlAxiom .
 
 
-###  http://www.nebularis.org/ontologies/Mork/Scheme
+###  http://www.nebularis.org/ontologies/Mork#Scheme
 :Scheme rdf:type owl:NamedIndividual ,
                  :MappingScheme .
 
 
-###  http://www.nebularis.org/ontologies/Mork/XML
+###  http://www.nebularis.org/ontologies/Mork#XML
 :XML rdf:type owl:NamedIndividual ,
               :SerializationFormat ;
      rdfs:isDefinedBy "https://www.w3.org/TR/xml/" .
