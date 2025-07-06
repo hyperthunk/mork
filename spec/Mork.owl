@@ -59,6 +59,9 @@
         <Class IRI="#IndexedMapping"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Interpolation"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Lookup"/>
     </Declaration>
     <Declaration>
@@ -170,6 +173,9 @@
         <ObjectProperty IRI="#compositeNarrowerTemplate"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#concatenation"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#conceptScheme"/>
     </Declaration>
     <Declaration>
@@ -212,6 +218,12 @@
         <ObjectProperty IRI="#identityTemplateMapping"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#indicativeMapping"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interpolationComponent"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
     </Declaration>
     <Declaration>
@@ -252,6 +264,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#ontologicalScheme"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#placeholderMapping"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#referenceDataMapping"/>
@@ -311,6 +326,9 @@
         <DataProperty IRI="#identifier"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#interpolationTemplate"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#iri"/>
     </Declaration>
     <Declaration>
@@ -344,10 +362,25 @@
         <NamedIndividual IRI="#Bottom"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#CorporateName"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FirstName"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#JSON"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#LastName"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MappingExample"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#OwlNothing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Scheme"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#XML"/>
@@ -394,11 +427,17 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#Datum"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#deferredMapping"/>
-            <Class IRI="#DataMapping"/>
-        </ObjectSomeValuesFrom>
+        <Class IRI="#Interpolation"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#interpolationComponent"/>
+                <Class IRI="#DataMapping"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#interpolationTemplate"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Objectification"/>
@@ -546,6 +585,10 @@
         <Class IRI="#DataMapping"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Interpolation"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Lookup"/>
         <ObjectIntersectionOf>
             <Class IRI="#DataMapping"/>
@@ -661,8 +704,16 @@
         <NamedIndividual IRI="#JSON"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Datum"/>
+        <NamedIndividual IRI="#MappingExample"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#OwlAxiom"/>
         <NamedIndividual IRI="#OwlNothing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MappingScheme"/>
+        <NamedIndividual IRI="#Scheme"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SerializationFormat"/>
@@ -676,6 +727,41 @@
         <NamedIndividual IRI="#Bottom"/>
         <NamedIndividual IRI="#OwlNothing"/>
     </SameIndividual>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#interpolationComponent"/>
+        <NamedIndividual IRI="#CorporateName"/>
+        <NamedIndividual IRI="#FirstName"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#interpolationComponent"/>
+        <NamedIndividual IRI="#CorporateName"/>
+        <NamedIndividual IRI="#LastName"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#concatenation"/>
+        <NamedIndividual IRI="#MappingExample"/>
+        <NamedIndividual IRI="#CorporateName"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#exactRBoxMatch"/>
+        <NamedIndividual IRI="#MappingExample"/>
+        <NamedIndividual IRI="#Bottom"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#interpolationTemplate"/>
+        <NamedIndividual IRI="#CorporateName"/>
+        <Literal>$2, $1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#dataRef"/>
+        <NamedIndividual IRI="#FirstName"/>
+        <Literal>path.to.firstName</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#dataRef"/>
+        <NamedIndividual IRI="#LastName"/>
+        <Literal>path.to.lastName</Literal>
+    </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#associativeBroader"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broader"/>
@@ -745,6 +831,10 @@
         <ObjectProperty IRI="#compositeNarrowerMapping"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#concatenation"/>
+        <ObjectProperty IRI="#placeholderMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#conceptScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
     </SubObjectPropertyOf>
@@ -790,7 +880,7 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasMapping"/>
-        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hypothesisMapping"/>
@@ -799,6 +889,14 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#identityTemplateMapping"/>
         <ObjectProperty IRI="#templateMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#indicativeMapping"/>
+        <ObjectProperty IRI="#hasMapping"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#interpolationComponent"/>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#member"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#intransitiveExactMatch"/>
@@ -855,6 +953,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#ontologicalScheme"/>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#placeholderMapping"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#referenceDataMapping"/>
@@ -1003,6 +1105,10 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#interpolationComponent"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#narrowerMapping"/>
         <Class IRI="#DataMapping"/>
     </ObjectPropertyDomain>
@@ -1038,6 +1144,21 @@
         </ObjectSomeValuesFrom>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#interpolationComponent"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#DataMapping"/>
+                <DataSomeValuesFrom>
+                    <DataProperty IRI="#dataRef"/>
+                    <Datatype abbreviatedIRI="xsd:string"/>
+                </DataSomeValuesFrom>
+            </ObjectIntersectionOf>
+            <DataMinCardinality cardinality="1">
+                <DataProperty IRI="#dataInline"/>
+            </DataMinCardinality>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#mappingScheme"/>
         <Class IRI="#MappingScheme"/>
     </ObjectPropertyRange>
@@ -1062,6 +1183,24 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#ontologicalScheme"/>
         <Class IRI="#OntologicalScheme"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#placeholderMapping"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Interpolation"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#interpolationComponent"/>
+                <ObjectUnionOf>
+                    <DataSomeValuesFrom>
+                        <DataProperty IRI="#dataRef"/>
+                        <Datatype abbreviatedIRI="xsd:string"/>
+                    </DataSomeValuesFrom>
+                    <DataMinCardinality cardinality="1">
+                        <DataProperty IRI="#dataInline"/>
+                    </DataMinCardinality>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#referenceDataMapping"/>
@@ -1130,6 +1269,10 @@
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#interpolationTemplate"/>
+        <DataProperty IRI="#template"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#iri"/>
         <DataProperty IRI="#conceptId"/>
     </SubDataPropertyOf>
@@ -1185,6 +1328,10 @@
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#conceptId"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#interpolationTemplate"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -1361,11 +1508,6 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         <Literal>defines a mapping that explicitly states a datum must be individuated in a target OntologicalScheme</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-        <IRI>#Datum</IRI>
-        <Literal>Due to the equivalence class for Datum, an individual that is bound to an extant owl:Thing via a skos:mappingRelation MUST hold a reference back to itself via the deferredMapping object property.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="owl:deprecated"/>
         <IRI>#Digraph</IRI>
         <Literal>Use compositeBroaderMapping and compositeNarrowerMapping instead.</Literal>
@@ -1386,6 +1528,16 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         <Literal>Is used to denote an entity in a representation scheme. An Entity will usually be marked with it&apos;s identify in some originating representation scheme using the identifier datatype property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Interpolation</IRI>
+        <Literal>interpolation template</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#Interpolation</IRI>
+        <Literal>Used to collect two or more mappings that require interpolation against a template. The syntax for referencing the mappings is simply $1, $2, $3, according to their position within the underlying OrderedCollection.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#JSON</IRI>
         <Literal>https://datatracker.ietf.org/doc/html/rfc7159.html</Literal>
@@ -1396,9 +1548,21 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         <Literal>lookup</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#Lookup</IRI>
+        <IRI>#referenceDataMapping</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#Lookup</IRI>
         <Literal>Defines a &quot;lookup&quot;, from some base data to a named individual</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <IRI>#Lookup</IRI>
+        <Literal>- dataRef value points to a &quot;path&quot; in the source data where the lookup (code or indicator) resides
+- t-box match indicates the class to which the identified individual must belong
+- r-box match indicates the relationship between the mapping subject and the identified individual (object)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2004,6 +2168,16 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#concatenation</IRI>
+        <Literal>concatenation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#concatenation</IRI>
+        <Literal>Used to indicate that a placeholderMapping is being used for the purposes of concatenating values</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#conceptId</IRI>
         <Literal>concept id</Literal>
     </AnnotationAssertion>
@@ -2249,6 +2423,31 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
         <IRI>#identityTemplateMapping</IRI>
         <Literal>Aardvark is identified by its &apos;name&apos; property, and thus we must process the &apos;name&apos; mapping first and use the outcome of this mapping to determine the correct IRI/identity for each individual aardvark we come across.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#indicativeMapping</IRI>
+        <Literal>indicative mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#indicativeMapping</IRI>
+        <Literal>Used to denote a potential mapping relation between a representation or concept scheme element and a mapping scheme element, suggesting that the subject may be an indicator for the existence of the object.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#interpolationComponent</IRI>
+        <Literal>has template component (member)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#interpolationComponent</IRI>
+        <Literal>Relates an InterpolationTemplate to one of its members.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#interpolationTemplate</IRI>
+        <Literal>Used to indicate a runtime interpolation of dataRef and/or dataInline values into a new string.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2502,13 +2701,50 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#placeholderMapping</IRI>
+        <Literal>has placeholder mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>#placeholderMapping</IRI>
+        <Literal>Indicates that a deferred mapping maintains &quot;placeholders&quot; for values that should be derived at processing time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#referenceDataMapping</IRI>
         <Literal>has reference data mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#referenceDataMapping</IRI>
+        <IRI>#Lookup</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#referenceDataMapping</IRI>
         <Literal>Used to denote that a mapping takes a value from some input data (via dataRef), and matches it to a subject which contains an exact match on either the contents of its dataInline or the name of the individual.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
+        <IRI>#referenceDataMapping</IRI>
+        <Literal>:Mapping_Contract_LOB rdf:type owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :Example_Scheme ;
+    mork:exactTBoxMatch :Contract ;
+    mork:referenceDataMapping :Mapping_Lob ;
+    mork:compositeNarrowerMapping :Mapping_Contract_Details .
+
+[ rdf:type owl:Axiom ;
+  owl:annotatedSource :Mapping_Contract_LOB ;
+  owl:annotationProperty mork:referenceDataMapping ;
+  owl:annotatedTarget :Mapping_Lob ;
+  skos:note &quot;lob may be determined by a lookup on the value contained in the lineOfBusiness field&quot; ] .
+
+:Mapping_Lob rdf:type owl:NamedIndividual , mork:Lookup ;
+    mork:mappingScheme :Example_Scheme ;
+    mork:exactRBoxMatch :lob ;
+    mork:exactTBoxMatch :LineOfBusiness ;
+    mork:dataRef &quot;path.to.data.field.lineOfBusiness&quot; ;
+    skos:note &quot;Line of business code maps to &apos;lob LineOfBusiness&apos;, via reference data lookup&quot; .</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#scopeNote"/>
