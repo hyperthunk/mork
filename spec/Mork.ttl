@@ -29,6 +29,13 @@
 <http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.nebularis.org/ontologies/Mork#mappingNote
+:mappingNote rdf:type owl:AnnotationProperty ;
+             rdfs:label "mapping note" ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Used to provide notes about a mapping decision." ;
+             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#note> .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#userDeclined
 :userDeclined rdf:type owl:AnnotationProperty ;
               rdfs:label "user declined" ;
@@ -39,6 +46,44 @@
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.nebularis.org/ontologies/Mork#assertsPropertyDomains
+:assertsPropertyDomains rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :propertyMappingAssertions ;
+                        rdfs:label "asserts property domains" ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping to an object property should provide assertions about the domain(s) of that property. Intended for use with deferred mappings (i.e., where the axiom to which the domain property shall refer does not exist at the time the mapping is defined)." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#assertsPropertyRanges
+:assertsPropertyRanges rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :propertyMappingAssertions ;
+                       rdfs:label "asserts property ranges" ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping to an object property should provide assertions about the range(s) of that property. Intended for use with deferred mappings (i.e., where the axiom to which the rdfs:range property shall refer does not exist at the time the mapping is defined)." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#dependentMapping
+:dependentMapping rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :deferredMapping ;
+                  rdfs:label "has dependent mapping" ;
+                  rdfs:seeAlso :yieldConcept ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Used to specifically indicate that the object mapping MUST be processed pior to the subject. Unlike the superProperty deferredMapping, the subject may not use the output of the object (mapping) directly (as its context)." ;
+                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property should be used when a related mapping must be exeucted in order to assert some axiom(s) prior to their use. The subject MUST NOT consider the target state of the object to be part of the context (of the subject's mapping), but rather must refer to it via other means, e.g., by reference to a DeferredContext the brings the asserted axioms into scope via mork:yieldConcept." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#propertyMappingAssertions
+:propertyMappingAssertions rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
+                           rdfs:label "has property mapping assertions" ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "Used to make assertions about proposed object or datatype property mappings" ;
+                           <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, propertyMappingAssertions is not used to make assertions, but rather its subProperties are instead." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#yieldConcept
+:yieldConcept rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:label "yeilds concept" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping yields a particular concept to a broader scope'd mapping. In practice, this means that a compositeNarrower or deferredMapping can \"yield\" it's output to another mapping, allowing generated axioms to be referenced declaratively prior to their assertion in a target ontology." .
+
 
 ###  http://www.nebularis.org/ontologies/Mork#associativeBroader
 :associativeBroader rdf:type owl:ObjectProperty ;
@@ -381,6 +426,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
 ###  http://www.nebularis.org/ontologies/Mork#hasMapping
 :hasMapping rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+            owl:inverseOf :mappingFor ;
             rdfs:domain [ rdf:type owl:Class ;
                           owl:unionOf ( [ rdf:type owl:Restriction ;
                                           owl:onProperty :conceptScheme ;
@@ -406,7 +452,7 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                    rdfs:subPropertyOf :relatedMapping ;
                    rdfs:label "has hypothesis mapping" ;
                    rdfs:seeAlso :compositeNarrowerMapping ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "used to provide a mapping (object) that is being used as a hypothesis in support of the (subject) mapping's postulated match" ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Used to provide a mapping (object) that is being used as a hypothesis in support of the (subject) mapping's postulated match. Can also be used to hypothesise a mapping for an UncertainMapping." ;
                    <http://www.w3.org/2004/02/skos/core#example> """A hypothesis mapping can be used to support the weighting for another mapping. Borrowing the \"aardvark\" datum mapping example from the compositeNarrowerMapping skos:example, we can see the the concept mapping of aardvark_name may rely on the \"Aardvark Class\" mapping as a hypothesis, since if we have not mapped the axiom for the whole, then the part cannot be mapped either.
 
 :Aardvark rdf:type owl:NamedIndividual ;
@@ -446,7 +492,7 @@ This is a somewhat unnecessary hypothesis, since it is assumed that a processing
                          <http://www.w3.org/2004/02/skos/core#example> "Aardvark is identified by its 'name' property, and thus we must process the 'name' mapping first and use the outcome of this mapping to determine the correct IRI/identity for each individual aardvark we come across." .
 
 
-###  http://www.nebularis.org/ontologies/Mork#intransitiveExactMatch
+###  http://www.nebularis.org/ontologies/Mork#indicativeMapping
 :indicativeMapping rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :hasMapping ;
                    rdfs:label "indicative mapping" ;
@@ -495,6 +541,20 @@ This is required for situations where the inverse of a datatype or object proper
 
 The subject may come from any aspect of another domain (e.g., belonging to RepresentationScheme or TaxonomyScheme, coming from the T-Box, A-Box, or R-Box).""" ;
                   <http://www.w3.org/2004/02/skos/core#scopeNote> "NB: This property is NOT the inverse of exactRBoxMatch, but rather it represents the same semantics when referencing the inverse of the property." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#lexicalMatch
+:lexicalMatch rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :possibleMatch ;
+              rdfs:label "is lexical match with" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a possible or partial lexical match, where similar terms (i.e., words) exist, but the semantics or structure are not a good match." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#mappingFor
+:mappingFor rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+            rdfs:label "is mapping for" ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Indicates the Representation or DataConcept for which a DataMapping applies. This property is the inverse of hasMapping." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#mappingScheme
@@ -627,7 +687,15 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                    <http://www.w3.org/2004/02/skos/core#definition> "Denotes the subject membership in an OntologicalScheme. Note that this is designed for use only by inference based on SWRL or SHACL constraints, and should not be used directly (since there is no hint on the Domain)" .
 
 
-###  http://www.nebularis.org/ontologies/Mork#referenceDataMapping
+###  http://www.nebularis.org/ontologies/Mork#partialMatch
+:partialMatch rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty :possibleMatch ;
+              rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
+              rdfs:label "is partial match with" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Synonym for possibleMatch" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#placeholderMapping
 :placeholderMapping rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:domain :DataMapping ;
@@ -651,6 +719,13 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                                ] ;
                     rdfs:label "has placeholder mapping" ;
                     <http://www.w3.org/2004/02/skos/core#definition> "Indicates that a mapping defers to a collection of \"placeholders\" for values that should be derived at processing time" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#possibleMatch
+:possibleMatch rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
+               rdfs:label "is possible match with" ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a possible/potential match." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#referenceDataMapping
@@ -692,6 +767,13 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                 <http://www.w3.org/2004/02/skos/core#definition> "used to describe a relationships between two potential mappings" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#relatedProperty
+:relatedProperty rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#related> ;
+                 rdfs:label "has related property" ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Used to relate DataConcept or Attribute individuals to object or datatype properties." .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#representationOf
 :representationOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
@@ -715,6 +797,20 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
                rdfs:label "is represented as" ;
                <http://www.w3.org/2004/02/skos/core#definition> "Used to describe one of the (potentially multiple) Representations of a DataConcept. This property is the inverse of representationOf." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#semanticMatch
+:semanticMatch rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :possibleMatch ;
+               rdfs:label "is structural match with" ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a partial/possible semantic match." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#structuralMatch
+:structuralMatch rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :possibleMatch ;
+                 rdfs:label "is structural match with" ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a match in structure, i.e., where concepts in different concept schemes appear at the same place structurally, but may have different semantics/meanings, or have a poor lexical match." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#templateMapping
@@ -754,6 +850,16 @@ If the composite narrower mappings of either subject or object are members of th
 #    Data properties
 #################################################################
 
+###  http://www.nebularis.org/ontologies/Mork#individualIRI
+:individualIRI rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :individualName .
+
+
+###  http://www.nebularis.org/ontologies/Mork#individualName
+:individualName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :name .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#collectionElementScalarValue
 :collectionElementScalarValue rdf:type owl:DatatypeProperty ;
                               rdfs:subPropertyOf owl:topDataProperty ;
@@ -765,6 +871,12 @@ This specific property is exclusively used to manage Objectification.""" .
 ###  http://www.nebularis.org/ontologies/Mork#conceptFQNameTemplate
 :conceptFQNameTemplate rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf :conceptNameTemplate .
+
+
+###  http://www.nebularis.org/ontologies/Mork#conceptIRI
+:conceptIRI rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :conceptName ;
+            rdfs:range xsd:anyURI .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#conceptId
@@ -807,7 +919,8 @@ This specific property is exclusively used to manage Objectification.""" .
 
 ###  http://www.nebularis.org/ontologies/Mork#dataRef
 :dataRef rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf :data .
+         rdfs:subPropertyOf :data ;
+         rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#externalPropertyValue
@@ -878,11 +991,17 @@ This datatype property can be used in one of two ways:
               <http://www.w3.org/2004/02/skos/core#definition> "used to denote the index of a mapping where it occurs within a collection of mappings." .
 
 
+###  http://www.nebularis.org/ontologies/Mork#mappingRecommendation
+:mappingRecommendation rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :data ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:range xsd:string .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#name
 :name rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
-      rdfs:range xsd:string ;
-      <http://www.w3.org/2004/02/skos/core#definition> "composes" .
+      rdfs:range xsd:string .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#orderedItems
@@ -924,9 +1043,11 @@ This datatype property can be used in one of two ways:
 #    Classes
 #################################################################
 
-###  http://www.nebularis.org/ontologies/Mork#IncompleteMapping
-:IncompleteMapping rdf:type owl:Class ;
-                   rdfs:subClassOf :DataMapping .
+###  http://www.nebularis.org/ontologies/Mork#DeferredContext
+:DeferredContext rdf:type owl:Class ;
+                 rdfs:subClassOf :DataMapping ;
+                 rdfs:label "deferred context" ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Used to act as a placeholder for an axiom that some DataMapping proposes the creation of, which must be referenced by an object property in a related DataMapping." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#AnonymousElement
@@ -1077,6 +1198,11 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
        <http://www.w3.org/2004/02/skos/core#definition> "defines a mapping that explicitly states a datum must be individuated in a target OntologicalScheme" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#DeferredConceptIRI
+:DeferredConceptIRI rdf:type owl:Class ;
+                    rdfs:subClassOf :OwlAxiom .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#Digraph
 :Digraph rdf:type owl:Class ;
          rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
@@ -1093,6 +1219,16 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
         rdfs:label "entity (representation)" ;
         rdfs:seeAlso :identifier ;
         <http://www.w3.org/2004/02/skos/core#definition> "Is used to denote an entity in a representation scheme. An Entity will usually be marked with it's identify in some originating representation scheme using the identifier datatype property." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#Hypothesis
+:Hypothesis rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf :hypothesisMapping
+                                                 ] ;
+                                  owl:someValuesFrom :DataMapping
+                                ] ;
+            rdfs:subClassOf :DataMapping .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#IdentifiableElement
@@ -1208,25 +1344,22 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
 Objectification is related to the linguistic activity of nominalization. In the context of Mork, an Objectification plays a similar role to an association class (in UML), insomuch as RDF does not allow us to attribute facts (i.e., properties) to the edges between nodes in the graph, therefore an intermediate node serves to allow us to capture the notion of \"relatedness\" in such a way that it can be mapped.
 
 See Terry Halpin's paper on objectified facts for more details: https://www.orm.net/pdf/objectification.pdf""" ;
-                 <http://www.w3.org/2004/02/skos/core#example> """### Consider the following Objectification and associated mapping.
-### The closeMatch on 'contract:signatory' points to an objectProperty 
-### in the target ontology, with annotations on the property providing context
-### to the mapping recommendation
-
-:Concept_Conditions_CombinedLimitSymbols 
+                 <http://www.w3.org/2004/02/skos/core#example> """# We can model a mapping directly from a relationship
+:Concept_Contract_Signatories
                  rdf:type owl:NamedIndividual,
                  mork:Objectification ; 
-           mork:broadConceptRole :Rep_Conditions ;
+           mork:broadConceptRole :Rep_Contract ;
            mork:conceptScheme :Taxa_Scheme ; 
-           mork:narrowConceptRole :Rep_CombinedLimitSymbols ;
+           mork:narrowConceptRole :Rep_Signatories ;
            skos:note \"Models an association between Rep_Conditions and the attribute combinedLimitSymbols, which is represented by Rep_CombinedLimitSymbols\" .
 
 :Mapping_Signatories 
                  rdf:type owl:NamedIndividual, mork:DataMapping ;
+           mork:mappingFor :Concept_Contract_Signatories ;
            skos:closeMatch contract:signatory ;
            mork:mappingScheme :Scheme_Map_Contracts ;
            mork:weighting 80 ;
-           skos:note \"signatories may be related to the ontological concept signatory\" .
+           skos:note \"the representation Array signatories may be related to the ontological concept signatory\" .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Mapping_Signatories ;
@@ -1385,10 +1518,10 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                           mork:representationScheme :Mapping_Representation ;
                           mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
                           rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
-   rdfs:comment _:genid86
+   rdfs:comment _:genid88
  ] .
 
-_:genid86 rdfs:comment "Shows an Array and its corresponding element type" .
+_:genid88 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
@@ -1407,6 +1540,146 @@ _:genid86 rdfs:comment "Shows an Array and its corresponding element type" .
 ###  http://www.nebularis.org/ontologies/Mork#TaxonomyScheme
 :TaxonomyScheme rdf:type owl:Class ;
                 rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://www.nebularis.org/ontologies/Mork#UncertainMapping
+:UncertainMapping rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hypothesisMapping ;
+                                                        owl:someValuesFrom :DataMapping
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :mappingRecommendation ;
+                                                        owl:someValuesFrom xsd:string
+                                                      ]
+                                                    )
+                                      ] ;
+                  rdfs:subClassOf :DataMapping ;
+                  rdfs:label "uncertain mapping" ;
+                  rdfs:seeAlso :hypothesisMapping ,
+                               :mappingRecommendation ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Individuals belonging to this class, represent mapping where the ontological target is missing, incomplete, uncertain, or undefined. Members of this class SHOULD also be members of DataMapping or one of its (other) subclasses." ;
+                  <http://www.w3.org/2004/02/skos/core#example> """# an ontology we are mapping to
+zoo:Animal rdf:type owl:Class .
+zoo:Mamal rdf:type owl:Class ;
+    rdfs:subClassOf zoo:Animal ;
+    rdfs:subClassOf [ 
+            rdf:type owl:Restriction ;
+            owl:onProperty :laysEggs;
+            owl:hasValue \"false\"^^xsd:boolean
+        ] .
+zoo:Reptile rdf:type owl:Class ;
+    rdfs:subClassOf zoo:Animal ;
+    rdfs:subClassOf [ 
+            rdf:type owl:Restriction ;
+            owl:onProperty :laysEggs;
+            owl:hasValue \"true\"^^xsd:boolean
+        ] .
+
+## and some awkward data concepts we need to map to it
+
+# representations of pets (platypus and falcon)
+:Rep_Platypus rdf:type owl:NamedIndividual , mork:Entity ;
+    mork:identifier \"platypus\" ;
+    mork:path \"exotica.pets.platypus\" ;
+    mork:representationOf :PlatypusType ;
+    mork:memberProperty :Rep_Platypus_Eggs ;
+    mork:representationScheme :Rep_Pets .
+
+:Rep_Platypus_Eggs rdf:type owl:NamedIndividual , mork:Attribute ;
+    mork:identifier \"eggSize\" ;
+    mork:path \"exotica.pets.platypus.eggSize\" ;
+    rdfs:range xsd:string ;
+    mork:representationOf :PlatypusEggs ;
+    mork:representationScheme :Rep_Pets .
+
+:Rep_Falcon rdf:type owl:NamedIndividual , mork:Entity ;
+    mork:identifier \"falcon\" ;
+    mork:path \"exotica.pets.falcon\" ;
+    mork:representationOf :FalconType ; 
+    mork:memberProperty :Rep_Falcon_Eggs ; 
+    mork:representationScheme :Rep_Pets .
+
+:Rep_Falcon_Eggs rdf:type owl:NamedIndividual , mork:Attribute ;
+    mork:identifier \"eggSize\" ;
+    mork:path \"exotica.pets.falcon.eggSize\" ;
+    rdfs:range xsd:string ; 
+    mork:representationOf :FalconEggs ;
+    mork:representationScheme :Rep_Pets .
+
+# type/concept of pets
+:FalconType rdf:type owl:NamedIndividual , mork:DataConcept ;
+    mork:conceptId \"Falcon\" ;
+    skos:broader :PetType ;
+    mork:conceptScheme :Taxa_Pets .
+
+:FaclonEggs rdf:type owl:NamedIndividual , mork:Objectification ;
+    mork:conceptId \"FalconEggs\" ;
+    mork:broadConceptRole :FalconType ;
+    mork:narrowConceptRole :EggsType ;
+    mork:conceptScheme :Taxa_Pets .
+
+:PlatypusType rdf:type owl:NamedIndividual , mork:DataConcept ;
+    mork:conceptId \"Platypus\" ;
+    skos:broader :PetType ;
+    mork:conceptScheme :Taxa_Pets .
+
+:PlatypusEggs rdf:type owl:NamedIndividual , mork:Objectification ;
+    mork:conceptId \"PlatypusEggs\" ;
+    mork:broadConceptRole :PlatypusType ;
+    mork:narrowConceptRole :EggsType ;
+    mork:conceptScheme :Taxa_Pets .
+
+:PetType rdf:type owl:NamedIndividual , mork:AnonymousElement, mork:DataConcept ;
+    mork:conceptId \"Pet\" ;
+    mork:conceptScheme :Taxa_Pets ;
+    skos:narrower :FalconType , :PlatypusType ;
+    mork:memberProperty :Rep_Falcon_Eggs .
+
+:EggsType rdf:type owl:NamedIndividual , mork:DataConcept ;
+    mork:identifier \"Eggs\" ;
+    mork:compositeNarrower :EggSize ;
+    mork:conceptScheme :Taxa_Pets .
+
+:EggSize rdf:type owl:NamedIndividual , mork:DataConcept ;
+    mork:conceptId \"EggSize\" ;
+    mork:conceptScheme :Taxa_Pets ;
+    # unusual though it is, we CAN store an rdfs:range against a data concept
+    rdfs:range xsd:string ;
+    skos:note \"Stores the size for a type of animal's egg.\" .
+
+# Now our attemps at mappings between the representations, concepts and the target ontology
+:Map_Pet rdf:type owl:NamedIndividual , mork:Mapping ;
+    mork:conceptName \"Pet\" ;
+    mork:mappingFor :PetType ;
+    mork:weighting 80;
+    mork:exactTBoxMatch :zoo:Animal ;
+    mork:mappingNote \"'Pet' is a possible sematic match with the class 'Animal' in the target ontology, representing the concept of pet animals.\" .
+
+# a mapping for Falcon, where we do not have a good match due to the lack of a 'Bird' class in the target ontology
+:Map_Falcon rdf:type owl:NamedIndividual , mork:UncertainMapping ;
+    mork:conceptName \"Falcon\" ;
+    mork:mappingFor :Rep_Falcon ;
+    mork:weighting 65 ;
+    mork:hypothesisMapping :Map_Falcon_Hypothesis ;
+    mork:mappingRecommendation \"Recommend defining a new individual 'Falcon' in the target ontology, representing the concept of Falcon as an individual species.\" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Falcon ;
+   owl:annotatedProperty mork:hypothesisMapping ;
+   owl:annotatedTarget mork:Map_FalconTypes ;
+   mork:mappingNote \"Recommendation requires creation of several new types/classes.\" ;
+ ] .
+
+:Map_Falcon_Hypothesis rdf:type owl:NamedIndividual , mork:DataMapping ;
+    mork:conceptName \"#Falcon\" ;
+    mork:broadTBoxCategoryMatch mork:DeferredClassDefinition ;
+    mork:deferredMapping :Map_FalconTypes ;
+    mork:compositeNarrowerMapping :Map_Falcon_SpeciesOf_Bird ;
+    mork:mappingNote \"Hypothesis mapping for 'Falcon' isSpeciesOf bird.\" .
+
+# and so on - please see /examples/UncertainMappings.ttl""" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#UnorderedCollection
@@ -1434,13 +1707,6 @@ _:genid86 rdfs:comment "Shows an Array and its corresponding element type" .
 rdf:List rdf:type owl:Class .
 
 
-###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
-                                                                    owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
-                                                                  ] .
-
-
 #################################################################
 #    Individuals
 #################################################################
@@ -1453,11 +1719,29 @@ rdf:List rdf:type owl:Class .
 
 ###  http://www.nebularis.org/ontologies/Mork#OwlNothing
 
-###  http://www.nebularis.org/ontologies/Mork#DataExample
-:DataExample rdf:type owl:NamedIndividual ,
-                      :Datum ;
-             :mappingScheme :Scheme ;
-             :dataRef "path.to.value" .
+###  http://www.nebularis.org/ontologies/Mork#DeferredClassDefinition
+:DeferredClassDefinition rdf:type owl:NamedIndividual ,
+                                  :OwlClass .
+
+
+###  http://www.nebularis.org/ontologies/Mork#DeferredConceptIRI
+:DeferredConceptIRI rdf:type owl:NamedIndividual ,
+                             :OwlAxiom .
+
+
+###  http://www.nebularis.org/ontologies/Mork#DeferredDataPropertyDefinition
+:DeferredDataPropertyDefinition rdf:type owl:NamedIndividual ,
+                                         :OwlDataProperty .
+
+
+###  http://www.nebularis.org/ontologies/Mork#DeferredIndividualDefinition
+:DeferredIndividualDefinition rdf:type owl:NamedIndividual ,
+                                       :OwlAxiom .
+
+
+###  http://www.nebularis.org/ontologies/Mork#DeferredObjectPropertyDefinition
+:DeferredObjectPropertyDefinition rdf:type owl:NamedIndividual ,
+                                           :OwlObjectProperty .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#JSON
@@ -1492,15 +1776,70 @@ rdf:List rdf:type owl:Class .
 ] .
 
 #################################################################
+#    Annotations
+#################################################################
+
+:DeferredConceptIRI rdfs:label "deferred concept iri" ;
+                     rdfs:seeAlso :DeferredContext ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that the axiom a mapping property is referring to shall be obtained once it is created, referencing the conceptName, conceptIRI, or conceptNameTemplate on the mapping which declares the relationship to obtain (i.e., locate) the axiom in question." ;
+                     <http://www.w3.org/2004/02/skos/core#example> """:Map_FalconTypes rdf:type owl:NamedIndividual , mork:DataMapping ;
+    # nb: the conceptName refers to a generated class in the target ontology
+    mork:conceptName \"#Species\" ;
+    mork:mappingFor :FalconType ;
+    mork:weighting 85 ;
+    mork:deferredMapping :Map_Gen_Species_Class , :Map_Gen_Bird_Class , :Map_Gen_IsSpeciesOf ;
+    # yield the concept 'Species' to a broader mapping
+    mork:yieldConcept mork:DeferredConceptIRI ;
+    mork:mappingNote \"Define a new class 'Species' and a new class 'Bird' in the target ontology.\" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_FalconTypes ;
+   owl:annotatedProperty mork:weighting ;
+   mork:mappingNote \"Falcon is a bird, birds lay eggs, however birds are not reptiles.\" ;
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_FalconTypes ;
+   owl:annotatedProperty mork:deferredMapping ;
+   owl:annotatedTarget mork:DeferredClassDefinition ;
+   mork:mappingNote \"Not only is 'Falcon' absent from the target ontology, a Falcon is a bird, which is neither a Reptile nor a Mammal. Recommend defining a new class 'Species' and a new class 'Bird' in the target ontology, and then defining 'Falcon' as an individual of the class 'Species', and allows it to refer to the class 'Bird' via a new object property 'isSpeciesOf'.\" ;
+ ] .
+
+ :Map_Gen_Species_Class rdf:type owl:NamedIndividual , mork:DataMapping ;
+    # we use a #<conceptName> when the generated IRI should be prefixed with the base IRI of the output ontology
+    # we can also use another prefix to change this, e.g., \"zoo:species\"
+    mork:conceptName \"#Species\" ; 
+    mork:broadTBoxCategoryMatch owl:Thing ;  # make a new Thing called Species
+    skos:mappingNote \"Falcon and Platypus are both types of species of Animal.\" .
+
+:Map_Gen_Bird_Class rdf:type owl:NamedIndividual , mork:DataMapping ;
+    mork:conceptName \"#Bird\" ;
+    mork:broadTBoxCategoryMatch zoo:Animal ; # make a new type of animal called Bird
+    mork:mappingRecommendation \"Recommend introducing a notional construct to model reproductive modes, with 'Oviparity' as a member/individual.\" .
+
+:Map_Gen_IsSpeciesOf rdf:type owl:NamedIndividual , mork:DataMapping ;
+    mork:conceptName \"#isSpeciesOf\" ;
+    mork:broadRBoxCategoryMatch owl:topObjectProperty ;
+    mork:assertsPropertyDomains :Map_Gen_Species_Domain ;
+    mork:assertsPropertyRanges zoo:Animal ;
+    mork:mappingNote \"Establishes a relationship between Species and Animal\" .
+
+:Map_Gen_Species_Domain rdf:type owl:NamedIndividual , mork:DeferredContext ;
+    mork:conceptName \"#Species\" ;
+    mork:yieldConcept mork:DeferredConceptIRI ;
+    mork:mappingNote \"Yields the axiom <BaseIRI>#Species at processing time.\" .""" .
+
+
+#################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-   owl:members ( :OrderedCollection
-                 :SetListing
-                 :UnorderedCollection
-               )
- ] .
+  owl:members ( :OrderedCollection
+                :SetListing
+                :UnorderedCollection
+              )
+] .
 
 
 [ rdf:type owl:AllDisjointProperties ;

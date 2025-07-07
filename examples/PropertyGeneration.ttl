@@ -1,0 +1,64 @@
+@prefix mork: <http://www.nebularis.org/ontologies/Mork#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix zoo: <http://www.nebularis.org/ontologies/Zoo#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://www.nebularis.org/ontologies/Zoo/PropertyGeneration> .
+
+<http://www.nebularis.org/ontologies/Zoo/PropertyGeneration> rdf:type owl:Ontology ;
+                                owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                owl:imports <http://www.nebularis.org/ontologies/Mork#> .
+
+# This file is part of the Mork ontology, which provides a framework for defining mappings
+# between concepts in different ontologies, particularly for generating properties and classes
+# in a target ontology based on mappings defined in Mork.
+
+# The examples in this file illustrate how to use Mork to create mappings that can be used to
+# generate new classes and properties in the target ontology, such as defining a class for Birds
+# and establishing relationships between species and animals.
+
+:Map_OwlTypes rdf:type owl:NamedIndividual , mork:DataMapping ;
+    # nb: the conceptName refers to a generated class in the target ontology
+    mork:individualName "#Owl" ;
+    mork:weighting 85 ;
+    mork:deferredMapping :Map_Gen_Species_Class , :Map_Gen_Bird , :Map_Gen_IsSpeciesOf ;
+    mork:exactTBoxMatch :Map_Yield_Species ;
+    mork:compositeNarrowerMapping :Map_Owl_SpeciesOf_Bird ;
+    mork:mappingNote "Define a new class 'Bird' in the target ontology." .
+
+:Map_Gen_Species_Class rdf:type owl:NamedIndividual , mork:DataMapping ;
+    # we use a #<conceptName> when the generated IRI should be prefixed with the base IRI of the output ontology
+    # we can also use another prefix to change this, e.g., "zoo:species"
+    mork:conceptName "#Species" ; 
+    mork:broadTBoxCategoryMatch owl:Thing ;  # make a new Thing called Species
+    skos:mappingNote "Owl and Platypus are both types of species of Animal." .
+
+:Map_Yield_Species rdf:type owl:NamedIndividual , mork:DeferredContext ;
+    mork:conceptName "#Species" ;
+    mork:yieldConcept mork:DeferredConceptIRI ;
+    mork:mappingNote "Yields the axiom <BaseIRI>#Species at processing time." .
+
+:Map_Gen_Bird rdf:type owl:NamedIndividual , mork:Datum ;
+    mork:individualName "#Bird" ;
+    mork:exactTBoxMatch zoo:Animal . # make a new type of animal called Bird
+
+:Map_Yield_Bird rdf:type owl:NamedIndividual , mork:DeferredContext ;
+    mork:conceptName "#Bird" ;
+    mork:yieldConcept mork:DeferredConceptIRI ;  # this is a deferred class definition, #Bird
+    mork:mappingNote "Yields the axiom <BaseIRI>#Bird at processing time." .
+    
+:Map_Owl_SpeciesOf_Bird rdf:type owl:NamedIndividual , mork:DataMapping ;
+    # mapping context is the output of :Map_Owl_Hypothesis
+    mork:conceptName "#isSpeciesOf" ;
+    mork:exactRBoxMatch mork:DeferredConceptIRI ;
+    mork:exactABoxMatch :Map_Yield_Bird ;
+    mork:mappingNote "Establishes the relationship `Facon isSpeciesOf Bird`" .
+
+:Map_Gen_IsSpeciesOf rdf:type owl:NamedIndividual , mork:DataMapping ;
+    mork:conceptName "#isSpeciesOf" ;
+    mork:broadRBoxCategoryMatch owl:topObjectProperty ;
+    mork:assertsPropertyDomains :Map_Yield_Species ;
+    mork:assertsPropertyRanges zoo:Animal ;
+    mork:mappingNote "Establishes a relationship between Species and Animal" .
