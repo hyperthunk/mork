@@ -61,30 +61,6 @@
                        <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping to an object property should provide assertions about the range(s) of that property. Intended for use with deferred mappings (i.e., where the axiom to which the rdfs:range property shall refer does not exist at the time the mapping is defined)." .
 
 
-###  http://www.nebularis.org/ontologies/Mork#dependentMapping
-:dependentMapping rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :deferredMapping ;
-                  rdfs:label "has dependent mapping" ;
-                  rdfs:seeAlso :yieldConcept ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "Used to specifically indicate that the object mapping MUST be processed pior to the subject. Unlike the superProperty deferredMapping, the subject may not use the output of the object (mapping) directly (as its context)." ;
-                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property should be used when a related mapping must be exeucted in order to assert some axiom(s) prior to their use. The subject MUST NOT consider the target state of the object to be part of the context (of the subject's mapping), but rather must refer to it via other means, e.g., by reference to a DeferredContext the brings the asserted axioms into scope via mork:yieldConcept." .
-
-
-###  http://www.nebularis.org/ontologies/Mork#propertyMappingAssertions
-:propertyMappingAssertions rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf owl:topObjectProperty ;
-                           rdfs:label "has property mapping assertions" ;
-                           <http://www.w3.org/2004/02/skos/core#definition> "Used to make assertions about proposed object or datatype property mappings" ;
-                           <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, propertyMappingAssertions is not used to make assertions, but rather its subProperties are instead." .
-
-
-###  http://www.nebularis.org/ontologies/Mork#yieldConcept
-:yieldConcept rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty ;
-              rdfs:label "yeilds concept" ;
-              <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping yields a particular concept to a broader scope'd mapping. In practice, this means that a compositeNarrower or deferredMapping can \"yield\" it's output to another mapping, allowing generated axioms to be referenced declaratively prior to their assertion in a target ontology." .
-
-
 ###  http://www.nebularis.org/ontologies/Mork#associativeBroader
 :associativeBroader rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> ;
@@ -217,15 +193,6 @@ Specifically, this instruction means:
 :broaderMapping rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :relatedMapping ;
                 owl:inverseOf :narrowerMapping ;
-                rdfs:domain :DataMapping ,
-                            [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#OrderedCollection>
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty <http://www.w3.org/2004/02/skos/core#member> ;
-                                                     owl:someValuesFrom :DataMapping
-                                                   ]
-                                                 ) ;
-                              rdf:type owl:Class
-                            ] ;
                 rdfs:range :DataMapping ;
                 rdfs:label "has broader mapping" ;
                 <http://www.w3.org/2004/02/skos/core#definition> "Relates a mapping to a mapping that is more general (less specific)" .
@@ -345,6 +312,15 @@ Subsequent mappings (for name and sex) may rely on these mappings as a hypothesi
                  rdf:type owl:SymmetricProperty ;
                  rdfs:label "has deferred mapping" ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Used to defer to a mapping where the subject is dependent on the result of applying the object (mapping) and obtaining the outcome. This can be used, for example, to ensure that individuals which belong to an owl:Class are processed only after the class axiom has been asserted." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#dependentMapping
+:dependentMapping rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :deferredMapping ;
+                  rdfs:label "has dependent mapping" ;
+                  rdfs:seeAlso :yieldConcept ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Used to specifically indicate that the object mapping MUST be processed pior to the subject. Unlike the superProperty deferredMapping, the subject may not use the output of the object (mapping) directly (as its context)." ;
+                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property should be used when a related mapping must be exeucted in order to assert some axiom(s) prior to their use. The subject MUST NOT consider the target state of the object to be part of the context (of the subject's mapping), but rather must refer to it via other means, e.g., by reference to a DeferredContext the brings the asserted axioms into scope via mork:yieldConcept." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#digraphMatch
@@ -666,15 +642,6 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
 :narrowerMapping rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :relatedMapping ;
                  rdfs:domain :DataMapping ;
-                 rdfs:range :DataMapping ,
-                            [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#OrderedCollection>
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty <http://www.w3.org/2004/02/skos/core#member> ;
-                                                     owl:someValuesFrom :DataConcept
-                                                   ]
-                                                 ) ;
-                              rdf:type owl:Class
-                            ] ;
                  rdfs:label "has narrower mapping" ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Relates a mapping to a mapping that is more specific" .
 
@@ -726,6 +693,14 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
                rdfs:label "is possible match with" ;
                <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a possible/potential match." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#propertyMappingAssertions
+:propertyMappingAssertions rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
+                           rdfs:label "has property mapping assertions" ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "Used to make assertions about proposed object or datatype property mappings" ;
+                           <http://www.w3.org/2004/02/skos/core#scopeNote> "By convention, propertyMappingAssertions is not used to make assertions, but rather its subProperties are instead." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#referenceDataMapping
@@ -846,19 +821,16 @@ If the composite narrower mappings of either subject or object are members of th
                   <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that the object has a higher weighting (and thereby is a narrower match), compared to the subject. Explicitly means that the object is a more likely match than the subject." .
 
 
+###  http://www.nebularis.org/ontologies/Mork#yieldConcept
+:yieldConcept rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:label "yeilds concept" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate that a mapping yields a particular concept to a broader scope'd mapping. In practice, this means that a compositeNarrower or deferredMapping can \"yield\" it's output to another mapping, allowing generated axioms to be referenced declaratively prior to their assertion in a target ontology." .
+
+
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.nebularis.org/ontologies/Mork#individualIRI
-:individualIRI rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf :individualName .
-
-
-###  http://www.nebularis.org/ontologies/Mork#individualName
-:individualName rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf :name .
-
 
 ###  http://www.nebularis.org/ontologies/Mork#collectionElementScalarValue
 :collectionElementScalarValue rdf:type owl:DatatypeProperty ;
@@ -948,6 +920,16 @@ This specific property is exclusively used to manage Objectification.""" .
 :incompleteMapping rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:range xsd:boolean .
+
+
+###  http://www.nebularis.org/ontologies/Mork#individualIRI
+:individualIRI rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :individualName .
+
+
+###  http://www.nebularis.org/ontologies/Mork#individualName
+:individualName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :name .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#interpolationTemplate
@@ -1042,13 +1024,6 @@ This datatype property can be used in one of two ways:
 #################################################################
 #    Classes
 #################################################################
-
-###  http://www.nebularis.org/ontologies/Mork#DeferredContext
-:DeferredContext rdf:type owl:Class ;
-                 rdfs:subClassOf :DataMapping ;
-                 rdfs:label "deferred context" ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "Used to act as a placeholder for an axiom that some DataMapping proposes the creation of, which must be referenced by an object property in a related DataMapping." .
-
 
 ###  http://www.nebularis.org/ontologies/Mork#AnonymousElement
 :AnonymousElement rdf:type owl:Class ;
@@ -1201,6 +1176,13 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
 ###  http://www.nebularis.org/ontologies/Mork#DeferredConceptIRI
 :DeferredConceptIRI rdf:type owl:Class ;
                     rdfs:subClassOf :OwlAxiom .
+
+
+###  http://www.nebularis.org/ontologies/Mork#DeferredContext
+:DeferredContext rdf:type owl:Class ;
+                 rdfs:subClassOf :DataMapping ;
+                 rdfs:label "deferred context" ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Used to act as a placeholder for an axiom that some DataMapping proposes the creation of, which must be referenced by an object property in a related DataMapping." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#Digraph
@@ -1518,10 +1500,10 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                           mork:representationScheme :Mapping_Representation ;
                           mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
                           rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
-   rdfs:comment _:genid88
+   rdfs:comment _:genid80
  ] .
 
-_:genid88 rdfs:comment "Shows an Array and its corresponding element type" .
+_:genid80 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat

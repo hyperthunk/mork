@@ -163,7 +163,7 @@ zoo:Reptile rdf:type owl:Class ;
     mork:mappingNote "Asserts the property `Falcon laysEggs true`" .
 
 :Map_Oviparity rdf:type owl:Class , mork:DeferredContext ;
-    # because this is a mapping-template, rdfs:subClassOf and owl:equivalentClass axioms apply to the context/output
+    # when a mapping is used as a template, rdfs:subClassOf and owl:equivalentClass axioms apply to the context/output
     owl:equivalentClass [ 
             rdf:type owl:Restriction ;
             owl:onProperty zoo:laysEggs;
@@ -226,7 +226,7 @@ zoo:Reptile rdf:type owl:Class ;
 :Map_Eggs_Hypothesis rdf:type owl:NamedIndividual , mork:DataMapping ;
     mork:conceptName "#Eggs" ;
     mork:broadTBoxCategoryMatch owl:Thing ;
-    mork:compositeNarrowerMapping :Map_Eggs_Size ;
+    mork:compositeNarrowerMapping :Map_EggSize ;
     mork:mappingNote "Hypothesis mapping for 'Eggs' is a deferred class definition." .
 
 :Map_EggSize rdf:type owl:NamedIndividual , mork:UncertainMapping ;
