@@ -5,7 +5,8 @@
   "contract": {
     "signatories": {
       "issuer": { 
-         "issuerID": "Bob The Builder Enterprises, LLP"
+        "id": "Bob_the_builder", 
+        "name": "Bob The Builder Enterprises, LLP"
       },
       "contractingParties": [
         {

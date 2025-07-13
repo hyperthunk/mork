@@ -1,0 +1,389 @@
+@prefix :         <http://www.nebularis.org/ontologies/mapping/RMLMapping#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:      <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix mork:     <http://www.nebularis.org/ontologies/Mork#> .
+@prefix rml:      <http://w3id.org/rml#> .
+
+<http://www.nebularis.org/ontologies/mapping/RMLMapping>
+    rdf:type      owl:Ontology ;
+    owl:imports   <http://www.w3.org/2004/02/skos/core> ,
+                  <http://www.nebularis.org/ontologies/Mork> ,
+                  <http://w3id.org/rml> ;
+    rdfs:label    "RML–Mork Full Vocabulary Mapping" ;
+    rdfs:comment  "A complete set of DataMappings for every Mork object property, aligning each with an RML construct." .
+
+# MappingScheme declaration
+:RMLMappingScheme
+    rdf:type       mork:MappingScheme ;
+    skos:prefLabel "RML Mapping Scheme (Full Vocabulary)" ;
+    skos:definition
+        "Collects DataMappings that describe how every Mork object property corresponds to an RML vocabulary term." .
+
+################################################################################
+# For each Mork object property, map to an RML predicate in a predicateObjectMap
+################################################################################
+
+# assertsPropertyDomains
+:Map_assertsPropertyDomains
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:assertsPropertyDomains ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Emits an RML predicateObjectMap where the predicate is the Mork property assertsPropertyDomains." .
+
+# assertsPropertyRanges
+:Map_assertsPropertyRanges
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:assertsPropertyRanges ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Emits an RML predicateObjectMap where the predicate is the Mork property assertsPropertyRanges." .
+
+# associativeBroader
+:Map_associativeBroader
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:associativeBroader ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Emits an RML predicate for associativeBroader relationships between mappings." .
+
+# associativeNarrower
+:Map_associativeNarrower
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:associativeNarrower ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Emits an RML predicateObjectMap for associativeNarrower relationships." .
+
+# broadABoxCategoryMatch
+:Map_broadABoxCategoryMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadABoxCategoryMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Maps broadABoxCategoryMatch to an RML predicate indicating a loose ABox category correlation." .
+
+# isSubcategoryOf
+:Map_isSubcategoryOf
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:isSubcategoryOf ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Represents an RML predicate for isSubcategoryOf hierarchical relations." .
+
+# broadCategoryMatch
+:Map_broadCategoryMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadCategoryMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Maps broadCategoryMatch to a generalized RML predicate for category alignment." .
+
+# broadConceptRole
+:Map_broadConceptRole
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadConceptRole ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Emits an RML predicate for broadConceptRole designations." .
+
+# broadNavigableConceptRole
+:Map_broadNavigableConceptRole
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadNavigableConceptRole ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Represents broadNavigableConceptRole as an RML predicate to signal navigable relationships." .
+
+# broadRBoxCategoryMatch
+:Map_broadRBoxCategoryMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadRBoxCategoryMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Maps broadRBoxCategoryMatch to an RML predicate for RBox-level category matching." .
+
+# broadTBoxCategoryMatch
+:Map_broadTBoxCategoryMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broadTBoxCategoryMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Represents broadTBoxCategoryMatch via an RML predicate for loose TBox alignments." .
+
+# broaderApplicative
+:Map_broaderApplicative
+    rdf:type           owl:NamedIndividual , mork:DataMapping ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broaderApplicative ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:subjectMap ;
+    mork:mappingNote
+        "A broaderApplicative mapping yields an RML subjectMap in the context of a TriplesMap." .
+
+# broaderMapping
+:Map_broaderMapping
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:broaderMapping ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Maps broaderMapping to an RML predicate for broad mapping relationships." .
+
+# closeMapping
+:Map_closeMapping
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:closeMapping ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "Represents closeMapping as an RML predicate for near-exact alignments." .
+
+# compositeBroader
+:Map_compositeBroader
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeBroader ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "compositeBroader yields an RML predicateObjectMap grouping multiple predicates." .
+
+# compositeBroaderMapping
+:Map_compositeBroaderMapping
+    rdf:type           owl:NamedIndividual , mork:DataMapping ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeBroaderMapping ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "Maps compositeBroaderMapping to generation of an RML predicateObjectMap." .
+
+# compositeBroaderTemplate
+:Map_compositeBroaderTemplate
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeBroaderTemplate ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:template ;
+    mork:mappingNote
+        "A template for compositeBroader expressions becomes an rml:template." .
+
+# compositeNarrower
+:Map_compositeNarrower
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeNarrower ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "compositeNarrower yields an RML predicateObjectMap for nested mappings." .
+
+# compositeNarrowerMapping
+:Map_compositeNarrowerMapping
+    rdf:type           owl:NamedIndividual , mork:DataMapping ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeNarrowerMapping ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "Maps compositeNarrowerMapping to the RML predicateObjectMap construct." .
+
+# compositeNarrowerTemplate
+:Map_compositeNarrowerTemplate
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:compositeNarrowerTemplate ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:template ;
+    mork:mappingNote
+        "Uses rml:template to express compositeNarrowerTemplate patterns." .
+
+# closeMapping (already defined above)
+
+# possibleMatch
+:Map_possibleMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:possibleMatch ;
+    mork:weighting     75 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "possibleMatch becomes an RML predicate for uncertain alignments." .
+
+# propertyMappingAssertions
+:Map_propertyMappingAssertions
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:propertyMappingAssertions ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "propertyMappingAssertions yields a set of RML predicateObjectMaps documenting property assertions." .
+
+# referenceDataMapping
+:Map_referenceDataMapping
+    rdf:type           owl:NamedIndividual , mork:DataMapping ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:referenceDataMapping ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:logicalSource ;
+    mork:mappingNote
+        "referenceDataMapping in Mork indicates the RML logicalSource definition for data extraction." .
+
+# referenceDataPath
+:Map_referenceDataPath
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:referenceDataPath ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:reference ;
+    mork:mappingNote
+        "referenceDataPath corresponds to rml:reference within an objectMap or subjectMap." .
+
+# relatedMapping
+:Map_relatedMapping
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:relatedMapping ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "relatedMapping maps to an RML predicate indicating related mapping links." .
+
+# relatedProperty
+:Map_relatedProperty
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:relatedProperty ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "relatedProperty becomes an RML predicate for sibling property relationships." .
+
+# representationOf
+:Map_representationOf
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:representationOf ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "representationOf maps to an RML predicate to show representation equivalence." .
+
+# representationScheme
+:Map_representationScheme
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:representationScheme ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "representationScheme yields an RML predicateObjectMap for representation declarations." .
+
+# representedAs
+:Map_representedAs
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:representedAs ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "representedAs becomes an RML predicate for asserting representation forms." .
+
+# semanticMatch
+:Map_semanticMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:semanticMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "semanticMatch maps to an RML predicate for semantic alignment relationships." .
+
+# siblingMapping
+:Map_siblingMapping
+    rdf:type           owl:NamedIndividual , mork:DataMapping ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:siblingMapping ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:predicateObjectMap ;
+    mork:mappingNote
+        "siblingMapping groups parallel mappings into an RML predicateObjectMap cluster." .
+
+# structuralMatch
+:Map_structuralMatch
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:structuralMatch ;
+    mork:weighting     85 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "structuralMatch becomes an RML predicate for structural correspondence assertions." .
+
+# templateMapping
+:Map_templateMapping
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:templateMapping ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:template ;
+    mork:mappingNote
+        "templateMapping in Mork directly corresponds to rml:template for URI or value templates." .
+
+# weightedBroader
+:Map_weightedBroader
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:weightedBroader ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "weightedBroader becomes an RML predicate with an associated confidence weighting literal if desired." .
+
+# weightedNarrower
+:Map_weightedNarrower
+    rdf:type           owl:NamedIndividual , mork:Datum ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:mappingFor    mork:weightedNarrower ;
+    mork:weighting     80 ;
+    mork:exactRBoxMatch rml:predicate ;
+    mork:mappingNote
+        "weightedNarrower maps to an RML predicate for narrow mappings annotated with a confidence value." .
+
+# yieldConcept
+:Map_yieldConcept
+    rdf:type           owl:NamedIndividual , mork:DeferredContext ;
+    mork:mappingScheme :RMLMappingScheme ;
+    mork:weighting     90 ;
+    mork:exactRBoxMatch rml:reference ;
+    mork:mappingNote
+        "yieldConcept in a deferred context corresponds to using rml:reference to pull forward the concept value." .

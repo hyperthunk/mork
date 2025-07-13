@@ -662,6 +662,18 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
               <http://www.w3.org/2004/02/skos/core#definition> "Synonym for possibleMatch" .
 
 
+###  http://www.nebularis.org/ontologies/Mork#pathMatch
+:pathMatch rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#mappingRelation> ;
+           rdfs:domain [ rdf:type owl:Restriction ;
+                         owl:onProperty [ owl:inverseOf :referenceDataMapping
+                                        ] ;
+                         owl:someValuesFrom :DataMapping
+                       ] ;
+           rdfs:label "matches on path" ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Used to associate a match with a specific path (i.e., predicate)" .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#placeholderMapping
 :placeholderMapping rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
@@ -729,9 +741,17 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
     mork:mappingScheme :Example_Scheme ;
     mork:exactRBoxMatch :lob ;
     mork:exactTBoxMatch :LineOfBusiness ;
+    mork:referenceDataPath: skos:abbreviation ;
     mork:dataRef \"path.to.data.field.lineOfBusiness\" ;
     skos:note \"Line of business code maps to 'lob LineOfBusiness', via reference data lookup\" .""" ;
                       <http://www.w3.org/2004/02/skos/core#scopeNote> "If the name of the individual is to be used, then the value of the object's dataInline MUST be set to \"\"." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#referenceDataPath
+:referenceDataPath rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :pathMatch ;
+                   rdfs:label "matches reference data on path" ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate the predicate on which a Lookup is based." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#relatedMapping
@@ -781,11 +801,24 @@ The T-Box (or Terminological Box) defines the vocabulary of the domain by descri
                <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a partial/possible semantic match." .
 
 
+###  http://www.nebularis.org/ontologies/Mork#siblingMapping
+:siblingMapping rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :relatedMapping ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Used to construct a DataMapping graph that represents an rdf:List, since skos:Collection and skos:Concept are disjoint and we need a way to describe outputs that a represented as rdf:Lists." .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#structuralMatch
 :structuralMatch rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :possibleMatch ;
                  rdfs:label "is structural match with" ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Used to indicate a match in structure, i.e., where concepts in different concept schemes appear at the same place structurally, but may have different semantics/meanings, or have a poor lexical match." .
+
+
+###  http://www.nebularis.org/ontologies/Mork#templateClassMapping
+:templateClassMapping rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :templateMapping ;
+                      rdfs:label "has template class mapping" ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "Used to denote an owl:Class that should be used as a template for generating t-box assertions." .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#templateMapping
@@ -1500,10 +1533,10 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
                           mork:representationScheme :Mapping_Representation ;
                           mork:identifier \"combinedLimitSymbols_Element2147483650\" ;
                           rdfs:seeAlso :combinedLimitSymbols_Element2147483650 .""" ;
-   rdfs:comment _:genid80
+   rdfs:comment _:genid82
  ] .
 
-_:genid80 rdfs:comment "Shows an Array and its corresponding element type" .
+_:genid82 rdfs:comment "Shows an Array and its corresponding element type" .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#SerializationFormat
@@ -1701,14 +1734,23 @@ rdf:List rdf:type owl:Class .
 
 ###  http://www.nebularis.org/ontologies/Mork#OwlNothing
 
+###  http://www.nebularis.org/ontologies/Mork#DeferredABoxReference
+:DeferredABoxReference rdf:type owl:NamedIndividual ,
+                                :DeferredContext ;
+                       :mappingScheme :MorkOntologyScheme ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "Used as a placeholder for referencing the A-Box object in a triple that a DataMapping with an RBox-match refers to." .
+
+
 ###  http://www.nebularis.org/ontologies/Mork#DeferredClassDefinition
 :DeferredClassDefinition rdf:type owl:NamedIndividual ,
-                                  :OwlClass .
+                                  :OwlClass ;
+                         :ontologicalScheme :MorkOntologyScheme .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#DeferredConceptIRI
 :DeferredConceptIRI rdf:type owl:NamedIndividual ,
-                             :OwlAxiom .
+                             :OwlAxiom ;
+                    :ontologicalScheme :MorkOntologyScheme .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#DeferredDataPropertyDefinition
@@ -1718,7 +1760,8 @@ rdf:List rdf:type owl:Class .
 
 ###  http://www.nebularis.org/ontologies/Mork#DeferredIndividualDefinition
 :DeferredIndividualDefinition rdf:type owl:NamedIndividual ,
-                                       :OwlAxiom .
+                                       :OwlAxiom ;
+                              :ontologicalScheme :MorkOntologyScheme .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#DeferredObjectPropertyDefinition
@@ -1730,6 +1773,11 @@ rdf:List rdf:type owl:Class .
 :JSON rdf:type owl:NamedIndividual ,
                :SerializationFormat ;
       rdfs:isDefinedBy "https://datatracker.ietf.org/doc/html/rfc7159.html" .
+
+
+###  http://www.nebularis.org/ontologies/Mork#MorkOntologyScheme
+:MorkOntologyScheme rdf:type owl:NamedIndividual ,
+                             :OntologicalScheme .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#OwlNothing

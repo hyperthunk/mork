@@ -1,251 +1,339 @@
-@prefix : <http://www.nebularis.org/ontologies/Mork/> .
+@prefix : <http://www.nebularis.org/ontologies/UncertainMappings#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mork: <http://www.nebularis.org/ontologies/Mork#> .
 @prefix zoo: <http://www.nebularis.org/ontologies/Zoo#> .
-@base <http://www.nebularis.org/ontologies/UncertainMappings/> .
+@prefix mork: <http://www.nebularis.org/ontologies/Mork#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.nebularis.org/ontologies/UncertainMappings#> .
 
 <http://www.nebularis.org/ontologies/UncertainMappings> rdf:type owl:Ontology ;
-                                owl:imports <http://www.w3.org/2004/02/skos/core> ;
-                                owl:imports <http://www.nebularis.org/ontologies/Mork> .
+                                                         owl:imports <http://www.nebularis.org/ontologies/Mork> ,
+                                                                     <http://www.w3.org/2004/02/skos/core> .
 
-# an ontology we are mapping to
+:Map_EggSize_Hypothesis rdf:type owl:DatatypeProperty ;
+                        rdfs:range xsd:string .
+
+:Rep_Falcon_Eggs rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string .
+
+:Rep_Platypus_Eggs rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:string .
+
+zoo:laysEggs rdf:type owl:DatatypeProperty .
+
 zoo:Animal rdf:type owl:Class .
+
 zoo:Mamal rdf:type owl:Class ;
-    rdfs:subClassOf zoo:Animal .
+          rdfs:subClassOf zoo:Animal .
+
 zoo:Reptile rdf:type owl:Class ;
-    rdfs:subClassOf zoo:Animal ;
-    rdfs:subClassOf [ 
-            rdf:type owl:Restriction ;
-            owl:onProperty :laysEggs;
-            owl:hasValue "true"^^xsd:boolean
-        ] .
+            rdfs:subClassOf zoo:Animal ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :laysEggs ;
+                              owl:hasValue "true"^^xsd:boolean
+                            ] .
 
-## and some awkward data concepts we need to map to it
+:OviparousBase rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty zoo:laysEggs ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] .
 
-:Rep_Pets rdf:type owl:NamedIndividual , mork:RepresentationScheme .
-:Taxa_Pets rdf:type owl:NamedIndividual , mork:TaxonomyScheme .
+:EggSize rdf:type owl:NamedIndividual ,
+                  mork:DataConcept ;
+         mork:conceptScheme :Taxa_Pets ;
+         mork:conceptId "EggSize" ;
+         <http://www.w3.org/2004/02/skos/core#note> "Stores the size for a type of animal's egg." .
 
-# representations of pets (platypus and falcon)
-:Rep_Platypus rdf:type owl:NamedIndividual , mork:Entity ;
-    mork:identifier "platypus" ;
-    mork:path "exotica.pets.platypus" ;
-    mork:representationOf :PlatypusType ;
-    mork:memberProperty :Rep_Platypus_Eggs ;
-    mork:representationScheme :Rep_Pets .
+:EggsType rdf:type owl:NamedIndividual ,
+                   mork:DataConcept ;
+          mork:compositeNarrower :EggSize ;
+          mork:conceptScheme :Taxa_Pets ;
+          mork:identifier "Eggs" .
 
-:Rep_Platypus_Eggs rdf:type owl:NamedIndividual , mork:Attribute ;
-    mork:identifier "eggSize" ;
-    mork:path "exotica.pets.platypus.eggSize" ;
-    rdfs:range xsd:string ;
-    mork:representationOf :PlatypusEggs ;
-    mork:representationScheme :Rep_Pets .
+:FaclonEggs rdf:type owl:NamedIndividual ,
+                     mork:Objectification ;
+            mork:broadConceptRole :FalconType ;
+            mork:conceptScheme :Taxa_Pets ;
+            mork:narrowConceptRole :EggsType ;
+            mork:conceptId "FalconEggs" .
 
-:Rep_Falcon rdf:type owl:NamedIndividual , mork:Entity ;
-    mork:identifier "falcon" ;
-    mork:path "exotica.pets.falcon" ;
-    mork:representationOf :FalconType ; 
-    mork:memberProperty :Rep_Falcon_Eggs ; 
-    mork:representationScheme :Rep_Pets .
+:FalconType rdf:type owl:NamedIndividual ,
+                     mork:DataConcept ;
+            mork:conceptScheme :Taxa_Pets ;
+            <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
+            mork:conceptId "Falcon" .
 
-:Rep_Falcon_Eggs rdf:type owl:NamedIndividual , mork:Attribute ;
-    mork:identifier "eggSize" ;
-    mork:path "exotica.pets.falcon.eggSize" ;
-    rdfs:range xsd:string ; 
-    mork:representationOf :FalconEggs ;
-    mork:representationScheme :Rep_Pets .
-
-# types/concepts derived from the representations
-:FalconType rdf:type owl:NamedIndividual , mork:DataConcept ;
-    mork:conceptId "Falcon" ;
-    skos:broader :PetType ;
-    mork:conceptScheme :Taxa_Pets .
-
-:FaclonEggs rdf:type owl:NamedIndividual , mork:Objectification ;
-    mork:conceptId "FalconEggs" ;
-    mork:broadConceptRole :FalconType ;
-    mork:narrowConceptRole :EggsType ;
-    mork:conceptScheme :Taxa_Pets .
-
-:PlatypusType rdf:type owl:NamedIndividual , mork:DataConcept ;
-    mork:conceptId "Platypus" ;
-    skos:broader :PetType ;
-    mork:conceptScheme :Taxa_Pets .
-
-:PlatypusEggs rdf:type owl:NamedIndividual , mork:Objectification ;
-    mork:conceptId "PlatypusEggs" ;
-    mork:broadConceptRole :PlatypusType ;
-    mork:narrowConceptRole :EggsType ;
-    mork:conceptScheme :Taxa_Pets .
-
-:PetType rdf:type owl:NamedIndividual , mork:AnonymousElement, mork:DataConcept ;
-    mork:conceptId "Pet" ;
-    mork:conceptScheme :Taxa_Pets ;
-    skos:narrower :FalconType , :PlatypusType ;
-    mork:memberProperty :Rep_Falcon_Eggs .
-
-:EggsType rdf:type owl:NamedIndividual , mork:DataConcept ;
-    mork:identifier "Eggs" ;
-    mork:compositeNarrower :EggSize ;
-    mork:conceptScheme :Taxa_Pets .
-
-:EggSize rdf:type owl:NamedIndividual , mork:DataConcept ;
-    mork:conceptId "EggSize" ;
-    mork:conceptScheme :Taxa_Pets ;
-    skos:note "Stores the size for a type of animal's egg." .
-
-# Now our attemps at mappings between the representations, concepts and the target ontology
-:Map_Pet rdf:type owl:NamedIndividual , mork:DataMapping ;
-    mork:conceptName "#Pet" ;  # assert the IRI of this class belongs to the base IRI of the output ontology
-    mork:mappingFor :PetType ; # this simple mapping can point directly to the concept
-    mork:weighting 90;
-    mork:exactTBoxMatch zoo:Animal ; # a Pet is a type of Animal
-    mork:mappingNote "'Pet' is a possible sematic match with the class 'Animal' in the target ontology, representing the concept of pet animals." .
-
-# provides a deferred class definition for the Pet concept - so we can reference it in other mappings
-:Map_Yield_Pet rdf:type owl:NamedIndividual , mork:DeferredContext ;
-    mork:conceptName "#Pet" ;
-    mork:yieldConcept mork:DeferredConceptIRI ;
-    mork:mappingNote "Yields the axiom <BaseIRI>#Pet at processing time." .
-
-# a mapping for Falcon, where we do not have a good match due to the lack of a 'Bird' class in the target ontology
-:Map_Falcon rdf:type owl:NamedIndividual , mork:UncertainMapping ;
-    # no concept name here - we are uncertain about the mapping, and will reference the Representation and the concept
-    mork:mappingFor :Rep_Falcon , :FalconType ;
-    mork:weighting 65 ;
-    mork:hypothesisMapping :Map_Falcon_Hypothesis ; # the hypothesis mapping explains how we might implement the recommendation
-    mork:mappingRecommendation "Recommend defining a new individual 'Falcon' in the target ontology, representing the concept of Falcon as an individual species of Bird." .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Falcon ;
-   owl:annotatedProperty mork:hypothesisMapping ;
-   owl:annotatedTarget mork:Map_FalconTypes ;
-   mork:mappingNote "Hypothesise the creation of several new types/classes to support the Falcon concept." ;
- ] .
-
-:Map_Falcon_Hypothesis rdf:type owl:NamedIndividual , mork:Datum ;
-    mork:individualName "#Falcon" ;
-    # the t-box matches are all deferred class definitions:
-    # the mork:DeferredClassDefinition refers to the result of the mork:deferredMapping - #Bird
-    # whilst :Map_Yield_Pet refers to the class - #Pet
-    # and :Map_Yield_Oviparous refers to the trait - #Oviparous
-    mork:exactTBoxMatch mork:DeferredClassDefinition , :Map_Yield_Pet , :Map_Yield_Oviparous ;
-    # The mork:deferredMapping here, brings the deferred class definition #Bird into scope for THIS mapping, 
-    # hence our ability to reference it via the placeholder individaul mork:DeferredClassDefinition.
-    # mork:dependentMapping :Map_Oviparity is not needed, since a deferredMapping takes precedence and birds are oviparous.
-    mork:deferredMapping :Map_Gen_Bird_Class ;
-    mork:compositeNarrowerMapping :Map_Lays_Eggs ;
-    mork:mappingNote "Hypothesis mapping for 'Falcon' is Pet, Bird." .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Falcon_Hypothesis ;
-   owl:annotatedProperty mork:deferredMapping ;
-   owl:annotatedTarget mork:Map_Gen_Bird_Class ;
-   mork:mappingNote "Falcon is a bird, birds lay eggs, however birds are not reptiles. Recommend defining a new class 'Bird' in the target ontology, and then defining 'Falcon' as an individual of the class." ;
- ] .
-
-:Map_Gen_Bird_Class rdf:type owl:NamedIndividual , mork:DataMapping ;
-    mork:conceptName "#Bird" ;
-    # Although we refer explicitly to #Oviparous in our TBox match, this dependentMapping statement is required to 
-    # ensure that a processing engine knows to produce output from Map_Oviparity before we use it here.
-    # A compositeNarrowerMapping isn't required since we aren't asserting anything new or deepening the context.
-    mork:dependentMapping :Map_Oviparity ;
-    mork:broadTBoxCategoryMatch zoo:Animal , :Map_Yield_Oviparous ; # a Bird is a type of Oviparous Animal
-    mork:mappingNote "Create a class 'Bird' in the output ontology.".
-
-:Map_Lays_Eggs rdf:type owl:NamedIndividual , mork:Datum ;
-    mork:exactRBoxMatch zoo:laysEggs ;
-    mork:dataInline true ;
-    mork:compositeNarrowerMapping :Map_Eggs ; # we will force the UncertainMapping to be processed before we assert the property
-    mork:mappingNote "Asserts the property `Falcon laysEggs true`" .
-
-:Map_Oviparity rdf:type owl:Class , mork:DeferredContext ;
-    # when a mapping is used as a template, rdfs:subClassOf and owl:equivalentClass axioms apply to the context/output
-    owl:equivalentClass [ 
-            rdf:type owl:Restriction ;
-            owl:onProperty zoo:laysEggs;
-            owl:hasValue "true"^^xsd:boolean
-        ] ;
-    mork:conceptName "#Oviparous" ;
-    mork:broadTBoxCategoryMatch owl:Thing ; # make a new type of animal called Oviparity
-    mork:mappingRecommendation "Recommend introducing a notional construct to model reproductive modes, with 'Oviparity' as a member/individual." .
-
-:Map_Yield_Oviparous rdf:type owl:NamedIndividual , mork:DeferredContext ;
-    mork:conceptName "#Oviparous" ;
-    mork:yieldConcept mork:DeferredConceptIRI ;  # this is a deferred class definition, #Oviparous
-    mork:mappingNote "Yields the axiom <BaseIRI>#Oviparous at processing time." .
-
-# now we must deal with the Platypus, which is a mammal that lays eggs
-:Map_Platypus rdf:type owl:NamedIndividual , mork:UncertainMapping ;
-    mork:mappingFor :Rep_Platypus , :PlatypusType ;
-    mork:weighting 70 ;
-    mork:hypothesisMapping :Map_Platypus_Hypothesis ;
-    mork:mappingRecommendation "Recommend defining a new individual 'Platypus' in the target ontology, representing the concept of Platypus as an individual species." .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Platypus ;
-   owl:annotatedProperty mork:hypothesisMapping ;
-   owl:annotatedTarget mork:Map_PlatypusTypes ;
-   mork:mappingNote "Recommendation requires creation of several new types/classes." ;
- ] .
-
-:Map_Platypus_Hypothesis rdf:type owl:NamedIndividual , mork:Datum ;
-    mork:individualName "#Platypus" ;
-    # Our mork:DeferredClassDefinition refers to the result of the mork:deferredMapping - #Monotreme
-    mork:exactTBoxMatch mork:DeferredClassDefinition , :Map_Yield_Pet , :Map_Yield_Oviparous ;
-    # since we have no ordering of mappings to ensure that Falcon is processed before Platypus,
-    # we cannot assume that the class/trait #Oviparous is available yet, hence we use a dependentMapping
-    mork:dependentMapping :Map_Oviparity ; 
-    mork:deferredMapping :Map_Gen_Monotreme_Class ;  # this is a deferred class definition, #Monotreme
-    mork:compositeNarrowerMapping :Map_Lays_Eggs ;
-    mork:mappingNote "'Platypus' is a type of Monotreme (which lays eggs), and also (apparently) a Pet." .
-
-:Map_Gen_Monotreme_Class rdf:type owl:NamedIndividual , mork:DataMapping ;
-    mork:conceptName "#Monotreme" ;
-    mork:broadTBoxCategoryMatch zoo:Mamal , :Map_Yield_Oviparous ;  # a Monotreme is a type of Oviparous Mamal
-    mork:mappingNote "Create a class 'Monotreme' in the output ontology." .
-
-# attempting to map Eggs, which is proven to be a difficult concept to relate to the target ontology
-:Map_Eggs rdf:type owl:NamedIndividual , mork:UncertainMapping ;
-    mork:mappingFor :EggsType , :Rep_Falcon_Eggs , :Rep_Platypus_Eggs ;
-    mork:hypothesisMapping :Map_Eggs_Hypothesis ;
-    mork:lexicalMatch zoo:laysEggs ;
-    mork:weighting 50 ;
-    skos:note "Possible match between concept 'Eggs' the object property 'laysEggs' in the target ontology." .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Map_Eggs ;
-   owl:annotatedProperty mork:lexicalMatch ;
-   owl:annotatedTarget zoo:laysEggs ;
-   mork:mappingNote "Close lexical match on conceptName 'Eggs' and ObjectProperty name 'laysEggs'." ;
- ] .
-
-:Map_Eggs_Hypothesis rdf:type owl:NamedIndividual , mork:DataMapping ;
-    mork:conceptName "#Eggs" ;
-    mork:broadTBoxCategoryMatch owl:Thing ;
-    mork:compositeNarrowerMapping :Map_EggSize ;
-    mork:mappingNote "Hypothesis mapping for 'Eggs' is a deferred class definition." .
-
-:Map_EggSize rdf:type owl:NamedIndividual , mork:UncertainMapping ;
-    mork:weighting 40 ;
-    mork:lexicalMatch zoo:laysEggs ;
-    mork:hypothesisMapping :Map_EggSize_Hypothesis ;
-    mork:mappingRecommendation "Create a new datatype property in the output ontology to represent the size of Eggs." .
+:Map_EggSize rdf:type owl:NamedIndividual ,
+                      mork:UncertainMapping ;
+             mork:mappingScheme :Mappings ;
+             mork:hypothesisMapping :Map_EggSize_Hypothesis ;
+             mork:lexicalMatch zoo:laysEggs ;
+             mork:mappingRecommendation "Create a new datatype property in the output ontology to represent the size of Eggs." ;
+             mork:weighting 40 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_EggSize ;
    owl:annotatedProperty mork:lexicalMatch ;
    owl:annotatedTarget zoo:laysEggs ;
-   mork:mappingNote "Close lexical match on conceptName 'EggSize' and DataProperty name 'eggSize'." ;
+   mork:mappingNote "Close lexical match on conceptName 'EggSize' and DataProperty name 'eggSize'."
  ] .
 
-:Map_EggSize_Hypothesis rdf:type owl:NamedIndividual , mork:DataMapping ;
-    mork:conceptName "#eggSize" ;
-    mork:mappingFor :EggSize ;
-    mork:broadRBoxCategoryMatch owl:topObjectProperty ;
-    mork:assertsPropertyDomains :Map_Yield_Oviparous ;
-    rdfs:range xsd:string ; # we cannot refer to primitive data types using mork:propertyMappingAssertions
-    mork:mappingNote "Mapping the concept 'EggSize' to a new data property 'eggSize' in the target ontology." .
+:Map_EggSize_Hypothesis rdf:type owl:NamedIndividual ,
+                                 mork:DataMapping ;
+                        mork:mappingScheme :Mappings ;
+                        mork:assertsPropertyDomains :Map_Yield_Oviparous ;
+                        mork:broadRBoxCategoryMatch owl:topObjectProperty ;
+                        mork:mappingFor :EggSize ;
+                        mork:conceptName "#eggSize" .
+
+:Map_Eggs rdf:type owl:NamedIndividual ,
+                   mork:UncertainMapping ;
+          mork:mappingScheme :Mappings ;
+          mork:hypothesisMapping :Map_Eggs_Hypothesis ;
+          mork:lexicalMatch zoo:laysEggs ;
+          mork:mappingFor :EggsType ,
+                          :Rep_Falcon_Eggs ,
+                          :Rep_Platypus_Eggs ;
+          mork:weighting 50 ;
+          <http://www.w3.org/2004/02/skos/core#note> "Possible match between concept 'Eggs' the object property 'laysEggs' in the target ontology." .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Eggs ;
+   owl:annotatedProperty mork:lexicalMatch ;
+   owl:annotatedTarget zoo:laysEggs ;
+   mork:mappingNote "Close lexical match on conceptName 'Eggs' and ObjectProperty name 'laysEggs'."
+ ] .
+
+:Map_Eggs_Hypothesis rdf:type owl:NamedIndividual ,
+                              mork:DataMapping ;
+                     mork:mappingScheme :Mappings ;
+                     mork:broadTBoxCategoryMatch owl:Thing ;
+                     mork:compositeNarrowerMapping :Map_EggSize ;
+                     mork:conceptName "#Eggs" ;
+                     mork:mappingNote "Hypothesis mapping for 'Eggs' is a deferred class definition." .
+
+:Map_Falcon rdf:type owl:NamedIndividual ,
+                     mork:UncertainMapping ;
+            mork:mappingScheme :Mappings ;
+            mork:hypothesisMapping :Map_Falcon_Hypothesis ;
+            mork:mappingFor :FalconType ,
+                            :Rep_Falcon ;
+            mork:mappingRecommendation "Recommend defining a new individual 'Falcon' in the target ontology, representing the concept of Falcon as an individual species of Bird." ;
+            mork:weighting 65 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Falcon ;
+   owl:annotatedProperty mork:hypothesisMapping ;
+   owl:annotatedTarget mork:Map_Falcon_Hypothesis ;
+   mork:mappingNote "Hypothesise the creation of several new types/classes to support the Falcon concept."
+ ] .
+
+:Map_Falcon_Hypothesis rdf:type owl:NamedIndividual ,
+                                mork:Datum ;
+                       mork:mappingScheme :Mappings ;
+                       mork:compositeNarrowerMapping :Map_Lays_Eggs ;
+                       mork:deferredMapping :Map_Gen_Bird_Class ;
+                       mork:exactTBoxMatch mork:DeferredClassDefinition ,
+                                           :Map_Yield_Oviparous ,
+                                           :Map_Yield_Pet ;
+                       mork:individualName "#Falcon" ;
+                       mork:mappingNote "Hypothesis mapping for 'Falcon' is Pet, Bird." .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Falcon_Hypothesis ;
+   owl:annotatedProperty mork:deferredMapping ;
+   owl:annotatedTarget mork:Map_Gen_Bird_Class ;
+   mork:mappingNote "Falcon is a bird, birds lay eggs, however birds are not reptiles. Recommend defining a new class 'Bird' in the target ontology, and then defining 'Falcon' as an individual of the class."
+ ] .
+
+:Map_Gen_Bird_Class rdf:type owl:NamedIndividual ,
+                             mork:DataMapping ;
+                    mork:mappingScheme :Mappings ;
+                    mork:broadTBoxCategoryMatch :Map_Yield_Oviparous ,
+                                                zoo:Animal ;
+                    mork:dependentMapping :Map_Oviparity ;
+                    mork:conceptName "#Bird" ;
+                    mork:mappingNote "Create a class 'Bird' in the output ontology." .
+
+:Map_Gen_Monotreme_Class rdf:type owl:NamedIndividual ,
+                                  mork:DataMapping ;
+                         mork:mappingScheme :Mappings ;
+                         mork:broadTBoxCategoryMatch :Map_Yield_Oviparous ,
+                                                     zoo:Mamal ;
+                         mork:conceptName "#Monotreme" ;
+                         mork:mappingNote "Create a class 'Monotreme' in the output ontology." .
+
+
+:Map_Lays_Eggs rdf:type owl:NamedIndividual ,
+                        mork:Datum ;
+               mork:mappingScheme :Mappings ;
+               mork:compositeNarrowerMapping :Map_Eggs ;
+               mork:exactRBoxMatch zoo:laysEggs ;
+               mork:dataInline "true"^^xsd:boolean ;
+               mork:mappingNote "Asserts the property `Falcon laysEggs true`" .
+
+
+:Map_Oviparity rdf:type owl:NamedIndividual ,
+                        mork:DeferredContext ;
+               mork:mappingScheme :Mappings ;
+               mork:broadTBoxCategoryMatch owl:Thing ;
+               mork:templateClassMapping mork:OviparousBase ;
+               mork:conceptName "#Oviparous" ;
+               mork:mappingRecommendation "Recommend introducing a notional construct to model reproductive modes, with 'Oviparity' as a member/individual." .
+
+:Map_Pet rdf:type owl:NamedIndividual ,
+                  mork:DataMapping ;
+         mork:mappingScheme :Mappings ;
+         mork:exactTBoxMatch zoo:Animal ;
+         mork:mappingFor :PetType ;
+         mork:conceptName "#Pet" ;
+         mork:weighting 90 ;
+         mork:mappingNote "'Pet' is a possible sematic match with the class 'Animal' in the target ontology, representing the concept of pet animals." .
+
+:Map_Platypus rdf:type owl:NamedIndividual ,
+                       mork:UncertainMapping ;
+              mork:mappingScheme :Mappings ;
+              mork:hypothesisMapping mork:Map_PlatypusTypes ,
+                                     :Map_Platypus_Hypothesis ;
+              mork:mappingFor :PlatypusType ,
+                              :Rep_Platypus ;
+              mork:mappingRecommendation "Recommend defining a new individual 'Platypus' in the target ontology, representing the concept of Platypus as an individual species." ;
+              mork:weighting 70 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Map_Platypus ;
+   owl:annotatedProperty mork:hypothesisMapping ;
+   owl:annotatedTarget mork:Map_PlatypusTypes ;
+   mork:mappingNote "Recommendation requires creation of several new types/classes."
+ ] .
+
+:Map_Platypus_Hypothesis rdf:type owl:NamedIndividual ,
+                                  mork:Datum ;
+                         mork:mappingScheme :Mappings ;
+                         mork:compositeNarrowerMapping :Map_Lays_Eggs ;
+                         mork:deferredMapping :Map_Gen_Monotreme_Class ;
+                         mork:dependentMapping :Map_Oviparity ;
+                         mork:exactTBoxMatch mork:DeferredClassDefinition ,
+                                             :Map_Yield_Oviparous ,
+                                             :Map_Yield_Pet ;
+                         mork:individualName "#Platypus" ;
+                         mork:mappingNote "'Platypus' is a type of Monotreme (which lays eggs), and also (apparently) a Pet." .
+
+:Map_Yield_Oviparous rdf:type owl:NamedIndividual ,
+                              mork:DeferredContext ;
+                     mork:mappingScheme :Mappings ;
+                     mork:yieldConcept mork:DeferredConceptIRI ;
+                     mork:conceptName "#Oviparous" ;
+                     mork:mappingNote "Yields the axiom <BaseIRI>#Oviparous at processing time." .
+
+:Map_Yield_Pet rdf:type owl:NamedIndividual ,
+                        mork:DeferredContext ;
+               mork:mappingScheme :Mappings ;
+               mork:yieldConcept mork:DeferredConceptIRI ;
+               mork:conceptName "#Pet" ;
+               mork:mappingNote "Yields the axiom <BaseIRI>#Pet at processing time." .
+
+:PetType rdf:type owl:NamedIndividual ,
+                  mork:AnonymousElement ,
+                  mork:DataConcept ;
+         mork:conceptScheme :Taxa_Pets ;
+         mork:memberProperty :Rep_Falcon_Eggs ;
+         <http://www.w3.org/2004/02/skos/core#narrower> :FalconType ,
+                                                        :PlatypusType ;
+         mork:conceptId "Pet" .
+
+:PlatypusEggs rdf:type owl:NamedIndividual ,
+                       mork:Objectification ;
+              mork:broadConceptRole :PlatypusType ;
+              mork:conceptScheme :Taxa_Pets ;
+              mork:narrowConceptRole :EggsType ;
+              mork:conceptId "PlatypusEggs" .
+
+:PlatypusType rdf:type owl:NamedIndividual ,
+                       mork:DataConcept ;
+              mork:conceptScheme :Taxa_Pets ;
+              <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
+              mork:conceptId "Platypus" .
+
+:Rep_Falcon rdf:type owl:NamedIndividual ,
+                     mork:Entity ;
+            mork:memberProperty :Rep_Falcon_Eggs ;
+            mork:representationOf :FalconType ;
+            mork:representationScheme :Rep_Pets ;
+            mork:identifier "falcon" ;
+            mork:path "exotica.pets.falcon" .
+
+:Rep_Falcon_Eggs rdf:type owl:NamedIndividual ,
+                          mork:Attribute ;
+                 mork:representationOf :FalconEggs ;
+                 mork:representationScheme :Rep_Pets ;
+                 mork:identifier "eggSize" ;
+                 mork:path "exotica.pets.falcon.eggSize" .
+
+:Rep_Platypus rdf:type owl:NamedIndividual ,
+                       mork:Entity ;
+              mork:memberProperty :Rep_Platypus_Eggs ;
+              mork:representationOf :PlatypusType ;
+              mork:representationScheme :Rep_Pets ;
+              mork:identifier "platypus" ;
+              mork:path "exotica.pets.platypus" .
+
+:Rep_Platypus_Eggs rdf:type owl:NamedIndividual ,
+                            mork:Attribute ;
+                   mork:representationOf :PlatypusEggs ;
+                   mork:representationScheme :Rep_Pets ;
+                   mork:identifier "eggSize" ;
+                   mork:path "exotica.pets.platypus.eggSize" .
+
+:Taxa_Pets rdf:type owl:NamedIndividual ,
+                    mork:TaxonomyScheme .
+
+:Rep_Pets rdf:type owl:NamedIndividual ,
+                   mork:RepresentationScheme .
+
+:Mappings rdf:type owl:NamedIndividual ,
+                    mork:MappingScheme .
+
+
+###  http://www.nebularis.org/ontologies/UncertainMappings#TempMapping
+:TempMapping rdf:type owl:NamedIndividual ,
+                      mork:DataMapping ;
+             <http://www.w3.org/2004/02/skos/core#example> """:Mapping_Person rdf:type owl:NamedIndividual , mork:Datum ;
+    mork:mappingFor foaf:Person ;
+    mork:weighting 90 ; 
+    mork:exactTBoxMatch schema:Individual ;
+    mork:compositeNarrowerMapping :Mapping_Person_Name ;
+    mork:mappingNote \"A foaf:Person correlates with an Individaul in the target vocabulary/schema.\" .
+
+:Mapping_Person_Name rdf:type owl:NamedIndividual , mork:Datum ;
+    mork:mappingFor foaf:name ;
+    mork:weighting 90 ;
+    mork:exactRBoxMatch schema:hasName ;
+    mork:mappingNote \"A foaf:name correlates with the 'hasName' object property in the target schema.\" .
+
+# when we generate an RML mapping for the exactTBoxMatch in :Mapping_Person, 
+# we should get the following assertions:
+
+:TriplesMap_Person rdf:type rml:TriplesMap .
+
+:TriplesMap_Person rml:predicateObjectMap [
+  rml:predicate rdf:type;
+  rml:objectMap [ rml:constant schema:Individual ];
+] .
+
+:TriplesMap_Person rml:predicateObjectMap [
+    rml:predicate schema:hasName ;
+    rml:objectMap [ rml:reference \"name\" ; ]
+] .""" .
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Map_EggSize_Hypothesis mork:mappingNote "Mapping the concept 'EggSize' to a new data property 'eggSize' in the target ontology." .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

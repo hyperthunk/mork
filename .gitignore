@@ -4,3 +4,7 @@ catalog-*.xml
 .DS_Store
 .DS_Store
 catalog-v001.xml
+spec/Mork.txt
+test/data/Contracts.txt
+test/data/Demo.txt
+examples/UncertainMappings.txt
