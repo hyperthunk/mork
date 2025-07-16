@@ -6,65 +6,20 @@
 @prefix zoo: <http://www.nebularis.org/ontologies/Zoo#> .
 @prefix mork: <http://www.nebularis.org/ontologies/Mork#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix pets: <http://www.nebularis.org/ontologies/Petstore#> .
 @base <http://www.nebularis.org/ontologies/UncertainMappings#> .
 
 <http://www.nebularis.org/ontologies/UncertainMappings> rdf:type owl:Ontology ;
                                                          owl:imports <http://www.nebularis.org/ontologies/Mork> ,
-                                                                     <http://www.w3.org/2004/02/skos/core> .
-
-:Map_EggSize_Hypothesis rdf:type owl:DatatypeProperty ;
-                        rdfs:range xsd:string .
-
-:Rep_Falcon_Eggs rdf:type owl:DatatypeProperty ;
-                 rdfs:range xsd:string .
-
-:Rep_Platypus_Eggs rdf:type owl:DatatypeProperty ;
-                   rdfs:range xsd:string .
-
-zoo:laysEggs rdf:type owl:DatatypeProperty .
-
-zoo:Animal rdf:type owl:Class .
-
-zoo:Mamal rdf:type owl:Class ;
-          rdfs:subClassOf zoo:Animal .
-
-zoo:Reptile rdf:type owl:Class ;
-            rdfs:subClassOf zoo:Animal ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :laysEggs ;
-                              owl:hasValue "true"^^xsd:boolean
-                            ] .
+                                                                     <http://www.w3.org/2004/02/skos/core> ,
+                                                                     <http://www.nebularis.org/ontologies/Zoo> ,
+                                                                     <http://www.nebularis.org/ontologies/Petstore> .
 
 :OviparousBase rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
                                      owl:onProperty zoo:laysEggs ;
                                      owl:hasValue "true"^^xsd:boolean
                                    ] .
-
-:EggSize rdf:type owl:NamedIndividual ,
-                  mork:DataConcept ;
-         mork:conceptScheme :Taxa_Pets ;
-         mork:conceptId "EggSize" ;
-         <http://www.w3.org/2004/02/skos/core#note> "Stores the size for a type of animal's egg." .
-
-:EggsType rdf:type owl:NamedIndividual ,
-                   mork:DataConcept ;
-          mork:compositeNarrower :EggSize ;
-          mork:conceptScheme :Taxa_Pets ;
-          mork:identifier "Eggs" .
-
-:FaclonEggs rdf:type owl:NamedIndividual ,
-                     mork:Objectification ;
-            mork:broadConceptRole :FalconType ;
-            mork:conceptScheme :Taxa_Pets ;
-            mork:narrowConceptRole :EggsType ;
-            mork:conceptId "FalconEggs" .
-
-:FalconType rdf:type owl:NamedIndividual ,
-                     mork:DataConcept ;
-            mork:conceptScheme :Taxa_Pets ;
-            <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
-            mork:conceptId "Falcon" .
 
 :Map_EggSize rdf:type owl:NamedIndividual ,
                       mork:UncertainMapping ;
@@ -81,6 +36,9 @@ zoo:Reptile rdf:type owl:Class ;
    mork:mappingNote "Close lexical match on conceptName 'EggSize' and DataProperty name 'eggSize'."
  ] .
 
+:Map_EggSize_Hypothesis rdf:type owl:DatatypeProperty ;
+                        rdfs:range xsd:string .
+
 :Map_EggSize_Hypothesis rdf:type owl:NamedIndividual ,
                                  mork:DataMapping ;
                         mork:mappingScheme :Mappings ;
@@ -94,9 +52,9 @@ zoo:Reptile rdf:type owl:Class ;
           mork:mappingScheme :Mappings ;
           mork:hypothesisMapping :Map_Eggs_Hypothesis ;
           mork:lexicalMatch zoo:laysEggs ;
-          mork:mappingFor :EggsType ,
-                          :Rep_Falcon_Eggs ,
-                          :Rep_Platypus_Eggs ;
+          mork:mappingFor pets:EggsType ,
+                          pets:Rep_Falcon_Eggs ,
+                          pets:Rep_Platypus_Eggs ;
           mork:weighting 50 ;
           <http://www.w3.org/2004/02/skos/core#note> "Possible match between concept 'Eggs' the object property 'laysEggs' in the target ontology." .
 
@@ -119,8 +77,8 @@ zoo:Reptile rdf:type owl:Class ;
                      mork:UncertainMapping ;
             mork:mappingScheme :Mappings ;
             mork:hypothesisMapping :Map_Falcon_Hypothesis ;
-            mork:mappingFor :FalconType ,
-                            :Rep_Falcon ;
+            mork:mappingFor pets:FalconType ,
+                            pets:Rep_Falcon ;
             mork:mappingRecommendation "Recommend defining a new individual 'Falcon' in the target ontology, representing the concept of Falcon as an individual species of Bird." ;
             mork:weighting 65 .
 
@@ -188,7 +146,7 @@ zoo:Reptile rdf:type owl:Class ;
                   mork:DataMapping ;
          mork:mappingScheme :Mappings ;
          mork:exactTBoxMatch zoo:Animal ;
-         mork:mappingFor :PetType ;
+         mork:mappingFor pets:PetType ;
          mork:conceptName "#Pet" ;
          mork:weighting 90 ;
          mork:mappingNote "'Pet' is a possible sematic match with the class 'Animal' in the target ontology, representing the concept of pet animals." .
@@ -196,17 +154,16 @@ zoo:Reptile rdf:type owl:Class ;
 :Map_Platypus rdf:type owl:NamedIndividual ,
                        mork:UncertainMapping ;
               mork:mappingScheme :Mappings ;
-              mork:hypothesisMapping mork:Map_PlatypusTypes ,
-                                     :Map_Platypus_Hypothesis ;
-              mork:mappingFor :PlatypusType ,
-                              :Rep_Platypus ;
+              mork:hypothesisMapping :Map_Platypus_Hypothesis ;
+              mork:mappingFor pets:PlatypusType ,
+                              pets:Rep_Platypus ;
               mork:mappingRecommendation "Recommend defining a new individual 'Platypus' in the target ontology, representing the concept of Platypus as an individual species." ;
               mork:weighting 70 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Map_Platypus ;
    owl:annotatedProperty mork:hypothesisMapping ;
-   owl:annotatedTarget mork:Map_PlatypusTypes ;
+   owl:annotatedTarget mork:Map_Platypus_Hypothesis ;
    mork:mappingNote "Recommendation requires creation of several new types/classes."
  ] .
 
@@ -235,64 +192,6 @@ zoo:Reptile rdf:type owl:Class ;
                mork:yieldConcept mork:DeferredConceptIRI ;
                mork:conceptName "#Pet" ;
                mork:mappingNote "Yields the axiom <BaseIRI>#Pet at processing time." .
-
-:PetType rdf:type owl:NamedIndividual ,
-                  mork:AnonymousElement ,
-                  mork:DataConcept ;
-         mork:conceptScheme :Taxa_Pets ;
-         mork:memberProperty :Rep_Falcon_Eggs ;
-         <http://www.w3.org/2004/02/skos/core#narrower> :FalconType ,
-                                                        :PlatypusType ;
-         mork:conceptId "Pet" .
-
-:PlatypusEggs rdf:type owl:NamedIndividual ,
-                       mork:Objectification ;
-              mork:broadConceptRole :PlatypusType ;
-              mork:conceptScheme :Taxa_Pets ;
-              mork:narrowConceptRole :EggsType ;
-              mork:conceptId "PlatypusEggs" .
-
-:PlatypusType rdf:type owl:NamedIndividual ,
-                       mork:DataConcept ;
-              mork:conceptScheme :Taxa_Pets ;
-              <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
-              mork:conceptId "Platypus" .
-
-:Rep_Falcon rdf:type owl:NamedIndividual ,
-                     mork:Entity ;
-            mork:memberProperty :Rep_Falcon_Eggs ;
-            mork:representationOf :FalconType ;
-            mork:representationScheme :Rep_Pets ;
-            mork:identifier "falcon" ;
-            mork:path "exotica.pets.falcon" .
-
-:Rep_Falcon_Eggs rdf:type owl:NamedIndividual ,
-                          mork:Attribute ;
-                 mork:representationOf :FalconEggs ;
-                 mork:representationScheme :Rep_Pets ;
-                 mork:identifier "eggSize" ;
-                 mork:path "exotica.pets.falcon.eggSize" .
-
-:Rep_Platypus rdf:type owl:NamedIndividual ,
-                       mork:Entity ;
-              mork:memberProperty :Rep_Platypus_Eggs ;
-              mork:representationOf :PlatypusType ;
-              mork:representationScheme :Rep_Pets ;
-              mork:identifier "platypus" ;
-              mork:path "exotica.pets.platypus" .
-
-:Rep_Platypus_Eggs rdf:type owl:NamedIndividual ,
-                            mork:Attribute ;
-                   mork:representationOf :PlatypusEggs ;
-                   mork:representationScheme :Rep_Pets ;
-                   mork:identifier "eggSize" ;
-                   mork:path "exotica.pets.platypus.eggSize" .
-
-:Taxa_Pets rdf:type owl:NamedIndividual ,
-                    mork:TaxonomyScheme .
-
-:Rep_Pets rdf:type owl:NamedIndividual ,
-                   mork:RepresentationScheme .
 
 :Mappings rdf:type owl:NamedIndividual ,
                     mork:MappingScheme .

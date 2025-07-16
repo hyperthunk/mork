@@ -1,0 +1,104 @@
+@prefix : <http://www.nebularis.org/ontologies/Petstore#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix zoo: <http://www.nebularis.org/ontologies/Zoo#> .
+@prefix mork: <http://www.nebularis.org/ontologies/Mork#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.nebularis.org/ontologies/Petstore#> .
+
+<http://www.nebularis.org/ontologies/Petstore> rdf:type owl:Ontology ;
+                                        owl:imports <http://www.nebularis.org/ontologies/Mork> ,
+                                                    <http://www.w3.org/2004/02/skos/core> ,
+                                                    <http://www.nebularis.org/ontologies/Zoo> .
+
+:Taxa_Pets rdf:type owl:NamedIndividual ,
+                    mork:TaxonomyScheme .
+
+:Rep_Pets rdf:type owl:NamedIndividual ,
+                   mork:RepresentationScheme .
+
+:Rep_Falcon_Eggs rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string .
+
+:Rep_Platypus_Eggs rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:string .
+
+
+:EggSize rdf:type owl:NamedIndividual ,
+                  mork:DataConcept ;
+         mork:conceptScheme :Taxa_Pets ;
+         mork:conceptId "EggSize" ;
+         <http://www.w3.org/2004/02/skos/core#note> "Stores the size for a type of animal's egg." .
+
+:EggsType rdf:type owl:NamedIndividual ,
+                   mork:DataConcept ;
+          mork:compositeNarrower :EggSize ;
+          mork:conceptScheme :Taxa_Pets ;
+          mork:identifier "Eggs" .
+
+:FaclonEggs rdf:type owl:NamedIndividual ,
+                     mork:Objectification ;
+            mork:broadConceptRole :FalconType ;
+            mork:conceptScheme :Taxa_Pets ;
+            mork:narrowConceptRole :EggsType ;
+            mork:conceptId "FalconEggs" .
+
+:FalconType rdf:type owl:NamedIndividual ,
+                     mork:DataConcept ;
+            mork:conceptScheme :Taxa_Pets ;
+            <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
+            mork:conceptId "Falcon" .
+
+:PetType rdf:type owl:NamedIndividual ,
+                  mork:AnonymousElement ,
+                  mork:DataConcept ;
+         mork:conceptScheme :Taxa_Pets ;
+         mork:memberProperty :Rep_Falcon_Eggs ;
+         <http://www.w3.org/2004/02/skos/core#narrower> :FalconType ,
+                                                        :PlatypusType ;
+         mork:conceptId "Pet" .
+
+:PlatypusEggs rdf:type owl:NamedIndividual ,
+                       mork:Objectification ;
+              mork:broadConceptRole :PlatypusType ;
+              mork:conceptScheme :Taxa_Pets ;
+              mork:narrowConceptRole :EggsType ;
+              mork:conceptId "PlatypusEggs" .
+
+:PlatypusType rdf:type owl:NamedIndividual ,
+                       mork:DataConcept ;
+              mork:conceptScheme :Taxa_Pets ;
+              <http://www.w3.org/2004/02/skos/core#broader> :PetType ;
+              mork:conceptId "Platypus" .
+
+:Rep_Falcon rdf:type owl:NamedIndividual ,
+                     mork:Entity ;
+            mork:memberProperty :Rep_Falcon_Eggs ;
+            mork:representationOf :FalconType ;
+            mork:representationScheme :Rep_Pets ;
+            mork:identifier "falcon" ;
+            mork:path "exotica.pets.falcon" .
+
+:Rep_Falcon_Eggs rdf:type owl:NamedIndividual ,
+                          mork:Attribute ;
+                 mork:representationOf :FalconEggs ;
+                 mork:representationScheme :Rep_Pets ;
+                 mork:identifier "eggSize" ;
+                 mork:path "exotica.pets.falcon.eggSize" .
+
+:Rep_Platypus rdf:type owl:NamedIndividual ,
+                       mork:Entity ;
+              mork:memberProperty :Rep_Platypus_Eggs ;
+              mork:representationOf :PlatypusType ;
+              mork:representationScheme :Rep_Pets ;
+              mork:identifier "platypus" ;
+              mork:path "exotica.pets.platypus" .
+
+:Rep_Platypus_Eggs rdf:type owl:NamedIndividual ,
+                            mork:Attribute ;
+                   mork:representationOf :PlatypusEggs ;
+                   mork:representationScheme :Rep_Pets ;
+                   mork:identifier "eggSize" ;
+                   mork:path "exotica.pets.platypus.eggSize" .
