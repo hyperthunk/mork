@@ -464,9 +464,6 @@
         <NamedIndividual IRI="#OwlNothing"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Scheme"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#XML"/>
     </Declaration>
     <Declaration>
@@ -594,6 +591,10 @@
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#AnonymousElement"/>
+        <Class IRI="#CollectionElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnonymousElement"/>
         <ObjectIntersectionOf>
             <Class IRI="#CollectionElement"/>
             <DataHasValue>
@@ -632,6 +633,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#DataConcept"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DataConcept"/>
         <ObjectIntersectionOf>
             <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
             <ObjectSomeValuesFrom>
@@ -639,6 +644,10 @@
                 <Class IRI="#TaxonomyScheme"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DataMapping"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#DataMapping"/>
@@ -683,6 +692,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#IdentifiableElement"/>
+        <Class IRI="#Representation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IdentifiableElement"/>
         <ObjectIntersectionOf>
             <Class IRI="#Representation"/>
             <DataSomeValuesFrom>
@@ -698,6 +711,10 @@
     <SubClassOf>
         <Class IRI="#Interpolation"/>
         <Class IRI="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lookup"/>
+        <Class IRI="#DataMapping"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Lookup"/>
@@ -755,6 +772,10 @@
             <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
             <Class IRI="#RepresentationScheme"/>
         </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RepresentationScheme"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#RepresentationScheme"/>
@@ -849,10 +870,6 @@
     <ClassAssertion>
         <Class IRI="#OwlAxiom"/>
         <NamedIndividual IRI="#OwlNothing"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#MappingScheme"/>
-        <NamedIndividual IRI="#Scheme"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SerializationFormat"/>
@@ -2092,7 +2109,7 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
     <AnnotationAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <AnonymousIndividual nodeID="_:genid2147483651"/>
+            <AnonymousIndividual nodeID="_:genid2147483652"/>
         </Annotation>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
         <IRI>#ScalarValueElement</IRI>
@@ -3553,12 +3570,12 @@ If the composite narrower mappings of either subject or object are members of th
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <AnonymousIndividual nodeID="_:genid2147483651"/>
-        <Literal>Shows an Array and its corresponding element type</Literal>
+        <Literal>Shows an array and its corresponding scalar/atomic element type</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <AnonymousIndividual nodeID="_:genid2147483652"/>
-        <Literal>Shows an array and its corresponding scalar/atomic element type</Literal>
+        <Literal>Shows an Array and its corresponding element type</Literal>
     </AnnotationAssertion>
     <SubAnnotationPropertyOf>
         <AnnotationProperty IRI="#mappingNote"/>

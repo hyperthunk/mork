@@ -36,7 +36,7 @@
                    mork:DataConcept ;
           mork:compositeNarrower :EggSize ;
           mork:conceptScheme :Taxa_Pets ;
-          mork:identifier "Eggs" .
+          mork:conceptId "Eggs" .
 
 :FaclonEggs rdf:type owl:NamedIndividual ,
                      mork:Objectification ;

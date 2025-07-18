@@ -1060,7 +1060,8 @@ This datatype property can be used in one of two ways:
 
 ###  http://www.nebularis.org/ontologies/Mork#AnonymousElement
 :AnonymousElement rdf:type owl:Class ;
-                  rdfs:subClassOf [ owl:intersectionOf ( :CollectionElement
+                  rdfs:subClassOf :CollectionElement ,
+                                  [ owl:intersectionOf ( :CollectionElement
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty :identifier ;
                                                            owl:hasValue ""
@@ -1167,7 +1168,8 @@ The individual Attribute will then be marked as relating to the generated owl:Da
 
 ###  http://www.nebularis.org/ontologies/Mork#DataConcept
 :DataConcept rdf:type owl:Class ;
-             rdfs:subClassOf [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
+                             [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
                                                     [ rdf:type owl:Restriction ;
                                                       owl:onProperty :conceptScheme ;
                                                       owl:someValuesFrom :TaxonomyScheme
@@ -1182,7 +1184,8 @@ The individual Attribute will then be marked as relating to the generated owl:Da
 
 ###  http://www.nebularis.org/ontologies/Mork#DataMapping
 :DataMapping rdf:type owl:Class ;
-             rdfs:subClassOf [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
+                             [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
                                                     [ rdf:type owl:Restriction ;
                                                       owl:onProperty :mappingScheme ;
                                                       owl:someValuesFrom :MappingScheme
@@ -1248,7 +1251,8 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
 
 ###  http://www.nebularis.org/ontologies/Mork#IdentifiableElement
 :IdentifiableElement rdf:type owl:Class ;
-                     rdfs:subClassOf [ owl:intersectionOf ( :Representation
+                     rdfs:subClassOf :Representation ,
+                                     [ owl:intersectionOf ( :Representation
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty :identifier ;
                                                               owl:someValuesFrom xsd:string
@@ -1305,7 +1309,8 @@ In the skos:example attached to compositeNarrowerMapping provides an example of 
 
 ###  http://www.nebularis.org/ontologies/Mork#Lookup
 :Lookup rdf:type owl:Class ;
-        rdfs:subClassOf [ owl:intersectionOf ( :DataMapping
+        rdfs:subClassOf :DataMapping ,
+                        [ owl:intersectionOf ( :DataMapping
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty :dataRef ;
                                                  owl:someValuesFrom xsd:string
@@ -1481,7 +1486,8 @@ Rather, the behaviour when mapping data into (and out of) an OntologicalScheme i
 
 ###  http://www.nebularis.org/ontologies/Mork#RepresentationScheme
 :RepresentationScheme rdf:type owl:Class ;
-                      rdfs:subClassOf [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#ConceptScheme>
+                      rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#ConceptScheme> ,
+                                      [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#ConceptScheme>
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty :format ;
                                                                owl:someValuesFrom :SerializationFormat
@@ -1783,11 +1789,6 @@ rdf:List rdf:type owl:Class .
 ###  http://www.nebularis.org/ontologies/Mork#OwlNothing
 :OwlNothing rdf:type owl:NamedIndividual ,
                      :OwlAxiom .
-
-
-###  http://www.nebularis.org/ontologies/Mork#Scheme
-:Scheme rdf:type owl:NamedIndividual ,
-                 :MappingScheme .
 
 
 ###  http://www.nebularis.org/ontologies/Mork#XML
